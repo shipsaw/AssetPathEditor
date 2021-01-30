@@ -13,6 +13,11 @@ import (
 
 var file string
 
+const (
+	binFolder string = ".\\" + "filesBin"
+	xmlFolder string = "filesXml" + "\\"
+)
+
 type RecordSet struct {
 	XMLName xml.Name `xml:"cRecordSet"`
 	Records Record   `xml:"Record"`
@@ -35,18 +40,13 @@ type AbsBluePrint struct {
 }
 
 func main() {
-	assetMap := make(map[string]int)
-	err := filepath.Walk("./filesBin", func(path string, info os.FileInfo, err error) error {
-		if info.IsDir() != true && filepath.Ext(path) == ".bin" {
-			getFileAssets(path, assetMap)
-		}
-		return nil
-	})
+	misAssetMap := make(map[string]bool)
+	err := listReqAssets(binFolder, misAssetMap)
 	// Move xml file
-	err = filepath.Walk("./filesBin", func(path string, info os.FileInfo, err error) error {
+	err = filepath.Walk(binFolder, func(path string, info os.FileInfo, err error) error {
 		if info.IsDir() != true && filepath.Ext(path) == ".xml" {
 			splitPath := strings.SplitAfter(path, "\\")
-			newPath := "filesXml\\" + splitPath[1]
+			newPath := xmlFolder + splitPath[1]
 			err = os.Rename(path, newPath)
 			if err != nil {
 				panic(err)
@@ -57,9 +57,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	assetList := make([]string, len(assetMap))
+	assetList := make([]string, len(misAssetMap))
 	i := 0
-	for asset, _ := range assetMap {
+	for asset, _ := range misAssetMap {
 		assetList[i] = asset
 		i++
 	}
@@ -70,7 +70,23 @@ func main() {
 	*/
 }
 
-func getFileAssets(path string, assetMap map[string]int) {
+func listReqAssets(binFolder string, misAssetMap map[string]bool) error {
+	err := filepath.Walk(binFolder, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if info.IsDir() != true && filepath.Ext(path) == ".bin" {
+			getFileAssets(path, misAssetMap)
+		}
+		return nil
+	})
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func getFileAssets(path string, assetMap map[string]bool) {
 	fmt.Println("Processing file ", path)
 	xmlStruct := RecordSet{}
 	pathXml := strings.ReplaceAll(path, "bin", "xml")
@@ -107,8 +123,8 @@ func getFileAssets(path string, assetMap map[string]int) {
 	entityCount := len(xmlStruct.Records.Entities)
 	for i := 0; i < entityCount; i++ {
 		asset := xmlStruct.Records.Entities[i].Blueprints.BlueprintLib.BlueprintID
-		if assetMap[asset] == 0 {
-			assetMap[asset]++
+		if assetMap[asset] == false {
+			assetMap[asset] = true
 		}
 	}
 }
