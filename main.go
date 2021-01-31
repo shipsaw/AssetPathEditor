@@ -13,23 +13,23 @@ const (
 )
 
 func main() {
-	misAssetMap, err := bin.ListReqAssets(binFolder)
+	misAssets, err := bin.ListReqAssets(binFolder)
 	if err != nil {
 		log.Fatal(err)
 	}
 	// Move xml file
 	bin.MoveXmlFiles(binFolder, xmlFolder)
 
-	//asset.Print(misAssetMap)
-	fmt.Printf("Route has %v asset requirements\n", len(misAssetMap))
-	asset.Check(misAssetMap)
-	allAssetMap := asset.Index(misAssetMap)
-	asset.Find(misAssetMap, allAssetMap)
+	//asset.Print(misAssets)
+	fmt.Printf("Route has %v asset requirements\n", len(misAssets))
+	asset.Check(misAssets)
+	allAssetMap := asset.Index(misAssets)
+	asset.Find(misAssets, allAssetMap)
 	i := 0
-	for _, missing := range misAssetMap {
-		if missing == true {
+	for _, a := range misAssets {
+		if a == asset.EmptyAsset {
 			i++
 		}
 	}
-	fmt.Println("Final missing assets: ", i)
+	fmt.Printf("Process completed: There are still %v assets missing", i)
 }

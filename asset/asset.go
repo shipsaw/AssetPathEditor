@@ -17,10 +17,19 @@ type Asset struct {
 	Filepath string
 }
 
-func Print(misAssetMap map[Asset]bool) {
-	assetList := make([]Asset, len(misAssetMap))
+var EmptyAsset = Asset{
+	Product:  "",
+	Provider: "",
+	Filepath: "",
+}
+
+type MisAssetMap map[Asset]Asset
+type allAssetMap map[Asset]bool
+
+func Print(misAssets MisAssetMap) {
+	assetList := make([]Asset, len(misAssets))
 	i := 0
-	for asset, _ := range misAssetMap {
+	for asset, _ := range misAssets {
 		assetList[i] = asset
 		i++
 	}
@@ -34,15 +43,15 @@ func Print(misAssetMap map[Asset]bool) {
 	*/
 }
 
-func Check(misAssetMap map[Asset]bool) {
+func Check(misAssets MisAssetMap) {
 	i := 0
-	for asset, _ := range misAssetMap {
+	for asset, _ := range misAssets {
 		assetPath := `.\Assets\` + asset.Provider + `\` + asset.Product + `\` + asset.Filepath
 		if _, err := os.Stat(assetPath); os.IsNotExist(err) {
 			//fmt.Println("File is missing: ", assetPath)
 			i++
 		} else if err == nil {
-			misAssetMap[asset] = false
+			delete(misAssets, asset)
 		} else {
 			log.Fatal(err)
 		}
@@ -50,19 +59,27 @@ func Check(misAssetMap map[Asset]bool) {
 	fmt.Printf("Initially, there are %v assets missing\n", i)
 }
 
-func Find(misAssetMap, allAssetMap map[Asset]bool) {
+func Find(misAssets MisAssetMap, allAssets allAssetMap) {
 	// Create map
-	for misAsset, missing := range misAssetMap {
-		for allAsset, _ := range allAssetMap {
-			if misAsset.Filepath == allAsset.Filepath && missing == true {
-				fmt.Printf("Asset called for in %v/%v located in %v/%v\n", misAsset.Provider, misAsset.Product, allAsset.Provider, allAsset.Product)
+	i := 0
+	for misAsset, _ := range misAssets {
+		for allAsset, _ := range allAssets {
+			if misAsset.Filepath == allAsset.Filepath {
+				tempAsset := Asset{
+					Product:  allAsset.Product,
+					Provider: allAsset.Provider,
+					Filepath: allAsset.Filepath,
+				}
+				misAssets[misAsset] = tempAsset
+				i++
 			}
 		}
 	}
+	fmt.Printf("Found %v assets in other Asset folders\n", i)
 }
 
-func Index(misAssetsMap map[Asset]bool) map[Asset]bool {
-	allAssetMap := make(map[Asset]bool)
+func Index(misAssets MisAssetMap) allAssetMap {
+	allAssets := make(allAssetMap)
 	err := filepath.Walk(`.\Assets`, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			log.Fatal(err)
@@ -75,20 +92,19 @@ func Index(misAssetsMap map[Asset]bool) map[Asset]bool {
 				Provider: pathSlice[1],
 				Filepath: pathSlice[3],
 			}
-			allAssetMap[asset] = true
+			allAssets[asset] = true
 		} else if filepath.Ext(path) == ".ap" {
-			fmt.Println("Unzipping ap file")
-			GetZipAssets(path, misAssetsMap, allAssetMap)
+			GetZipAssets(path, misAssets, allAssets)
 		}
 		return nil
 	})
 	if err != nil {
 		log.Fatal(err)
 	}
-	return allAssetMap
+	return allAssets
 }
 
-func GetZipAssets(filename string, misAssetsMap, allAssetsMap map[Asset]bool) {
+func GetZipAssets(filename string, misAssets MisAssetMap, allAssets allAssetMap) {
 	filenameSlice := strings.SplitN(filename, `\`, 4)
 	var buf bytes.Buffer
 	cmd := exec.Command("7z.exe", "l", filename, "-ba")
@@ -97,17 +113,14 @@ func GetZipAssets(filename string, misAssetsMap, allAssetsMap map[Asset]bool) {
 		log.Fatal(err)
 	}
 	zipString := buf.String()
-	for misAsset, _ := range misAssetsMap {
+	for misAsset, _ := range misAssets {
 		if strings.Contains(zipString, misAsset.Filepath) {
 			asset := Asset{
 				Product:  filenameSlice[2],
 				Provider: filenameSlice[1],
 				Filepath: misAsset.Filepath,
 			}
-			allAssetsMap[asset] = true
-			misAssetsMap[misAsset] = false
-			fmt.Printf("Asset called for in %v/%v located in %v/%v\n", misAsset.Provider, misAsset.Product, filenameSlice[1], filenameSlice[2])
+			allAssets[asset] = true
 		}
 	}
-	fmt.Println("Unzip success")
 }

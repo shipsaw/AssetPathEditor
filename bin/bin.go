@@ -42,9 +42,9 @@ type BlueprintLibSet struct {
 	Product  string `xml:"Product"`
 }
 
-func ListReqAssets(binFolder string) (map[asset.Asset]bool, error) {
+func ListReqAssets(binFolder string) (asset.MisAssetMap, error) {
 	fmt.Printf("Processing bin files")
-	misAssetMap := make(map[asset.Asset]bool)
+	misAssetMap := make(asset.MisAssetMap)
 	err := filepath.Walk(binFolder, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			log.Fatal(err)
@@ -61,7 +61,7 @@ func ListReqAssets(binFolder string) (map[asset.Asset]bool, error) {
 	return misAssetMap, nil
 }
 
-func getFileAssets(path string, assetMap map[asset.Asset]bool) {
+func getFileAssets(path string, misAssets asset.MisAssetMap) {
 	fmt.Printf(".")
 	xmlStruct := RecordSet{}
 	//Run serz on file
@@ -100,14 +100,12 @@ func getFileAssets(path string, assetMap map[asset.Asset]bool) {
 		// Route calls for .xml scenery, but stored in Assets as .bin
 		tempFilepath := xmlStruct.Record.Entities[i].BlueprintID.AbsBlueprint.BlueprintID
 		tempFilepath = strings.ReplaceAll(tempFilepath, "xml", "bin")
-		asset := asset.Asset{
+		tempAsset := asset.Asset{
 			Filepath: tempFilepath,
 			Product:  xmlStruct.Record.Entities[i].BlueprintID.AbsBlueprint.BlueprintSet.BlueprintLibSet.Product,
 			Provider: xmlStruct.Record.Entities[i].BlueprintID.AbsBlueprint.BlueprintSet.BlueprintLibSet.Provider,
 		}
-		if assetMap[asset] == false {
-			assetMap[asset] = true
-		}
+		misAssets[tempAsset] = asset.EmptyAsset
 	}
 }
 
