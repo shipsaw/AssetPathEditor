@@ -1,0 +1,3649 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cRecordSet xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0" d:id="284276244">
+	<Record>
+		<cDynamicEntity d:id="285998192">
+			<Component>
+				<cSceneryRender d:id="276922756">
+					<DetailLevel d:type="sInt32">9</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">171</Palette0Index>
+					<Palette1Index d:type="sUInt8">78</Palette1Index>
+					<Palette2Index d:type="sUInt8">83</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286113018">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 1.0000000 1.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286113024">
+							<Height d:type="sFloat32" d:alt_encoding="000000C0F5A80640" d:precision="string">2.8325</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.1474000 0.0000000 0.9891000 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.9891000 0.0000000 -0.1474000 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286113031">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">13</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000C09D238840" d:precision="string">772.452</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-6</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000A09BCE7640" d:precision="string">364.913</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998552">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137790"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">Kuju</Provider>
+							<Product d:type="cDeltaString">RailsimulatorUS</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Buildings\CajonPass_WP_10_02.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString"></Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5563034484840803391</e>
+						<e d:type="sUInt64">4371780046773069246</e>
+					</UUID>
+					<DevString d:type="cDeltaString">c62f2c3f-de63-4d33-bea5-0c34caaeab3c</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285998822">
+			<Component>
+				<cSceneryRender d:id="276923212">
+					<DetailLevel d:type="sInt32">8</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">102</Palette0Index>
+					<Palette1Index d:type="sUInt8">86</Palette1Index>
+					<Palette2Index d:type="sUInt8">100</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286113118">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 1.0000000 1.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286113124">
+							<Height d:type="sFloat32" d:alt_encoding="000000C0547133C0" d:precision="string">-19.4427</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.1329000 0.0000000 -0.9911000 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.9911000 0.0000000 0.1329000 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286113131">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">13</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000A0ED8F8B40" d:precision="string">881.991</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-6</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000A0C4047240" d:precision="string">288.298</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998852">
+					<StaticChildrenMatrix>
+						<e d:numElements="16" d:elementType="sFloat32" d:precision="string">1.0000000 0.0000000 0.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 0.0000000 0.0000000 1.0000000</e>
+					</StaticChildrenMatrix>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137982"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">Kuju</Provider>
+							<Product d:type="cDeltaString">RailSimulator</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">scenery\buildings\oxfo_Padd_FactChimney03.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString"></Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">4749587167632917407</e>
+						<e d:type="sUInt64">11989405511294359713</e>
+					</UUID>
+					<DevString d:type="cDeltaString">5483839f-ec5d-41e9-a198-cf38caec62a6</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285999152">
+			<Component>
+				<cSceneryRender d:id="276922870">
+					<DetailLevel d:type="sInt32">5</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">168</Palette0Index>
+					<Palette1Index d:type="sUInt8">62</Palette1Index>
+					<Palette2Index d:type="sUInt8">238</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286113138">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 1.0000000 1.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286113144">
+							<Height d:type="sFloat32" d:alt_encoding="000000E0220B32C0" d:precision="string">-18.0435</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 0.0000000 0.0000000 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 0.0000000 1.0000000 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286113151">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">14</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000A0A0283940" d:precision="string">25.1587</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-6</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000080142E6440" d:precision="string">161.44</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998132">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137718"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">Kuju</Provider>
+							<Product d:type="cDeltaString">RailSimulator</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">scenery\buildings\oxfo_Padd_FactChimney02.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString"></Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5001994908274193660</e>
+						<e d:type="sUInt64">14088058777480034231</e>
+					</UUID>
+					<DevString d:type="cDeltaString">0bfef4fc-a7de-456a-b777-85fed0d682c3</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285999272">
+			<Component>
+				<cSceneryRender d:id="276923326">
+					<DetailLevel d:type="sInt32">5</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">67</Palette0Index>
+					<Palette1Index d:type="sUInt8">35</Palette1Index>
+					<Palette2Index d:type="sUInt8">9</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286113338">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 1.0000000 1.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286113344">
+							<Height d:type="sFloat32" d:alt_encoding="00000080D22E42C0" d:precision="string">-36.3658</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.9995132 -0.0000000 0.0312004 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.0312004 0.0000000 0.9995132 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286113351">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">14</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000801FA02340" d:precision="string">9.81274</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-6</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000020046A6C40" d:precision="string">227.313</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285999482">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137726"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">Kuju</Provider>
+							<Product d:type="cDeltaString">RailSimulator</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">scenery\buildings\oxfo_Padd_FactChimney02.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString"></Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5001994908274193660</e>
+						<e d:type="sUInt64">14088058777480034231</e>
+					</UUID>
+					<DevString d:type="cDeltaString">0bfef4fc-a7de-456a-b777-85fed0d682c3</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285999302">
+			<Component>
+				<cSceneryRender d:id="276922300">
+					<DetailLevel d:type="sInt32">5</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">183</Palette0Index>
+					<Palette1Index d:type="sUInt8">139</Palette1Index>
+					<Palette2Index d:type="sUInt8">185</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286113198">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 1.0000000 1.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286113204">
+							<Height d:type="sFloat32" d:alt_encoding="0000008004E542C0" d:precision="string">-37.7892</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 -0.0000000 0.0000000 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.0000000 0.0000000 1.0000000 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286113211">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">13</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000000029308F40" d:precision="string">998.02</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-6</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000E0D0826E40" d:precision="string">244.088</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998612">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137742"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">Kuju</Provider>
+							<Product d:type="cDeltaString">RailSimulator</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">scenery\buildings\oxfo_Padd_FactChimney02.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString"></Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5001994908274193660</e>
+						<e d:type="sUInt64">14088058777480034231</e>
+					</UUID>
+					<DevString d:type="cDeltaString">0bfef4fc-a7de-456a-b777-85fed0d682c3</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285999782">
+			<Component>
+				<cSceneryRender d:id="276923668">
+					<DetailLevel d:type="sInt32">6</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">46</Palette1Index>
+					<Palette2Index d:type="sUInt8">74</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286113398">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 1.0000000 1.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286113404">
+							<Height d:type="sFloat32" d:alt_encoding="00000040B6F3EF3F" d:precision="string">0.9985</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 0.0000000 0.0000000 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 0.0000000 1.0000000 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286113411">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">22</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000A0F1BD8640" d:precision="string">727.743</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-14</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000080DB584C40" d:precision="string">56.6942</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285999242">
+					<StaticChildrenMatrix>
+						<e d:numElements="16" d:elementType="sFloat32" d:precision="string">1.0000000 0.0000000 0.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 0.0000000 0.0000000 1.0000000</e>
+					</StaticChildrenMatrix>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137774"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">Kuju</Provider>
+							<Product d:type="cDeltaString">RailSimulator</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">scenery\buildings\Bath_Temp_WP17_08.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString"></Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">4670509654161546894</e>
+						<e d:type="sUInt64">3798724942453770930</e>
+					</UUID>
+					<DevString d:type="cDeltaString">f854de8e-fbc8-40d0-b28a-5f6a35c8b734</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285999692">
+			<Component>
+				<cSceneryRender d:id="276922642">
+					<DetailLevel d:type="sInt32">10</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286116016">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286116022">
+							<Height d:type="sFloat32" d:alt_encoding="00000020B891EEBF" d:precision="string">-0.955288</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.4379463 0.0000000 -0.8990011 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.8990012 -0.0000000 0.4379464 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286116029">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">19</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000000056418840" d:precision="string">776.167</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-1</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000A0990F7040" d:precision="string">256.975</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998522">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137846"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Stracey_Arms_Windpump\stracey_arms_windpump.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Stracey Arms Windpump</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">4841835513024282729</e>
+						<e d:type="sUInt64">9375572636880559242</e>
+					</UUID>
+					<DevString d:type="cDeltaString">f6af0069-a7be-4331-8a5c-23aba3b91c82</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285998222">
+			<Component>
+				<cSceneryRender d:id="276922528">
+					<DetailLevel d:type="sInt32">10</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286116036">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286116042">
+							<Height d:type="sFloat32" d:alt_encoding="00000020B4E5F4BF" d:precision="string">-1.30608</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0055843 0.0000000 -0.9999845 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.9999844 -0.0000000 0.0055843 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286116049">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">19</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000002031728140" d:precision="string">558.274</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-4</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000600E7A8640" d:precision="string">719.257</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998882">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137510"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Blades\windpump_blades.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Large Blades</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">4680774740338811805</e>
+						<e d:type="sUInt64">17136764763686571672</e>
+					</UUID>
+					<DevString d:type="cDeltaString">9784239d-73d3-40f5-980e-f812c204d2ed</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285999182">
+			<Component>
+				<cSceneryRender d:id="276923782">
+					<DetailLevel d:type="sInt32">10</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286115736">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286115742">
+							<Height d:type="sFloat32" d:alt_encoding="00000080EB6EE2BF" d:precision="string">-0.57604</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.7875642 -0.0000000 0.6162327 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.6162327 0.0000000 0.7875642 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286115749">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">23</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000E0A77E7640" d:precision="string">359.916</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-3</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000020D9926A40" d:precision="string">212.589</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998462">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137750"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">4802647288399399888</e>
+						<e d:type="sUInt64">12852917030717857423</e>
+					</UUID>
+					<DevString d:type="cDeltaString">668a0bd0-6e43-42a6-8f9e-8117f1bb5eb2</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285999872">
+			<Component>
+				<cSceneryRender d:id="286178898">
+					<DetailLevel d:type="sInt32">2</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286116056">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286116062">
+							<Height d:type="sFloat32" d:alt_encoding="000000000000F0BF" d:precision="string">-1</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.3570892 0.0000000 -0.9340703 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.9340703 0.0000000 -0.3570892 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286116069">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">21</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000004060028940" d:precision="string">800.297</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-5</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000A0F1466940" d:precision="string">202.217</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285999332">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137622"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Blades\windpump_blades.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Large Blades</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5200805498464527015</e>
+						<e d:type="sUInt64">834649603880746374</e>
+					</UUID>
+					<DevString d:type="cDeltaString">b9e062a7-f90b-482c-867d-3b7f6445950b</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285998252">
+			<Component>
+				<cSceneryRender d:id="286180608">
+					<DetailLevel d:type="sInt32">10</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286116116">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286116122">
+							<Height d:type="sFloat32" d:alt_encoding="000000000000E03F" d:precision="string">0.5</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.5907940 0.0000000 0.8068225 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.8068225 0.0000000 -0.5907940 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286116129">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">19</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000060123D8940" d:precision="string">807.634</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-7</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000002085288E40" d:precision="string">965.065</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998282">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137894"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">4802647288399399888</e>
+						<e d:type="sUInt64">12852917030717857423</e>
+					</UUID>
+					<DevString d:type="cDeltaString">668a0bd0-6e43-42a6-8f9e-8117f1bb5eb2</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285999842">
+			<Component>
+				<cSceneryRender d:id="286180380">
+					<DetailLevel d:type="sInt32">6</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286116076">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286116082">
+							<Height d:type="sFloat32" d:alt_encoding="000000C01188C9BF" d:precision="string">-0.199465</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.6717572 0.0000000 -0.7407714 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.7407714 -0.0000000 0.6717572 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286116089">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">19</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000080C0918440" d:precision="string">658.219</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-7</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000020D9F38C40" d:precision="string">926.481</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998732">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137758"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Blades\windpump_blades.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Large Blades</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">4810091926777698822</e>
+						<e d:type="sUInt64">17010537574389638062</e>
+					</UUID>
+					<DevString d:type="cDeltaString">588f1a06-e11f-42c0-aee3-ed57cc9111ec</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285998312">
+			<Component>
+				<cSceneryRender d:id="286179240">
+					<DetailLevel d:type="sInt32">7</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286115776">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0216739 2.0216739 2.0216739 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286115782">
+							<Height d:type="sFloat32" d:alt_encoding="000000609761EFBF" d:precision="string">-0.980663</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.9950138 0.0000000 -0.0997374 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0997374 0.0000000 0.9950138 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286115789">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">14</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000080C2A88640" d:precision="string">725.095</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-8</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000004008028640" d:precision="string">704.254</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285999092">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137854"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">4976291288551279797</e>
+						<e d:type="sUInt64">1623283574957529252</e>
+					</UUID>
+					<DevString d:type="cDeltaString">b8f84cb5-568f-450f-a4d8-1197cf0f8716</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285997982">
+			<Component>
+				<cSceneryRender d:id="286179924">
+					<DetailLevel d:type="sInt32">2</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286115676">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286115682">
+							<Height d:type="sFloat32" d:alt_encoding="000000000000F03F" d:precision="string">1</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.8796715 0.0000000 -0.4755818 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.4755818 -0.0000000 0.8796716 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286115689">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">14</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000E0AB8FE13F" d:precision="string">0.548788</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-7</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000020B24D7140" d:precision="string">276.856</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285999362">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137902"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Blades\windpump_blades.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Large Blades</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5680373883436510466</e>
+						<e d:type="sUInt64">1327663896624235402</e>
+					</UUID>
+					<DevString d:type="cDeltaString">79a3ad02-bdf3-4ed4-8a03-669b47cf6c12</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285998972">
+			<Component>
+				<cSceneryRender d:id="286180494">
+					<DetailLevel d:type="sInt32">10</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286115816">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286115822">
+							<Height d:type="sFloat32" d:alt_encoding="000000A04F8FE53F" d:precision="string">0.673744</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.9749386 0.0000000 -0.2224742 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.2224742 -0.0000000 0.9749386 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286115829">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">19</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000060B85C8F40" d:precision="string">1003.59</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-10</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000040080E7040" d:precision="string">256.877</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998342">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137558"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">4738645740064597767</e>
+						<e d:type="sUInt64">9070079020295322286</e>
+					</UUID>
+					<DevString d:type="cDeltaString">b4f7e707-0d31-41c3-aefa-6c49d064df7d</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285998372">
+			<Component>
+				<cSceneryRender d:id="286180038">
+					<DetailLevel d:type="sInt32">10</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286115936">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286115942">
+							<Height d:type="sFloat32" d:alt_encoding="00000080FECBAA3F" d:precision="string">0.0523376</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.9749386 0.0000000 -0.2224742 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.2224742 0.0000000 0.9749386 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286115949">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">19</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000060E5D08A40" d:precision="string">858.112</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-9</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000006064CF7840" d:precision="string">396.962</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285999392">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137766"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">4738645740064597767</e>
+						<e d:type="sUInt64">9070079020295322286</e>
+					</UUID>
+					<DevString d:type="cDeltaString">b4f7e707-0d31-41c3-aefa-6c49d064df7d</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285998012">
+			<Component>
+				<cSceneryRender d:id="286179468">
+					<DetailLevel d:type="sInt32">2</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286116096">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286116102">
+							<Height d:type="sFloat32" d:alt_encoding="00000040C42EACBF" d:precision="string">-0.0550443</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.9206507 0.0000000 0.3903874 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.3903874 0.0000000 -0.9206507 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286116109">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">20</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000004035A58240" d:precision="string">596.651</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-10</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000040A2F45840" d:precision="string">99.8224</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285999422">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137958"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Blades\windpump_blades.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Large Blades</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5032214553959326035</e>
+						<e d:type="sUInt64">1475994298360336526</e>
+					</UUID>
+					<DevString d:type="cDeltaString">9a4be153-0479-45d6-8e10-4584fec87b14</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285998582">
+			<Component>
+				<cSceneryRender d:id="286179354">
+					<DetailLevel d:type="sInt32">9</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286116136">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286116142">
+							<Height d:type="sFloat32" d:alt_encoding="000000C0BED0AC3F" d:precision="string">0.0562801</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.3207441 0.0000000 -0.9471660 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.9471660 0.0000000 -0.3207440 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286116149">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">21</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000080BEBD7440" d:precision="string">331.859</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-12</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000C086F74E40" d:precision="string">61.9338</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998402">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137518"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Blades\windpump_blades.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Large Blades</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5763858413215049833</e>
+						<e d:type="sUInt64">9083982141967627455</e>
+					</UUID>
+					<DevString d:type="cDeltaString">47546869-56b0-4ffd-bff4-f80da1c9107e</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285999512">
+			<Component>
+				<cSceneryRender d:id="286180152">
+					<DetailLevel d:type="sInt32">2</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286116156">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286116162">
+							<Height d:type="sFloat32" d:alt_encoding="00000020DE48F2BF" d:precision="string">-1.14279</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.8713993 0.0000000 -0.4905744 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.4905744 -0.0000000 0.8713993 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286116169">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">20</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000080BE077A40" d:precision="string">416.484</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-7</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000007F398840" d:precision="string">775.187</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998042">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137526"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5563948871319272900</e>
+						<e d:type="sUInt64">15306762257092880550</e>
+					</UUID>
+					<DevString d:type="cDeltaString">f76bbdc4-1e04-4d37-a6a8-60932c8b6cd4</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285999542">
+			<Component>
+				<cSceneryRender d:id="286179696">
+					<DetailLevel d:type="sInt32">1</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286115696">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286115702">
+							<Height d:type="sFloat32" d:alt_encoding="000000603400F0BF" d:precision="string">-1.00005</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.8286794 0.0000000 0.5597236 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.5597236 0.0000000 0.8286794 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286115709">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">21</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000006066F28840" d:precision="string">798.3</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-6</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000600EE78640" d:precision="string">732.882</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998642">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137974"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5020266224716474758</e>
+						<e d:type="sUInt64">2197082419285510280</e>
+					</UUID>
+					<DevString d:type="cDeltaString">6a1de986-9188-45ab-88c8-c4d7d19a7d1e</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285998942">
+			<Component>
+				<cSceneryRender d:id="286179012">
+					<DetailLevel d:type="sInt32">5</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286115716">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286115722">
+							<Height d:type="sFloat32" d:alt_encoding="00000060BF16B2BF" d:precision="string">-0.0706596</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.2539110 0.0000000 -0.9672276 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.9672276 -0.0000000 0.2539110 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286115729">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">21</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000600E456540" d:precision="string">170.158</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-3</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000C076FA7840" d:precision="string">399.654</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998492">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137702"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">4625995312882265673</e>
+						<e d:type="sUInt64">7962866611400798898</e>
+					</UUID>
+					<DevString d:type="cDeltaString">3cf82e49-d63a-4032-b2f2-5c76fec8816e</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285999722">
+			<Component>
+				<cSceneryRender d:id="286179582">
+					<DetailLevel d:type="sInt32">5</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286115896">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286115902">
+							<Height d:type="sFloat32" d:alt_encoding="0000006067D1D9BF" d:precision="string">-0.403406</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 0.0000000 0.0000000 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 0.0000000 1.0000000 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286115909">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">21</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000080C06C8540" d:precision="string">685.594</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-3</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000060100C7C40" d:precision="string">448.754</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998672">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137478"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">4625995312882265673</e>
+						<e d:type="sUInt64">7962866611400798898</e>
+					</UUID>
+					<DevString d:type="cDeltaString">3cf82e49-d63a-4032-b2f2-5c76fec8816e</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285999032">
+			<Component>
+				<cSceneryRender d:id="286179126">
+					<DetailLevel d:type="sInt32">3</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286115836">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286115842">
+							<Height d:type="sFloat32" d:alt_encoding="00000060C4F701C0" d:precision="string">-2.24598</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.7362933 0.0000000 -0.6766626 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.6766626 -0.0000000 0.7362933 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286115849">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">26</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000060E5E05F40" d:precision="string">127.514</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-1</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000060BCEE7140" d:precision="string">286.921</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285999002">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137862"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Blades\windpump_blades.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Large Blades</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5505649533985589688</e>
+						<e d:type="sUInt64">9147515770060604560</e>
+					</UUID>
+					<DevString d:type="cDeltaString">bb0189b8-ff14-4c67-9004-bf932081f27e</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285998432">
+			<Component>
+				<cSceneryRender d:id="286179810">
+					<DetailLevel d:type="sInt32">6</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286115756">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286115762">
+							<Height d:type="sFloat32" d:alt_encoding="00000040880FE0BF" d:precision="string">-0.501896</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.6625333 0.0000000 -0.7490325 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.7490325 -0.0000000 0.6625333 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286115769">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">24</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000C0CA037F40" d:precision="string">496.237</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-1</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000008014838B40" d:precision="string">880.385</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285999062">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137934"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Blades\windpump_blades.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Large Blades</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5635449341126239379</e>
+						<e d:type="sUInt64">11155053234510662320</e>
+					</UUID>
+					<DevString d:type="cDeltaString">5f89e493-2351-4e35-b08a-9495d0b5ce9a</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285998072">
+			<Component>
+				<cSceneryRender d:id="286180266">
+					<DetailLevel d:type="sInt32">10</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286115796">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286115802">
+							<Height d:type="sFloat32" d:alt_encoding="000000C0BFCF02C0" d:precision="string">-2.35144</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 0.0000000 0.0000000 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 0.0000000 1.0000000 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286115809">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">23</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000803DCC7740" d:precision="string">380.765</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-1</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000408BC48A40" d:precision="string">856.568</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998702">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137598"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5300028536988611827</e>
+						<e d:type="sUInt64">15874349552275992758</e>
+					</UUID>
+					<DevString d:type="cDeltaString">a6a3b4f3-7bdf-498d-b6b0-cad7cf044ddc</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285998762">
+			<Component>
+				<cSceneryRender d:id="286178784">
+					<DetailLevel d:type="sInt32">2</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286115856">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286115862">
+							<Height d:type="sFloat32" d:alt_encoding="000000000000F0BF" d:precision="string">-1</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 0.0000000 0.0000000 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 0.0000000 1.0000000 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286115869">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">22</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000002083A58840" d:precision="string">788.689</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-1</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000008068C08D40" d:precision="string">952.051</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285999452">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137830"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">4945126861161528691</e>
+						<e d:type="sUInt64">11179214250303232690</e>
+					</UUID>
+					<DevString d:type="cDeltaString">08c67d73-9eae-44a0-b21a-4f71218c249b</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285999572">
+			<Component>
+				<cSceneryRender d:id="286183454">
+					<DetailLevel d:type="sInt32">5</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286115956">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286115962">
+							<Height d:type="sFloat32" d:alt_encoding="00000080C52100C0" d:precision="string">-2.01649</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.2347444 0.0000000 -0.9720572 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.9720572 0.0000000 -0.2347444 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286115969">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">22</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000A0C6EB8140" d:precision="string">573.472</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-1</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000C0C8B38C40" d:precision="string">918.473</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285999602">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137542"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5163973667933722510</e>
+						<e d:type="sUInt64">14444387846567801782</e>
+					</UUID>
+					<DevString d:type="cDeltaString">eaa9178e-1eb0-47aa-b6b3-a48037c674c8</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285998792">
+			<Component>
+				<cSceneryRender d:id="286183568">
+					<DetailLevel d:type="sInt32">1</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286115976">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286115982">
+							<Height d:type="sFloat32" d:alt_encoding="000000C00000D03E" d:precision="string">3.8147e-006</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.8729209 0.0000000 0.4878617 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.4878617 0.0000000 -0.8729209 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286115989">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">21</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000060BA798740" d:precision="string">751.216</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">0</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000080FE97D83F" d:precision="string">0.384277</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285998912">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137582"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">4868628922692778204</e>
+						<e d:type="sUInt64">15588241728028590983</e>
+					</UUID>
+					<DevString d:type="cDeltaString">c84bb8dc-d835-4390-87c3-10f8428f54d8</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285999632">
+			<Component>
+				<cSceneryRender d:id="286183112">
+					<DetailLevel d:type="sInt32">8</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286115996">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286116002">
+							<Height d:type="sFloat32" d:alt_encoding="0000006018A2ECBF" d:precision="string">-0.894787</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.8547590 -0.0000000 0.5190252 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.5190252 0.0000000 0.8547590 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286116009">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">21</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000A0EF2D8A40" d:precision="string">837.742</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-2</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000A0EDBC8640" d:precision="string">727.616</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="285999662">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286137686"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5207656841562077970</e>
+						<e d:type="sUInt64">5855094646801170084</e>
+					</UUID>
+					<DevString d:type="cDeltaString">5970bb12-504e-4845-a4fe-df448f794151</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="286001072">
+			<Component>
+				<cSceneryRender d:id="286183682">
+					<DetailLevel d:type="sInt32">6</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286141528">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286141534">
+							<Height d:type="sFloat32" d:alt_encoding="000000806FEA883F" d:precision="string">0.0121659</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 0.0000000 0.0000000 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 0.0000000 1.0000000 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286141541">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">19</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000A06ECC7240" d:precision="string">300.777</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-1</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000060E7588840" d:precision="string">779.113</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="286001432">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286138174"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5100771166659234112</e>
+						<e d:type="sUInt64">10985533503727535026</e>
+					</UUID>
+					<DevString d:type="cDeltaString">dd474940-9459-46c9-b203-d58d84747498</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="285999962">
+			<Component>
+				<cSceneryRender d:id="286183796">
+					<DetailLevel d:type="sInt32">5</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286141608">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286141614">
+							<Height d:type="sFloat32" d:alt_encoding="000000C0FEFFDF3E" d:precision="string">7.62939e-006</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.1341956 0.0000000 0.9909549 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.9909549 0.0000000 -0.1341956 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286141621">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">17</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000A0435A8C40" d:precision="string">907.283</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-1</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000E0A5D58440" d:precision="string">666.706</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="286001462">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286138198"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5172185739330184944</e>
+						<e d:type="sUInt64">17291782127336464795</e>
+					</UUID>
+					<DevString d:type="cDeltaString">c91de6f0-4b86-47c7-9ba1-56a13ac0f8ef</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="286000262">
+			<Component>
+				<cSceneryRender d:id="286184138">
+					<DetailLevel d:type="sInt32">2</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286141468">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.0000000 2.0000000 2.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286141474">
+							<Height d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.9206507 0.0000000 0.3903874 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.3903874 0.0000000 -0.9206507 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286141481">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">17</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000080EBF78F40" d:precision="string">1022.99</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">0</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000002004698A40" d:precision="string">845.127</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="286000862">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286138214"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Windpump_Disused\windpump_disused.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">AP WL Windpump Disused</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">4936992563799743078</e>
+						<e d:type="sUInt64">4321012893161136272</e>
+					</UUID>
+					<DevString d:type="cDeltaString">58075a66-b894-4483-90a0-c0265552f73b</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="286000712">
+			<Component>
+				<cSceneryRender d:id="286184252">
+					<DetailLevel d:type="sInt32">10</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">160</Palette0Index>
+					<Palette1Index d:type="sUInt8">49</Palette1Index>
+					<Palette2Index d:type="sUInt8">2</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286141428">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 1.0000000 1.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286141434">
+							<Height d:type="sFloat32" d:alt_encoding="0000000063CB1FC0" d:precision="string">-7.94862</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.4999126 0.0000000 0.8660760 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.8660760 0.0000000 0.4999126 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286141441">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">26</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000004037F58E40" d:precision="string">990.652</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-3</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000002031AF8A40" d:precision="string">853.899</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="286001282">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286138182"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Breydon_Bridge\Breydon_Bridge_exp.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">BreydonBridge</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5459640119260772714</e>
+						<e d:type="sUInt64">3458305272027876768</e>
+					</UUID>
+					<DevString d:type="cDeltaString">1602796a-89c3-4bc4-a00d-1570525efe2f</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="286000502">
+			<Component>
+				<cSceneryRender d:id="286183910">
+					<DetailLevel d:type="sInt32">8</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">234</Palette0Index>
+					<Palette1Index d:type="sUInt8">43</Palette1Index>
+					<Palette2Index d:type="sUInt8">206</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286141388">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 1.0000000 1.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286141394">
+							<Height d:type="sFloat32" d:alt_encoding="00000020BBA72B40" d:precision="string">13.8276</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.4991722 0.0468463 -0.8652356 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0225095 0.9989016 0.0410972 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.8662105 0.0010386 -0.4996784 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286141401">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">14</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000000D77B4E40" d:precision="string">60.9675</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-6</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000E07C176F40" d:precision="string">248.734</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="286000322">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286138190"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">Kuju</Provider>
+							<Product d:type="cDeltaString">RailSimulator</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">scenery\buildings\Oxfo_Padd_FactGndPipes01a.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString"></Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5260418555762793566</e>
+						<e d:type="sUInt64">1668810231296953986</e>
+					</UUID>
+					<DevString d:type="cDeltaString">3a1d5c5e-c2ce-4900-820e-fe4910ce2817</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="286001312">
+			<Component>
+				<cSceneryRender d:id="286184024">
+					<DetailLevel d:type="sInt32">6</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">159</Palette0Index>
+					<Palette1Index d:type="sUInt8">31</Palette1Index>
+					<Palette2Index d:type="sUInt8">188</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286141648">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 1.0000000 1.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286141654">
+							<Height d:type="sFloat32" d:alt_encoding="00000060BC742E40" d:precision="string">15.228</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.4969574 -0.0468488 0.8665094 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0225095 0.9989016 0.0410972 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.8674830 -0.0009189 0.4974661 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286141661">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">14</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000002041094740" d:precision="string">46.0723</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-6</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000008097DA6B40" d:precision="string">222.831</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="286001372">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286138318"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">Kuju</Provider>
+							<Product d:type="cDeltaString">RailSimulator</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">scenery\buildings\Oxfo_Padd_FactGndPipes01a.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString"></Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5485593976335071301</e>
+						<e d:type="sUInt64">6448872278807794609</e>
+					</UUID>
+					<DevString d:type="cDeltaString">55797845-bea8-4c20-b1d3-33842bff7e59</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="286000742">
+			<Component>
+				<cSceneryRender d:id="286183226">
+					<DetailLevel d:type="sInt32">8</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">3</Palette0Index>
+					<Palette1Index d:type="sUInt8">42</Palette1Index>
+					<Palette2Index d:type="sUInt8">122</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="286141748">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 1.0000000 1.0000000 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="286141754">
+							<Height d:type="sFloat32" d:alt_encoding="0000008006A03040" d:precision="string">16.6251</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.4991722 0.0468463 -0.8652356 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0225095 0.9989016 0.0410972 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.8662105 0.0010386 -0.4996784 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="286141761">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">14</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000E0343F3F40" d:precision="string">31.2469</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-6</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000060BCA46840" d:precision="string">197.148</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="286000532">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="286138062"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">Kuju</Provider>
+							<Product d:type="cDeltaString">RailSimulator</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">scenery\buildings\Oxfo_Padd_FactGndPipes01a.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString"></Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5260418555762793566</e>
+						<e d:type="sUInt64">1668810231296953986</e>
+					</UUID>
+					<DevString d:type="cDeltaString">3a1d5c5e-c2ce-4900-820e-fe4910ce2817</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="473571788">
+			<Component>
+				<cSceneryRender d:id="473606572">
+					<DetailLevel d:type="sInt32">1</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="302141832">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">5.0000000 1.0000000 0.7847437 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="302141838">
+							<Height d:type="sFloat32" d:alt_encoding="00000020D3C41140" d:precision="string">4.44221</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.9805450 -0.0000000 0.1962946 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.1962946 0.0000000 0.9805450 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="302141845">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">1</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000080A9697D40" d:precision="string">470.604</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-1</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000060C54B8740" d:precision="string">745.471</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="473570888">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="473929518"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Clutter\Crossing.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">Wooden Crossing</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5364479865293044249</e>
+						<e d:type="sUInt64">12329333448852745907</e>
+					</UUID>
+					<DevString d:type="cDeltaString">e786fa19-7603-4a72-b3ae-35b872971aab</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="473570648">
+			<Component>
+				<cSceneryRender d:id="473607940">
+					<DetailLevel d:type="sInt32">1</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="374298560">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">5.0000000 1.0000000 0.7847437 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="374298566">
+							<Height d:type="sFloat32" d:alt_encoding="000000A077C31140" d:precision="string">4.44089</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.9805450 0.0000000 -0.1962945 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.1962945 0.0000000 -0.9805450 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="374298573">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">1</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000060A0457E40" d:precision="string">484.352</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-1</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000E0395D8740" d:precision="string">747.653</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="473570618">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="312187308"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Clutter\Crossing.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">Wooden Crossing</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5364479865293044249</e>
+						<e d:type="sUInt64">12329333448852745907</e>
+					</UUID>
+					<DevString d:type="cDeltaString">e786fa19-7603-4a72-b3ae-35b872971aab</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="473570948">
+			<Component>
+				<cSceneryRender d:id="473607028">
+					<DetailLevel d:type="sInt32">1</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="374299040">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">5.0000000 1.0000000 0.7847437 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="374299046">
+							<Height d:type="sFloat32" d:alt_encoding="000000E002C91140" d:precision="string">4.4463</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.9805450 0.0000000 -0.1962945 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.1962945 0.0000000 -0.9805450 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="374299053">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">1</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="0000002012217F40" d:precision="string">498.067</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-1</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="00000080BF718740" d:precision="string">750.219</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="473571728">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="312193652"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Clutter\Crossing.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">Wooden Crossing</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5364479865293044249</e>
+						<e d:type="sUInt64">12329333448852745907</e>
+					</UUID>
+					<DevString d:type="cDeltaString">e786fa19-7603-4a72-b3ae-35b872971aab</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+		<cDynamicEntity d:id="473571188">
+			<Component>
+				<cSceneryRender d:id="473606686">
+					<DetailLevel d:type="sInt32">1</DetailLevel>
+					<Global d:type="bool">1</Global>
+					<Saved d:type="bool">1</Saved>
+					<Palette0Index d:type="sUInt8">0</Palette0Index>
+					<Palette1Index d:type="sUInt8">0</Palette1Index>
+					<Palette2Index d:type="sUInt8">0</Palette2Index>
+				</cSceneryRender>
+				<cPosOri d:id="374299980">
+					<Scale d:numElements="4" d:elementType="sFloat32" d:precision="string">2.8394132 1.0000000 0.7847437 0.0000000</Scale>
+					<RFarMatrix>
+						<cFarMatrix d:id="374299986">
+							<Height d:type="sFloat32" d:alt_encoding="000000E049D31140" d:precision="string">4.45634</Height>
+							<RXAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.9805450 -0.0000000 0.1962947 0.0000000</RXAxis>
+							<RYAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 1.0000000 0.0000000 0.0000000</RYAxis>
+							<RZAxis d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.1962947 0.0000000 0.9805450 0.0000000</RZAxis>
+							<RFarPosition>
+								<cFarVector2 d:id="374299993">
+									<X>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">1</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000404DC97F40" d:precision="string">508.581</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</X>
+									<Z>
+										<cFarCoordinate>
+											<RouteCoordinate>
+												<cRouteCoordinate>
+													<Distance d:type="sInt32">-1</Distance>
+												</cRouteCoordinate>
+											</RouteCoordinate>
+											<TileCoordinate>
+												<cTileCoordinate>
+													<Distance d:type="sFloat32" d:alt_encoding="000000E05E888740" d:precision="string">753.046</Distance>
+												</cTileCoordinate>
+											</TileCoordinate>
+										</cFarCoordinate>
+									</Z>
+								</cFarVector2>
+							</RFarPosition>
+						</cFarMatrix>
+					</RFarMatrix>
+				</cPosOri>
+				<cEntityContainer d:id="473572118">
+					<StaticChildrenMatrix/>
+				</cEntityContainer>
+				<cCollisionComponent d:id="312186364"/>
+			</Component>
+			<BlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString">AP</Provider>
+							<Product d:type="cDeltaString">WherryLines</Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString">Scenery\Clutter\Crossing.xml</BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</BlueprintID>
+			<ReskinBlueprintID>
+				<iBlueprintLibrary-cAbsoluteBlueprintID>
+					<BlueprintSetID>
+						<iBlueprintLibrary-cBlueprintSetID>
+							<Provider d:type="cDeltaString"></Provider>
+							<Product d:type="cDeltaString"></Product>
+						</iBlueprintLibrary-cBlueprintSetID>
+					</BlueprintSetID>
+					<BlueprintID d:type="cDeltaString"></BlueprintID>
+				</iBlueprintLibrary-cAbsoluteBlueprintID>
+			</ReskinBlueprintID>
+			<Name d:type="cDeltaString">Wooden Crossing</Name>
+			<EntityID>
+				<cGUID>
+					<UUID>
+						<e d:type="sUInt64">5364479865293044249</e>
+						<e d:type="sUInt64">12329333448852745907</e>
+					</UUID>
+					<DevString d:type="cDeltaString">e786fa19-7603-4a72-b3ae-35b872971aab</DevString>
+				</cGUID>
+			</EntityID>
+		</cDynamicEntity>
+	</Record>
+</cRecordSet>

@@ -11,7 +11,11 @@ import (
 	"strings"
 )
 
-var file string
+type Asset struct {
+	Product  string
+	Provider string
+	Filepath string
+}
 
 const (
 	binFolder string = ".\\" + "filesBin"
@@ -20,7 +24,7 @@ const (
 
 type RecordSet struct {
 	XMLName xml.Name `xml:"cRecordSet"`
-	Records Record   `xml:"Record"`
+	Record  Record   `xml:"Record"`
 }
 
 type Record struct {
@@ -28,49 +32,54 @@ type Record struct {
 }
 
 type Entity struct {
-	Blueprints BlueprintID `xml:"BlueprintID"`
+	BlueprintID BlueprintID `xml:"BlueprintID"`
 }
 
 type BlueprintID struct {
-	BlueprintLib AbsBluePrint `xml:"iBlueprintLibrary-cAbsoluteBlueprintID"`
+	AbsBlueprint AbsBlueprint `xml:"iBlueprintLibrary-cAbsoluteBlueprintID"`
 }
 
-type AbsBluePrint struct {
-	BlueprintID string `xml:"BlueprintID"`
+type AbsBlueprint struct {
+	BlueprintID  string       `xml:"BlueprintID"`
+	BlueprintSet BlueprintSet `xml:"BlueprintSetID"`
+}
+
+type BlueprintSet struct {
+	BlueprintLibSet BlueprintLibSet `xml:"iBlueprintLibrary-cBlueprintSetID"`
+}
+
+type BlueprintLibSet struct {
+	Provider string `xml:"Provider"`
+	Product  string `xml:"Product"`
 }
 
 func main() {
-	misAssetMap := make(map[string]bool)
+	misAssetMap := make(map[Asset]bool)
 	err := listReqAssets(binFolder, misAssetMap)
-	// Move xml file
-	err = filepath.Walk(binFolder, func(path string, info os.FileInfo, err error) error {
-		if info.IsDir() != true && filepath.Ext(path) == ".xml" {
-			splitPath := strings.SplitAfter(path, "\\")
-			newPath := xmlFolder + splitPath[1]
-			err = os.Rename(path, newPath)
-			if err != nil {
-				panic(err)
-			}
-		}
-		return nil
-	})
 	if err != nil {
 		log.Fatal(err)
 	}
-	assetList := make([]string, len(misAssetMap))
+	// Move xml file
+	fmt.Println("Moving xml files")
+	moveXmlFiles(binFolder, xmlFolder)
+	fmt.Println("Completed move")
+
+	assetList := make([]Asset, len(misAssetMap))
+	fmt.Println(len(misAssetMap))
 	i := 0
 	for asset, _ := range misAssetMap {
 		assetList[i] = asset
 		i++
 	}
-	sort.Strings(assetList)
-	/*for _, asset := range assetList {
-		fmt.Println(asset)
+	sort.Slice(assetList, func(i, j int) bool {
+		return assetList[i].Product > assetList[j].Product
+	})
+	for _, asset := range assetList {
+		fmt.Printf("Prod: %-19vProv: %-19vPath: %v\n", asset.Product, asset.Provider, asset.Filepath)
 	}
-	*/
 }
 
-func listReqAssets(binFolder string, misAssetMap map[string]bool) error {
+func listReqAssets(binFolder string, misAssetMap map[Asset]bool) error {
 	err := filepath.Walk(binFolder, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
@@ -86,7 +95,7 @@ func listReqAssets(binFolder string, misAssetMap map[string]bool) error {
 	return nil
 }
 
-func getFileAssets(path string, assetMap map[string]bool) {
+func getFileAssets(path string, assetMap map[Asset]bool) {
 	fmt.Println("Processing file ", path)
 	xmlStruct := RecordSet{}
 	pathXml := strings.ReplaceAll(path, "bin", "xml")
@@ -120,11 +129,33 @@ func getFileAssets(path string, assetMap map[string]bool) {
 		log.Fatal(err)
 	}
 	// Add assets to asset map
-	entityCount := len(xmlStruct.Records.Entities)
+	entityCount := len(xmlStruct.Record.Entities)
+	fmt.Println("Entity count = ", entityCount)
 	for i := 0; i < entityCount; i++ {
-		asset := xmlStruct.Records.Entities[i].Blueprints.BlueprintLib.BlueprintID
+		asset := Asset{
+			Filepath: xmlStruct.Record.Entities[i].BlueprintID.AbsBlueprint.BlueprintID,
+			Product:  xmlStruct.Record.Entities[i].BlueprintID.AbsBlueprint.BlueprintSet.BlueprintLibSet.Product,
+			Provider: xmlStruct.Record.Entities[i].BlueprintID.AbsBlueprint.BlueprintSet.BlueprintLibSet.Provider,
+		}
 		if assetMap[asset] == false {
 			assetMap[asset] = true
 		}
+	}
+}
+
+func moveXmlFiles(binfolder string, XmlFolder string) {
+	err := filepath.Walk(binFolder, func(path string, info os.FileInfo, err error) error {
+		if info.IsDir() != true && filepath.Ext(path) == ".xml" {
+			splitPath := strings.SplitAfter(path, "\\")
+			newPath := xmlFolder + splitPath[1]
+			err = os.Rename(path, newPath)
+			if err != nil {
+				panic(err)
+			}
+		}
+		return nil
+	})
+	if err != nil {
+		log.Fatal(err)
 	}
 }
