@@ -1,9 +1,11 @@
 package asset
 
 import (
+	"bytes"
 	"fmt"
 	"log"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"sort"
 	"strings"
@@ -45,7 +47,7 @@ func Check(misAssetMap map[Asset]bool) {
 			log.Fatal(err)
 		}
 	}
-	fmt.Printf("There are %v assets missing\n", i)
+	fmt.Printf("Initially, there are %v assets missing\n", i)
 }
 
 func Find(misAssetMap, allAssetMap map[Asset]bool) {
@@ -59,7 +61,7 @@ func Find(misAssetMap, allAssetMap map[Asset]bool) {
 	}
 }
 
-func Index() map[Asset]bool {
+func Index(misAssetsMap map[Asset]bool) map[Asset]bool {
 	allAssetMap := make(map[Asset]bool)
 	err := filepath.Walk(`.\Assets`, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -74,6 +76,9 @@ func Index() map[Asset]bool {
 				Filepath: pathSlice[3],
 			}
 			allAssetMap[asset] = true
+		} else if filepath.Ext(path) == ".ap" {
+			fmt.Println("Unzipping ap file")
+			GetZipAssets(path, misAssetsMap, allAssetMap)
 		}
 		return nil
 	})
@@ -81,4 +86,28 @@ func Index() map[Asset]bool {
 		log.Fatal(err)
 	}
 	return allAssetMap
+}
+
+func GetZipAssets(filename string, misAssetsMap, allAssetsMap map[Asset]bool) {
+	filenameSlice := strings.SplitN(filename, `\`, 4)
+	var buf bytes.Buffer
+	cmd := exec.Command("7z.exe", "l", filename, "-ba")
+	cmd.Stdout = &buf
+	if err := cmd.Run(); err != nil {
+		log.Fatal(err)
+	}
+	zipString := buf.String()
+	for misAsset, _ := range misAssetsMap {
+		if strings.Contains(zipString, misAsset.Filepath) {
+			asset := Asset{
+				Product:  filenameSlice[2],
+				Provider: filenameSlice[1],
+				Filepath: misAsset.Filepath,
+			}
+			allAssetsMap[asset] = true
+			misAssetsMap[misAsset] = false
+			fmt.Printf("Asset called for in %v/%v located in %v/%v\n", misAsset.Provider, misAsset.Product, filenameSlice[1], filenameSlice[2])
+		}
+	}
+	fmt.Println("Unzip success")
 }

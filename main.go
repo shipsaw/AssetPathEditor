@@ -23,6 +23,13 @@ func main() {
 	//asset.Print(misAssetMap)
 	fmt.Printf("Route has %v asset requirements\n", len(misAssetMap))
 	asset.Check(misAssetMap)
-	allAssetMap := asset.Index()
+	allAssetMap := asset.Index(misAssetMap)
 	asset.Find(misAssetMap, allAssetMap)
+	i := 0
+	for _, missing := range misAssetMap {
+		if missing == true {
+			i++
+		}
+	}
+	fmt.Println("Final missing assets: ", i)
 }
