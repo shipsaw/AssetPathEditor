@@ -49,8 +49,13 @@ func Check(misAssetMap map[Asset]bool) {
 }
 
 func Find(misAssetMap, allAssetMap map[Asset]bool) {
-	for _, _ = range misAssetMap {
-
+	// Create map
+	for misAsset, missing := range misAssetMap {
+		for allAsset, _ := range allAssetMap {
+			if misAsset.Filepath == allAsset.Filepath && missing == true {
+				fmt.Printf("Asset called for in %v/%v located in %v/%v\n", misAsset.Provider, misAsset.Product, allAsset.Provider, allAsset.Product)
+			}
+		}
 	}
 }
 

@@ -13,8 +13,7 @@ const (
 )
 
 func main() {
-	misAssetMap := make(map[asset.Asset]bool)
-	err := bin.ListReqAssets(binFolder, misAssetMap)
+	misAssetMap, err := bin.ListReqAssets(binFolder)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -24,5 +23,6 @@ func main() {
 	//asset.Print(misAssetMap)
 	fmt.Printf("Route has %v asset requirements\n", len(misAssetMap))
 	asset.Check(misAssetMap)
-	asset.Index()
+	allAssetMap := asset.Index()
+	asset.Find(misAssetMap, allAssetMap)
 }

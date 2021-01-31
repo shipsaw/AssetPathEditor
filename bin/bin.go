@@ -42,10 +42,12 @@ type BlueprintLibSet struct {
 	Product  string `xml:"Product"`
 }
 
-func ListReqAssets(binFolder string, misAssetMap map[asset.Asset]bool) error {
+func ListReqAssets(binFolder string) (map[asset.Asset]bool, error) {
+	fmt.Printf("Processing bin files")
+	misAssetMap := make(map[asset.Asset]bool)
 	err := filepath.Walk(binFolder, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
-			return err
+			log.Fatal(err)
 		}
 		if info.IsDir() != true && filepath.Ext(path) == ".bin" {
 			getFileAssets(path, misAssetMap)
@@ -53,13 +55,14 @@ func ListReqAssets(binFolder string, misAssetMap map[asset.Asset]bool) error {
 		return nil
 	})
 	if err != nil {
-		return err
+		log.Fatal(err)
 	}
-	return nil
+	fmt.Printf("\n")
+	return misAssetMap, nil
 }
 
 func getFileAssets(path string, assetMap map[asset.Asset]bool) {
-	fmt.Println("Processing file ", path)
+	fmt.Printf(".")
 	xmlStruct := RecordSet{}
 	//Run serz on file
 	cmd := exec.Command("serz.exe", path)
