@@ -61,13 +61,13 @@ func ListReqAssets(binFolder string, misAssetMap map[asset.Asset]bool) error {
 func getFileAssets(path string, assetMap map[asset.Asset]bool) {
 	fmt.Println("Processing file ", path)
 	xmlStruct := RecordSet{}
-	pathXml := strings.ReplaceAll(path, "bin", "xml")
 	//Run serz on file
 	cmd := exec.Command("serz.exe", path)
 	if err := cmd.Run(); err != nil {
 		fmt.Println("Error: ", err)
 	}
 	// Open xml file
+	pathXml := strings.ReplaceAll(path, "bin", "xml")
 	xmlFile, err := os.Open(pathXml)
 	if err != nil {
 		log.Fatal(err)
@@ -93,10 +93,12 @@ func getFileAssets(path string, assetMap map[asset.Asset]bool) {
 	}
 	// Add assets to asset map
 	entityCount := len(xmlStruct.Record.Entities)
-	fmt.Println("Entity count = ", entityCount)
 	for i := 0; i < entityCount; i++ {
+		// Route calls for .xml scenery, but stored in Assets as .bin
+		tempFilepath := xmlStruct.Record.Entities[i].BlueprintID.AbsBlueprint.BlueprintID
+		tempFilepath = strings.ReplaceAll(tempFilepath, "xml", "bin")
 		asset := asset.Asset{
-			Filepath: xmlStruct.Record.Entities[i].BlueprintID.AbsBlueprint.BlueprintID,
+			Filepath: tempFilepath,
 			Product:  xmlStruct.Record.Entities[i].BlueprintID.AbsBlueprint.BlueprintSet.BlueprintLibSet.Product,
 			Provider: xmlStruct.Record.Entities[i].BlueprintID.AbsBlueprint.BlueprintSet.BlueprintLibSet.Provider,
 		}

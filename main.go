@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-	"sort"
 	"trainTest/asset"
 	"trainTest/bin"
 )
@@ -20,21 +19,10 @@ func main() {
 		log.Fatal(err)
 	}
 	// Move xml file
-	fmt.Println("Moving xml files")
 	bin.MoveXmlFiles(binFolder, xmlFolder)
-	fmt.Println("Completed move")
 
-	assetList := make([]asset.Asset, len(misAssetMap))
-	fmt.Println(len(misAssetMap))
-	i := 0
-	for asset, _ := range misAssetMap {
-		assetList[i] = asset
-		i++
-	}
-	sort.Slice(assetList, func(i, j int) bool {
-		return assetList[i].Product > assetList[j].Product
-	})
-	for _, asset := range assetList {
-		fmt.Printf("Prod: %-19vProv: %-19vPath: %v\n", asset.Product, asset.Provider, asset.Filepath)
-	}
+	//asset.Print(misAssetMap)
+	fmt.Printf("Route has %v asset requirements\n", len(misAssetMap))
+	asset.Check(misAssetMap)
+	asset.Index()
 }
