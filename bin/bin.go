@@ -13,45 +13,39 @@ import (
 	"trainTest/asset"
 )
 
-type RecordSet struct {
-	XMLName xml.Name `xml:"cRecordSet"`
-	Record  Record   `xml:"Record"`
+func SerzConvert(folder, ext string) {
+	fmt.Printf("Converting files")
+	err := filepath.Walk(folder, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			log.Fatal(err)
+		}
+		if info.IsDir() != true && filepath.Ext(path) == ext {
+			cmd := exec.Command("serz.exe", path)
+			if err := cmd.Run(); err != nil {
+				fmt.Println("Error: ", err)
+			}
+			err := os.Remove(path)
+			if err != nil {
+				log.Fatal(err)
+			}
+		}
+		fmt.Printf(".")
+		return nil
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("\n")
 }
-
-type Record struct {
-	Entities []Entity `xml:"cDynamicEntity"`
-}
-
-type Entity struct {
-	BlueprintID BlueprintID `xml:"BlueprintID"`
-}
-
-type BlueprintID struct {
-	AbsBlueprint AbsBlueprint `xml:"iBlueprintLibrary-cAbsoluteBlueprintID"`
-}
-
-type AbsBlueprint struct {
-	BlueprintID  string       `xml:"BlueprintID"`
-	BlueprintSet BlueprintSet `xml:"BlueprintSetID"`
-}
-
-type BlueprintSet struct {
-	BlueprintLibSet BlueprintLibSet `xml:"iBlueprintLibrary-cBlueprintSetID"`
-}
-
-type BlueprintLibSet struct {
-	Provider string `xml:"Provider"`
-	Product  string `xml:"Product"`
-}
-
 func ListReqAssets(binFolder string) (asset.MisAssetMap, error) {
-	fmt.Printf("Processing bin files")
+	SerzConvert(binFolder, ".bin")
+	fmt.Printf("Processing xml files")
 	misAssetMap := make(asset.MisAssetMap)
 	err := filepath.Walk(binFolder, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			log.Fatal(err)
 		}
-		if info.IsDir() != true && filepath.Ext(path) == ".bin" {
+		if info.IsDir() != true && filepath.Ext(path) == ".xml" {
 			getFileAssets(path, misAssetMap)
 		}
 		return nil
@@ -66,19 +60,13 @@ func ListReqAssets(binFolder string) (asset.MisAssetMap, error) {
 func getFileAssets(path string, misAssets asset.MisAssetMap) {
 	fmt.Printf(".")
 	xmlStruct := RecordSet{}
-	//Run serz on file
-	cmd := exec.Command("serz.exe", path)
-	if err := cmd.Run(); err != nil {
-		fmt.Println("Error: ", err)
-	}
 	// Open xml file
-	pathXml := strings.ReplaceAll(path, "bin", "xml")
-	xmlFile, err := os.Open(pathXml)
+	xmlFile, err := os.Open(path)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer xmlFile.Close()
-	info, err := os.Lstat(pathXml)
+	info, err := os.Lstat(path)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -111,11 +99,10 @@ func getFileAssets(path string, misAssets asset.MisAssetMap) {
 	}
 }
 
-func MoveXmlFiles(binFolder string, xmlFolder string) {
-	err := filepath.Walk(binFolder, func(path string, info os.FileInfo, err error) error {
+func MoveXmlFiles(oldLoc string, newLoc string) {
+	err := filepath.Walk(oldLoc, func(path string, info os.FileInfo, err error) error {
 		if info.IsDir() != true && filepath.Ext(path) == ".xml" {
-			splitPath := strings.SplitAfter(path, "\\")
-			newPath := xmlFolder + splitPath[1]
+			newPath := newLoc + filepath.Base(path)
 			err = os.Rename(path, newPath)
 			if err != nil {
 				panic(err)
@@ -158,11 +145,11 @@ func ReplaceXmlText(xmlFolder string, misAssets asset.MisAssetMap) {
 				}
 				fixPath := strings.ReplaceAll(oldAsset.Filepath, `\`, `\\`)
 				fixPath = strings.ReplaceAll(fixPath, ".bin", ".xml")
-				var findString string = `<Provider d:type="cDeltaString">` + oldAsset.Provider + `</Provider>\s*
-								<Product d:type="cDeltaString">` + oldAsset.Product + `</Product>\s*
-							</iBlueprintLibrary-cBlueprintSetID>\s*
-						</BlueprintSetID>\s*
-						<BlueprintID d:type="cDeltaString">` + fixPath + `</BlueprintID>`
+				var findString string = `<Provider d:type="cDeltaString">` + oldAsset.Provider + `</Provider>\s*` +
+					`\s*<Product d:type="cDeltaString">` + oldAsset.Product + `</Product>\s*` +
+					`\s*</iBlueprintLibrary-cBlueprintSetID>\s*` +
+					`\s*</BlueprintSetID>\s*` +
+					`\s*<BlueprintID d:type="cDeltaString">` + fixPath + `</BlueprintID>`
 				regex := regexp.MustCompile(findString)
 				retReg := regex.Find(fileBytes)
 				if retReg == nil {
@@ -187,5 +174,5 @@ func ReplaceXmlText(xmlFolder string, misAssets asset.MisAssetMap) {
 	if err != nil {
 		log.Fatal(err)
 	}
-
+	fmt.Printf("\n")
 }
