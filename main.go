@@ -20,16 +20,18 @@ func main() {
 	// Move xml file
 	bin.MoveXmlFiles(binFolder, xmlFolder)
 
-	//asset.Print(misAssets)
 	fmt.Printf("Route has %v asset requirements\n", len(misAssets))
 	asset.Check(misAssets)
 	allAssetMap := asset.Index(misAssets)
 	asset.Find(misAssets, allAssetMap)
 	i := 0
-	for _, a := range misAssets {
-		if a == asset.EmptyAsset {
+	for misAsset, foundAsset := range misAssets {
+		if foundAsset != asset.EmptyAsset {
+			fmt.Printf("%-10v %-18v       %-20v %-10v\n", misAsset.Provider, misAsset.Product, foundAsset.Provider, foundAsset.Product)
+		} else {
 			i++
 		}
 	}
 	fmt.Printf("Process completed: There are still %v assets missing", i)
+
 }

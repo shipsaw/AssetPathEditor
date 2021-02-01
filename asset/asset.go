@@ -7,7 +7,6 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"sort"
 	"strings"
 )
 
@@ -27,9 +26,9 @@ type MisAssetMap map[Asset]Asset
 type allAssetMap map[Asset]bool
 
 func Print(misAssets MisAssetMap) {
-	assetList := make([]Asset, len(misAssets))
+	/*assetList := make([]Asset, len(misAssets))
 	i := 0
-	for asset, _ := range misAssets {
+	for misAsset, foundAsset := range misAssets {
 		assetList[i] = asset
 		i++
 	}
