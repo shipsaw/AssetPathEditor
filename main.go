@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"trainTest/asset"
 	"trainTest/bin"
@@ -24,17 +23,4 @@ func main() {
 	bin.ReplaceXmlText(xmlFolder, misAssets)
 	bin.MoveXmlFiles(xmlFolder, binFolder)
 	bin.SerzConvert(binFolder, ".xml")
-
-	i := 0
-	listMissing := false
-	for misAsset, foundAsset := range misAssets {
-		if foundAsset == asset.EmptyAsset {
-			if listMissing == true {
-				fmt.Printf("%-10v %-18v\n", misAsset.Provider, misAsset.Product)
-			}
-			i++
-		}
-	}
-	fmt.Printf("Process completed: There are still %v assets missing", i)
-
 }
