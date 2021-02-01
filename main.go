@@ -24,10 +24,11 @@ func main() {
 	asset.Check(misAssets)
 	allAssetMap := asset.Index(misAssets)
 	asset.Find(misAssets, allAssetMap)
+	bin.ReplaceXmlText(xmlFolder, misAssets)
 	i := 0
 	for misAsset, foundAsset := range misAssets {
-		if foundAsset != asset.EmptyAsset {
-			fmt.Printf("%-10v %-18v       %-20v %-10v\n", misAsset.Provider, misAsset.Product, foundAsset.Provider, foundAsset.Product)
+		if foundAsset == asset.EmptyAsset {
+			fmt.Printf("%-10v %-18v\n", misAsset.Provider, misAsset.Product)
 		} else {
 			i++
 		}

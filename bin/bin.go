@@ -1,12 +1,14 @@
 package bin
 
 import (
+	"bytes"
 	"encoding/xml"
 	"fmt"
 	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"trainTest/asset"
 )
@@ -126,56 +128,64 @@ func MoveXmlFiles(binFolder string, xmlFolder string) {
 	}
 }
 
-func ReplaceXmlText(binFolder string, misAssets asset.MisAssetMap) {
-	
-var regexString string = `<Provider d:type="cDeltaString">(.+)</Provider>\s*
+func ReplaceXmlText(xmlFolder string, misAssets asset.MisAssetMap) {
+
+	var groupedString string = `<Provider d:type="cDeltaString">(.+)</Provider>\s*
 							<Product d:type="cDeltaString">(.+)</Product>\s*
 						</iBlueprintLibrary-cBlueprintSetID>\s*
 					</BlueprintSetID>\s*
 					<BlueprintID d:type="cDeltaString">(.+)</BlueprintID>`
+	fmt.Printf("Updating XML files")
+	err := filepath.Walk(xmlFolder, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			log.Fatal(err)
+		}
+		if info.IsDir() != true {
+			xmlFile, err := os.OpenFile(path, os.O_RDWR, 0755)
+			if err != nil {
+				log.Fatal(err)
+			}
+			defer xmlFile.Close()
+			fileBytes := make([]byte, info.Size())
+			_, err = xmlFile.Read(fileBytes)
+			if err != nil {
+				log.Fatal(err)
+			}
 
-	
-		fixPath := strings.ReplaceAll(path, `\`, `\\`)
-		var varString string = `<Provider d:type="cDeltaString">` + `Kuju` + `</Provider>\s*
-								<Product d:type="cDeltaString">` + `RailSimulator` + `</Product>\s*
+			for oldAsset, newAsset := range misAssets {
+				if newAsset == asset.EmptyAsset {
+					continue
+				}
+				fixPath := strings.ReplaceAll(oldAsset.Filepath, `\`, `\\`)
+				fixPath = strings.ReplaceAll(fixPath, ".bin", ".xml")
+				var findString string = `<Provider d:type="cDeltaString">` + oldAsset.Provider + `</Provider>\s*
+								<Product d:type="cDeltaString">` + oldAsset.Product + `</Product>\s*
 							</iBlueprintLibrary-cBlueprintSetID>\s*
 						</BlueprintSetID>\s*
 						<BlueprintID d:type="cDeltaString">` + fixPath + `</BlueprintID>`
+				regex := regexp.MustCompile(findString)
+				retReg := regex.Find(fileBytes)
+				if retReg == nil {
+					continue
+				}
+				groupRegex := regexp.MustCompile(groupedString)
+				matches := groupRegex.FindSubmatch(retReg)
 
-	*/
-	fmt.Println("Attempting regex compile..")
-	regex := regexp.MustCompile(regexString)
-	fmt.Println("Success")
-
-	file, err := os.Open(fileName)
+				retRegNew := bytes.Replace(retReg, matches[1], []byte(newAsset.Provider), 1)
+				retRegNew = bytes.Replace(retRegNew, matches[2], []byte(newAsset.Product), 1)
+				retRegNew = bytes.Replace(retRegNew, matches[3], []byte(newAsset.Filepath), 1)
+				fileBytes = bytes.Replace(fileBytes, retReg, retRegNew, -1)
+				if err != nil {
+					log.Fatal(err)
+				}
+				xmlFile.Write(fileBytes)
+			}
+			fmt.Printf(".")
+		}
+		return nil
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer file.Close()
-	info, err := os.Lstat(fileName)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fileBytes := make([]byte, info.Size())
-	_, err = file.Read(fileBytes)
-	if err != nil {
-		log.Fatal(err)
-	}
-	retReg := regex.Find(fileBytes)
-	fmt.Println(string(retReg))
-	matches := regex.FindSubmatch(fileBytes)
-	for i, match := range matches {
-		fmt.Println("matches: ", i, "   ", string(match))
-	}
-	retRegNew := bytes.Replace(retReg, matches[1], []byte("AP"), 1)
-	retRegNew = bytes.Replace(retRegNew, matches[2], []byte("WherryLines"), 1)
-	retRegNew = bytes.Replace(retRegNew, matches[3], []byte(`\Path\To\Wherry.xml`), 1)
-	fmt.Println(string(retReg))
-	fileBytes = bytes.Replace(fileBytes, retReg, retRegNew, -1)
-	outFile, err := os.OpenFile("testXmlBack.xml", os.O_RDWR, 0755)
-	if err != nil {
-		log.Fatal(err)
-	}
-	outFile.Write(fileBytes)
 
 }
