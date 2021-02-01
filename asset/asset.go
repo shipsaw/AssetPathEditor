@@ -42,39 +42,36 @@ func Print(misAssets MisAssetMap) {
 	*/
 }
 
-func Check(misAssets MisAssetMap) {
-	i := 0
-	for asset, _ := range misAssets {
-		assetPath := `.\Assets\` + asset.Provider + `\` + asset.Product + `\` + asset.Filepath
-		if _, err := os.Stat(assetPath); os.IsNotExist(err) {
-			//fmt.Println("File is missing: ", assetPath)
-			i++
-		} else if err == nil {
-			delete(misAssets, asset)
-		} else {
-			log.Fatal(err)
-		}
-	}
-	fmt.Printf("Initially, there are %v assets missing\n", i)
-}
-
-func Find(misAssets MisAssetMap, allAssets allAssetMap) {
-	// Create map
-	i := 0
-	for misAsset, _ := range misAssets {
-		for allAsset, _ := range allAssets {
-			if misAsset.Filepath == allAsset.Filepath {
+func Check(misAssets MisAssetMap, allAssets allAssetMap) {
+	fmt.Printf("There are initially %d required assets\n", len(misAssets))
+	rightPlace := 0
+	differentPlace := 0
+	notFound := 0
+OUTER:
+	for misAsset, value := range misAssets {
+		for locAsset, _ := range allAssets {
+			if misAsset == locAsset {
+				rightPlace++
+				delete(misAssets, misAsset)
+				continue OUTER
+			} else if misAsset.Filepath == locAsset.Filepath {
 				tempAsset := Asset{
-					Product:  allAsset.Product,
-					Provider: allAsset.Provider,
-					Filepath: allAsset.Filepath,
+					Product:  locAsset.Product,
+					Provider: locAsset.Provider,
+					Filepath: locAsset.Filepath,
 				}
-				misAssets[misAsset] = tempAsset
-				i++
+				value = tempAsset
+				differentPlace++
+				continue OUTER
 			}
 		}
+		if value == EmptyAsset {
+			notFound++
+		}
 	}
-	fmt.Printf("Found %v assets in other Asset folders\n", i)
+	fmt.Printf("%v assets cannot be found\n", notFound)
+	fmt.Printf("%v assets have been found in the correct folder\n", rightPlace)
+	fmt.Printf("%v assets have been found, but not in the requested location\n", differentPlace)
 }
 
 func Index(misAssets MisAssetMap) allAssetMap {
@@ -91,7 +88,7 @@ func Index(misAssets MisAssetMap) allAssetMap {
 				Provider: pathSlice[1],
 				Filepath: pathSlice[3],
 			}
-			allAssets[asset] = true
+			allAssets[asset] = false
 		} else if filepath.Ext(path) == ".ap" {
 			GetZipAssets(path, misAssets, allAssets)
 		}

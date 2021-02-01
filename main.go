@@ -19,18 +19,19 @@ func main() {
 	}
 	// Move xml file
 	bin.MoveXmlFiles(binFolder, xmlFolder)
-	fmt.Printf("Route has %v asset requirements\n", len(misAssets))
-	asset.Check(misAssets)
-	allAssetMap := asset.Index(misAssets)
-	asset.Find(misAssets, allAssetMap)
+	allAssets := asset.Index(misAssets)
+	asset.Check(misAssets, allAssets)
 	bin.ReplaceXmlText(xmlFolder, misAssets)
 	bin.MoveXmlFiles(xmlFolder, binFolder)
 	bin.SerzConvert(binFolder, ".xml")
 
 	i := 0
-	for _, foundAsset := range misAssets {
+	listMissing := false
+	for misAsset, foundAsset := range misAssets {
 		if foundAsset == asset.EmptyAsset {
-			//fmt.Printf("%-10v %-18v\n", misAsset.Provider, misAsset.Product)
+			if listMissing == true {
+				fmt.Printf("%-10v %-18v\n", misAsset.Provider, misAsset.Product)
+			}
 			i++
 		}
 	}

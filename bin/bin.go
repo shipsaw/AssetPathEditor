@@ -117,11 +117,11 @@ func MoveXmlFiles(oldLoc string, newLoc string) {
 
 func ReplaceXmlText(xmlFolder string, misAssets asset.MisAssetMap) {
 
-	var groupedString string = `<Provider d:type="cDeltaString">(.+)</Provider>\s*
-							<Product d:type="cDeltaString">(.+)</Product>\s*
-						</iBlueprintLibrary-cBlueprintSetID>\s*
-					</BlueprintSetID>\s*
-					<BlueprintID d:type="cDeltaString">(.+)</BlueprintID>`
+	var groupedString string = `\s*<Provider d:type="cDeltaString">(.+)</Provider>\s*` +
+		`\s*<Product d:type="cDeltaString">(.+)</Product>\s*` +
+		`\s*</iBlueprintLibrary-cBlueprintSetID>\s*` +
+		`\s*</BlueprintSetID>\s*` +
+		`\s*<BlueprintID d:type="cDeltaString">(.+)</BlueprintID>`
 	fmt.Printf("Updating XML files")
 	err := filepath.Walk(xmlFolder, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -157,6 +157,9 @@ func ReplaceXmlText(xmlFolder string, misAssets asset.MisAssetMap) {
 				}
 				groupRegex := regexp.MustCompile(groupedString)
 				matches := groupRegex.FindSubmatch(retReg)
+				if len(matches) == 0 {
+					log.Fatal("There was an error parsing the groups in the regex")
+				}
 
 				retRegNew := bytes.Replace(retReg, matches[1], []byte(newAsset.Provider), 1)
 				retRegNew = bytes.Replace(retRegNew, matches[2], []byte(newAsset.Product), 1)
