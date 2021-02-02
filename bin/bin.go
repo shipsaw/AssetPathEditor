@@ -20,7 +20,7 @@ func SerzConvert(folder, ext string) {
 			log.Fatal(err)
 		}
 		if info.IsDir() != true && filepath.Ext(path) == ext {
-			cmd := exec.Command("serz.exe", path)
+			cmd := exec.Command("./serz.exe", path)
 			if err := cmd.Run(); err != nil {
 				fmt.Println("Error: ", err)
 			}
@@ -116,13 +116,13 @@ func MoveXmlFiles(oldLoc string, newLoc string) {
 }
 
 func ReplaceXmlText(xmlFolder string, misAssets asset.MisAssetMap) {
-
 	var groupedString string = `\s*<Provider d:type="cDeltaString">(.+)</Provider>\s*` +
 		`\s*<Product d:type="cDeltaString">(.+)</Product>\s*` +
 		`\s*</iBlueprintLibrary-cBlueprintSetID>\s*` +
 		`\s*</BlueprintSetID>\s*` +
 		`\s*<BlueprintID d:type="cDeltaString">(.+)</BlueprintID>`
 	fmt.Printf("Updating XML files")
+
 	err := filepath.Walk(xmlFolder, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			log.Fatal(err)
@@ -130,12 +130,14 @@ func ReplaceXmlText(xmlFolder string, misAssets asset.MisAssetMap) {
 		if info.IsDir() != true {
 			xmlFile, err := os.OpenFile(path, os.O_RDWR, 0755)
 			if err != nil {
+				fmt.Println("ERR1")
 				log.Fatal(err)
 			}
 			defer xmlFile.Close()
 			fileBytes := make([]byte, info.Size())
 			_, err = xmlFile.Read(fileBytes)
 			if err != nil {
+				fmt.Println("ERR2")
 				log.Fatal(err)
 			}
 
@@ -145,6 +147,7 @@ func ReplaceXmlText(xmlFolder string, misAssets asset.MisAssetMap) {
 				}
 				fixPath := strings.ReplaceAll(oldAsset.Filepath, `\`, `\\`)
 				fixPath = strings.ReplaceAll(fixPath, ".bin", ".xml")
+				fixNewPath := strings.ReplaceAll(newAsset.Filepath, ".bin", ".xml")
 				var findString string = `<Provider d:type="cDeltaString">` + oldAsset.Provider + `</Provider>\s*` +
 					`\s*<Product d:type="cDeltaString">` + oldAsset.Product + `</Product>\s*` +
 					`\s*</iBlueprintLibrary-cBlueprintSetID>\s*` +
@@ -163,14 +166,21 @@ func ReplaceXmlText(xmlFolder string, misAssets asset.MisAssetMap) {
 
 				retRegNew := bytes.Replace(retReg, matches[1], []byte(newAsset.Provider), 1)
 				retRegNew = bytes.Replace(retRegNew, matches[2], []byte(newAsset.Product), 1)
-				retRegNew = bytes.Replace(retRegNew, matches[3], []byte(newAsset.Filepath), 1)
+				retRegNew = bytes.Replace(retRegNew, matches[3], []byte(fixNewPath), 1)
 				fileBytes = bytes.Replace(fileBytes, retReg, retRegNew, -1)
-				if err != nil {
-					log.Fatal(err)
-				}
-				xmlFile.Write(fileBytes)
+
 			}
 			fmt.Printf(".")
+			err = xmlFile.Truncate(0)
+			if err != nil {
+				fmt.Println("Truncate error")
+				log.Fatal(err)
+			}
+			_, err = xmlFile.WriteAt(fileBytes, 0)
+			if err != nil {
+				log.Fatal(err)
+			}
+
 		}
 		return nil
 	})

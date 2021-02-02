@@ -50,7 +50,8 @@ func Check(misAssets MisAssetMap, allAssets allAssetMap) {
 OUTER:
 	for misAsset, value := range misAssets {
 		for locAsset, _ := range allAssets {
-			if misAsset == locAsset {
+			_, ok := allAssets[misAsset]
+			if ok == true {
 				rightPlace++
 				delete(misAssets, misAsset)
 				continue OUTER
@@ -60,7 +61,7 @@ OUTER:
 					Provider: locAsset.Provider,
 					Filepath: locAsset.Filepath,
 				}
-				value = tempAsset
+				misAssets[misAsset] = tempAsset
 				differentPlace++
 				continue OUTER
 			}
