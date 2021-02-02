@@ -67,6 +67,7 @@ OUTER:
 			}
 		}
 		if value == EmptyAsset {
+			fmt.Println(misAsset)
 			notFound++
 		}
 	}
@@ -84,12 +85,14 @@ func Index(misAssets MisAssetMap) allAssetMap {
 		if filepath.Ext(path) == ".bin" {
 			// Seperate to find providers, products, and paths
 			pathSlice := strings.SplitN(path, `\`, 4)
-			asset := Asset{
-				Product:  pathSlice[2],
-				Provider: pathSlice[1],
-				Filepath: pathSlice[3],
+			if len(pathSlice) == 4 {
+				asset := Asset{
+					Product:  pathSlice[2],
+					Provider: pathSlice[1],
+					Filepath: pathSlice[3],
+				}
+				allAssets[asset] = false
 			}
-			allAssets[asset] = false
 		} else if filepath.Ext(path) == ".ap" {
 			GetZipAssets(path, misAssets, allAssets)
 		}

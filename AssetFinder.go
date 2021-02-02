@@ -7,11 +7,12 @@ import (
 )
 
 const (
-	binFolder string = `.\Routes\89f87a1c-fbd4-4f05-ba8b-16069484fa41\Scenery\`
+	binFolder string = `.\Content\Routes\89f87a1c-fbd4-4f05-ba8b-16069484fa41\Scenery\`
 	xmlFolder string = `filesXml\`
 )
 
 func main() {
+	bin.Setup()
 	misAssets, err := bin.ListReqAssets(binFolder)
 	if err != nil {
 		log.Fatal(err)
@@ -23,4 +24,5 @@ func main() {
 	bin.ReplaceXmlText(xmlFolder, misAssets)
 	bin.MoveXmlFiles(xmlFolder, binFolder)
 	bin.SerzConvert(binFolder, ".xml")
+	bin.Teardown()
 }

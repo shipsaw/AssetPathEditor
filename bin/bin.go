@@ -13,6 +13,14 @@ import (
 	"trainTest/asset"
 )
 
+func Setup() {
+	os.Mkdir("filesXml", 0755)
+}
+
+func Teardown() {
+	os.Remove("filesXml")
+}
+
 func SerzConvert(folder, ext string) {
 	fmt.Printf("Converting files")
 	err := filepath.Walk(folder, func(path string, info os.FileInfo, err error) error {
