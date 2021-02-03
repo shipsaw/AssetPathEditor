@@ -3,7 +3,9 @@ package bin
 import (
 	"bytes"
 	"encoding/xml"
+	"errors"
 	"fmt"
+	"io"
 	"log"
 	"os"
 	"os/exec"
@@ -13,75 +15,133 @@ import (
 	"trainTest/asset"
 )
 
-func Setup() {
-	os.Mkdir("filesXml", 0755)
+var (
+	ErrCopyMismatch error = errors.New("error: file copy size mismatch")
+)
+
+func Setup(binFolder, backupFolder string) error {
+	if err := os.Mkdir("tempFiles", 0755); err != nil {
+		return err
+	}
+	if err := os.Mkdir(backupFolder, 0755); err != nil {
+		return err
+	}
+	if err := backupScenery(binFolder, backupFolder); err != nil {
+		return err
+	}
+	return nil
 }
 
-func Teardown() {
-	os.Remove("filesXml")
+func Teardown(backupFolder string, removeBackups bool) {
+	if removeBackups == true {
+		os.Remove(backupFolder)
+	}
+	os.Remove("tempFiles")
 }
 
-func SerzConvert(folder, ext string) {
-	fmt.Printf("Converting files")
-	err := filepath.Walk(folder, func(path string, info os.FileInfo, err error) error {
+func backupScenery(srcFolder, dstFolder string) error {
+	err := filepath.Walk(srcFolder, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
-			log.Fatal(err)
+			return err
+		}
+		if info.IsDir() != true && filepath.Ext(path) == ".bin" {
+			origFile, err := os.Open(path)
+			if err != nil {
+				return err
+			}
+			defer origFile.Close()
+
+			newFile, err := os.Create(dstFolder + info.Name())
+			if err != nil {
+				return err
+			}
+			writ, err := io.Copy(newFile, origFile)
+			if err != nil {
+				return err
+			}
+			if writ != info.Size() {
+				return ErrCopyMismatch
+			}
+			return newFile.Close()
+		}
+		return nil
+	})
+	return err
+}
+
+func Revert(binFolder, backupFolder string) error {
+	return backupScenery(backupFolder, binFolder)
+}
+
+func SerzConvert(binFolder, ext string) error {
+	fmt.Printf("Converting files")
+	err := filepath.Walk(binFolder, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
 		}
 		if info.IsDir() != true && filepath.Ext(path) == ext {
 			cmd := exec.Command("./serz.exe", path)
 			if err := cmd.Run(); err != nil {
-				fmt.Println("Error: ", err)
+				return err
 			}
 			err := os.Remove(path)
 			if err != nil {
-				log.Fatal(err)
+				return err
 			}
 		}
 		fmt.Printf(".")
 		return nil
 	})
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	fmt.Printf("\n")
+	return nil
 }
+
 func ListReqAssets(binFolder string) (asset.MisAssetMap, error) {
-	SerzConvert(binFolder, ".bin")
+	err := SerzConvert(binFolder, ".bin")
+	if err != nil {
+		return nil, err
+	}
 	fmt.Printf("Processing xml files")
 	misAssetMap := make(asset.MisAssetMap)
-	err := filepath.Walk(binFolder, func(path string, info os.FileInfo, err error) error {
+	err = filepath.Walk(binFolder, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 		if info.IsDir() != true && filepath.Ext(path) == ".xml" {
-			getFileAssets(path, misAssetMap)
+			err = getFileAssets(path, misAssetMap)
+			if err != nil {
+				return err
+			}
 		}
 		return nil
 	})
 	if err != nil {
-		log.Fatal(err)
+		return nil, err
 	}
 	fmt.Printf("\n")
 	return misAssetMap, nil
 }
 
-func getFileAssets(path string, misAssets asset.MisAssetMap) {
+func getFileAssets(path string, misAssets asset.MisAssetMap) error {
 	fmt.Printf(".")
 	xmlStruct := RecordSet{}
 	// Open xml file
 	xmlFile, err := os.Open(path)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	defer xmlFile.Close()
 	info, err := os.Lstat(path)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	xmlBytes := make([]byte, info.Size())
 	numRead, err := xmlFile.Read(xmlBytes)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	// Check that xml processing looks correct
 	if numRead != int(info.Size()) {
@@ -90,7 +150,7 @@ func getFileAssets(path string, misAssets asset.MisAssetMap) {
 	// Unmarshal xml
 	err = xml.Unmarshal(xmlBytes, &xmlStruct)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	// Add assets to asset map
 	entityCount := len(xmlStruct.Record.Entities)
@@ -105,25 +165,27 @@ func getFileAssets(path string, misAssets asset.MisAssetMap) {
 		}
 		misAssets[tempAsset] = asset.EmptyAsset
 	}
+	return nil
 }
 
-func MoveXmlFiles(oldLoc string, newLoc string) {
+func MoveXmlFiles(oldLoc string, newLoc string) error {
 	err := filepath.Walk(oldLoc, func(path string, info os.FileInfo, err error) error {
 		if info.IsDir() != true && filepath.Ext(path) == ".xml" {
 			newPath := newLoc + filepath.Base(path)
 			err = os.Rename(path, newPath)
 			if err != nil {
-				panic(err)
+				return err
 			}
 		}
 		return nil
 	})
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
+	return nil
 }
 
-func ReplaceXmlText(xmlFolder string, misAssets asset.MisAssetMap) {
+func ReplaceXmlText(xmlFolder string, misAssets asset.MisAssetMap) error {
 	var groupedString string = `\s*<Provider d:type="cDeltaString">(.+)</Provider>\s*` +
 		`\s*<Product d:type="cDeltaString">(.+)</Product>\s*` +
 		`\s*</iBlueprintLibrary-cBlueprintSetID>\s*` +
@@ -133,20 +195,18 @@ func ReplaceXmlText(xmlFolder string, misAssets asset.MisAssetMap) {
 
 	err := filepath.Walk(xmlFolder, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 		if info.IsDir() != true {
 			xmlFile, err := os.OpenFile(path, os.O_RDWR, 0755)
 			if err != nil {
-				fmt.Println("ERR1")
-				log.Fatal(err)
+				return err
 			}
 			defer xmlFile.Close()
 			fileBytes := make([]byte, info.Size())
 			_, err = xmlFile.Read(fileBytes)
 			if err != nil {
-				fmt.Println("ERR2")
-				log.Fatal(err)
+				return err
 			}
 
 			for oldAsset, newAsset := range misAssets {
@@ -181,19 +241,19 @@ func ReplaceXmlText(xmlFolder string, misAssets asset.MisAssetMap) {
 			fmt.Printf(".")
 			err = xmlFile.Truncate(0)
 			if err != nil {
-				fmt.Println("Truncate error")
-				log.Fatal(err)
+				return err
 			}
 			_, err = xmlFile.WriteAt(fileBytes, 0)
 			if err != nil {
-				log.Fatal(err)
+				return err
 			}
 
 		}
 		return nil
 	})
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	fmt.Printf("\n")
+	return nil
 }

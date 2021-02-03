@@ -3,7 +3,6 @@ package asset
 import (
 	"bytes"
 	"fmt"
-	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -76,11 +75,11 @@ OUTER:
 	fmt.Printf("%v assets have been found, but not in the requested location\n", differentPlace)
 }
 
-func Index(misAssets MisAssetMap) allAssetMap {
+func Index(misAssets MisAssetMap) (allAssetMap, error) {
 	allAssets := make(allAssetMap)
 	err := filepath.Walk(`.\Assets`, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 		if filepath.Ext(path) == ".bin" {
 			// Seperate to find providers, products, and paths
@@ -99,18 +98,18 @@ func Index(misAssets MisAssetMap) allAssetMap {
 		return nil
 	})
 	if err != nil {
-		log.Fatal(err)
+		return nil, err
 	}
-	return allAssets
+	return allAssets, nil
 }
 
-func GetZipAssets(filename string, misAssets MisAssetMap, allAssets allAssetMap) {
+func GetZipAssets(filename string, misAssets MisAssetMap, allAssets allAssetMap) error {
 	filenameSlice := strings.SplitN(filename, `\`, 4)
 	var buf bytes.Buffer
 	cmd := exec.Command("7z.exe", "l", filename, "-ba")
 	cmd.Stdout = &buf
 	if err := cmd.Run(); err != nil {
-		log.Fatal(err)
+		return err
 	}
 	zipString := buf.String()
 	for misAsset, _ := range misAssets {
@@ -123,4 +122,5 @@ func GetZipAssets(filename string, misAssets MisAssetMap, allAssets allAssetMap)
 			allAssets[asset] = true
 		}
 	}
+	return nil
 }
