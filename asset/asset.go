@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"sort"
 	"strings"
 )
 
@@ -21,27 +22,33 @@ var EmptyAsset = Asset{
 	Filepath: "",
 }
 
-type MisAssetMap map[Asset]Asset
-type allAssetMap map[Asset]bool
+type AssetAssetMap map[Asset]Asset
+type AssetBoolMap map[Asset]bool
 
-func Print(misAssets MisAssetMap) {
-	/*assetList := make([]Asset, len(misAssets))
+func GetProviders(misAssets AssetAssetMap) {
+	uniqueAssets := make(map[string]string)
+	for asset, _ := range misAssets {
+		if _, ok := uniqueAssets[asset.Product]; ok == false {
+			uniqueAssets[asset.Product] = asset.Provider
+		}
+	}
+
+	assetList := make([][2]string, len(uniqueAssets))
 	i := 0
-	for misAsset, foundAsset := range misAssets {
-		assetList[i] = asset
+	for product, provider := range uniqueAssets {
+		assetList[i][0] = provider
+		assetList[i][1] = product
 		i++
 	}
 	sort.Slice(assetList, func(i, j int) bool {
-		return assetList[i].Product > assetList[j].Product
+		return assetList[i][0] > assetList[j][0]
 	})
-	/*
-		for _, asset := range assetList {
-			fmt.Printf("Prod: %-19vProv: %-19vPath: %v\n", asset.Product, asset.Provider, asset.Filepath)
-		}
-	*/
+	for _, ProvProd := range assetList {
+		fmt.Printf("%-19v%-19v\n", ProvProd[0], ProvProd[1])
+	}
 }
 
-func Check(misAssets MisAssetMap, allAssets allAssetMap) {
+func Check(misAssets AssetAssetMap, allAssets AssetBoolMap) {
 	fmt.Printf("There are initially %d required assets\n", len(misAssets))
 	rightPlace := 0
 	differentPlace := 0
@@ -75,8 +82,8 @@ OUTER:
 	fmt.Printf("%v assets have been found, but not in the requested location\n", differentPlace)
 }
 
-func Index(misAssets MisAssetMap) (allAssetMap, error) {
-	allAssets := make(allAssetMap)
+func Index(misAssets AssetAssetMap) (AssetBoolMap, error) {
+	allAssets := make(AssetBoolMap)
 	err := filepath.Walk(`.\Assets`, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
@@ -103,7 +110,7 @@ func Index(misAssets MisAssetMap) (allAssetMap, error) {
 	return allAssets, nil
 }
 
-func GetZipAssets(filename string, misAssets MisAssetMap, allAssets allAssetMap) error {
+func GetZipAssets(filename string, misAssets AssetAssetMap, allAssets AssetBoolMap) error {
 	filenameSlice := strings.SplitN(filename, `\`, 4)
 	var buf bytes.Buffer
 	cmd := exec.Command("7z.exe", "l", filename, "-ba")

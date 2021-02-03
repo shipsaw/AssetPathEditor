@@ -15,15 +15,28 @@ import (
 	"trainTest/asset"
 )
 
+const (
+	sceneryFolder string = `Scenery\`
+)
+
 var (
 	ErrCopyMismatch error = errors.New("error: file copy size mismatch")
 )
 
-func Setup(binFolder, backupFolder string) error {
+func Setup(routeFolder, backupFolder string) error {
+	binFolder := routeFolder + sceneryFolder
 	if err := os.Mkdir("tempFiles", 0755); err != nil {
 		return err
 	}
 	if err := os.Mkdir(backupFolder, 0755); err != nil {
+		if e, ok := err.(*os.PathError); ok {
+			if os.IsExist(e) {
+				fmt.Println("Backup directory already exists, overwrite?")
+				//TODO ask if overwrite backup
+				return nil
+			}
+			return e
+		}
 		return err
 	}
 	if err := backupScenery(binFolder, backupFolder); err != nil {
@@ -69,7 +82,8 @@ func backupScenery(srcFolder, dstFolder string) error {
 	return err
 }
 
-func Revert(binFolder, backupFolder string) error {
+func Revert(routeFolder, backupFolder string) error {
+	binFolder := routeFolder + sceneryFolder
 	return backupScenery(backupFolder, binFolder)
 }
 
@@ -99,13 +113,14 @@ func SerzConvert(binFolder, ext string) error {
 	return nil
 }
 
-func ListReqAssets(binFolder string) (asset.MisAssetMap, error) {
+func ListReqAssets(routeFolder string) (asset.AssetAssetMap, error) {
+	binFolder := routeFolder + sceneryFolder
 	err := SerzConvert(binFolder, ".bin")
 	if err != nil {
 		return nil, err
 	}
 	fmt.Printf("Processing xml files")
-	misAssetMap := make(asset.MisAssetMap)
+	misAssetMap := make(asset.AssetAssetMap)
 	err = filepath.Walk(binFolder, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
@@ -125,7 +140,7 @@ func ListReqAssets(binFolder string) (asset.MisAssetMap, error) {
 	return misAssetMap, nil
 }
 
-func getFileAssets(path string, misAssets asset.MisAssetMap) error {
+func getFileAssets(path string, misAssets asset.AssetAssetMap) error {
 	fmt.Printf(".")
 	xmlStruct := RecordSet{}
 	// Open xml file
@@ -185,7 +200,7 @@ func MoveXmlFiles(oldLoc string, newLoc string) error {
 	return nil
 }
 
-func ReplaceXmlText(xmlFolder string, misAssets asset.MisAssetMap) error {
+func ReplaceXmlText(xmlFolder string, misAssets asset.AssetAssetMap) error {
 	var groupedString string = `\s*<Provider d:type="cDeltaString">(.+)</Provider>\s*` +
 		`\s*<Product d:type="cDeltaString">(.+)</Product>\s*` +
 		`\s*</iBlueprintLibrary-cBlueprintSetID>\s*` +
