@@ -1,5 +1,10 @@
 package asset
 
+/*
+	asset contains the functions that are involved in processing and updating the assets listed
+	in the route's xml files
+*/
+
 import (
 	"bytes"
 	"encoding/xml"

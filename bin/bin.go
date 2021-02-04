@@ -1,5 +1,10 @@
 package bin
 
+/*
+	The bin package is involved in program setup, teardown, and the movement
+	and conversion of bin/xml files
+*/
+
 import (
 	"errors"
 	"fmt"
