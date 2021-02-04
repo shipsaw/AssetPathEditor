@@ -66,9 +66,12 @@ func Setup(routeFolder, backupFolder string) error {
 func Teardown(backupFolder string, removeBackups bool) {
 	if removeBackups == true {
 		//TODO remove directory and files
-		os.Remove(backupFolder)
+		err := os.RemoveAll(backupFolder)
+		if err != nil {
+			fmt.Println(err)
+		}
 	}
-	os.Remove("tempFiles")
+	os.RemoveAll("tempFiles")
 }
 
 func backupScenery(srcFolder, dstFolder string) error {

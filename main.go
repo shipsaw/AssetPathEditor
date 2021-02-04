@@ -9,7 +9,7 @@ import (
 
 const (
 	routeFolder  string = `.\Content\Routes\89f87a1c-fbd4-4f05-ba8b-16069484fa41\`
-	backupFolder string = routeFolder + `AssetBackup\`
+	backupFolder string = `AssetBackup\`
 	replaceRoute string = `.\Content\Routes\3a99321a-0bb2-47be-bcad-b20cfe48a945\`
 )
 
@@ -66,19 +66,20 @@ func main() {
 // ListProviders list the products and providers used by a route.  It does the normal setup/teardown in the route
 // but doesn't care about backups because nothing is changed in the bin files
 func ListProviders(route string) error {
+	routeBackup := route + backupFolder
 	fmt.Println("Running setup")
-	err := bin.Setup(route, backupFolder)
+	err := bin.Setup(route, routeBackup)
 	if err != nil {
-		bin.Teardown(backupFolder, true)
+		bin.Teardown(routeBackup, true)
 		log.Fatal(err)
 	}
 	misAssets, err := bin.ListReqAssets()
 	if err != nil {
-		bin.Teardown(backupFolder, false)
+		bin.Teardown(routeBackup, false)
 		log.Fatal(err)
 	}
 	_ = asset.GetProviders(misAssets)
-	bin.Revert(route, backupFolder)
-	bin.Teardown(backupFolder, true)
+	bin.Revert(route, routeBackup)
+	bin.Teardown(routeBackup, true)
 	return nil
 }
