@@ -25,7 +25,7 @@ var EmptyAsset = Asset{
 type AssetAssetMap map[Asset]Asset
 type AssetBoolMap map[Asset]bool
 
-func GetProviders(misAssets AssetAssetMap) {
+func GetProviders(misAssets AssetAssetMap) map[string]string {
 	uniqueAssets := make(map[string]string)
 	for asset, _ := range misAssets {
 		if _, ok := uniqueAssets[asset.Product]; ok == false {
@@ -43,9 +43,14 @@ func GetProviders(misAssets AssetAssetMap) {
 	sort.Slice(assetList, func(i, j int) bool {
 		return assetList[i][0] > assetList[j][0]
 	})
+	fmt.Printf("\n\nRoute Dependancies:\n")
+	fmt.Printf("%-19v%-19v\n", "Provider", "Product")
+	fmt.Println("--------------------------------------")
 	for _, ProvProd := range assetList {
 		fmt.Printf("%-19v%-19v\n", ProvProd[0], ProvProd[1])
 	}
+	fmt.Printf("\n\n")
+	return uniqueAssets
 }
 
 func Check(misAssets AssetAssetMap, allAssets AssetBoolMap) {

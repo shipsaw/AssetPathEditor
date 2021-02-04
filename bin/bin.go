@@ -17,12 +17,15 @@ import (
 
 const (
 	sceneryFolder string = `Scenery\`
+	xmlFolder     string = `tempFiles\`
 )
 
 var (
 	ErrCopyMismatch error = errors.New("error: file copy size mismatch")
+	ErrNoOverwrite  error = errors.New("Overwrite of existing backups declined")
 )
 
+// Setup backs up files, converts bin to xml, then moves the xml to the temporary workspace.
 func Setup(routeFolder, backupFolder string) error {
 	binFolder := routeFolder + sceneryFolder
 	if err := os.Mkdir("tempFiles", 0755); err != nil {
@@ -31,15 +34,30 @@ func Setup(routeFolder, backupFolder string) error {
 	if err := os.Mkdir(backupFolder, 0755); err != nil {
 		if e, ok := err.(*os.PathError); ok {
 			if os.IsExist(e) {
+				overwrite := 'y'
 				fmt.Println("Backup directory already exists, overwrite?")
-				//TODO ask if overwrite backup
-				return nil
+				fmt.Scanf("%c\n", &overwrite)
+				if overwrite == 'n' || overwrite == 'N' {
+					Teardown(backupFolder, true)
+					return ErrNoOverwrite
+				}
 			}
-			return e
+		} else {
+			return err
 		}
+	}
+
+	if err := backupScenery(binFolder, backupFolder); err != nil {
 		return err
 	}
-	if err := backupScenery(binFolder, backupFolder); err != nil {
+
+	if err := moveAssetFiles(binFolder, xmlFolder, ".bin"); err != nil {
+		Teardown(backupFolder, true)
+		return err
+	}
+
+	if err := serzConvert(xmlFolder, ".bin"); err != nil {
+		Teardown(backupFolder, true)
 		return err
 	}
 	return nil
@@ -47,6 +65,7 @@ func Setup(routeFolder, backupFolder string) error {
 
 func Teardown(backupFolder string, removeBackups bool) {
 	if removeBackups == true {
+		//TODO remove directory and files
 		os.Remove(backupFolder)
 	}
 	os.Remove("tempFiles")
@@ -87,7 +106,7 @@ func Revert(routeFolder, backupFolder string) error {
 	return backupScenery(backupFolder, binFolder)
 }
 
-func SerzConvert(binFolder, ext string) error {
+func serzConvert(binFolder, ext string) error {
 	fmt.Printf("Converting files")
 	err := filepath.Walk(binFolder, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -113,19 +132,14 @@ func SerzConvert(binFolder, ext string) error {
 	return nil
 }
 
-func ListReqAssets(routeFolder string) (asset.AssetAssetMap, error) {
-	binFolder := routeFolder + sceneryFolder
-	err := SerzConvert(binFolder, ".bin")
-	if err != nil {
-		return nil, err
-	}
+func ListReqAssets() (asset.AssetAssetMap, error) {
 	fmt.Printf("Processing xml files")
 	misAssetMap := make(asset.AssetAssetMap)
-	err = filepath.Walk(binFolder, func(path string, info os.FileInfo, err error) error {
+	err := filepath.Walk(xmlFolder, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}
-		if info.IsDir() != true && filepath.Ext(path) == ".xml" {
+		if info.IsDir() != true {
 			err = getFileAssets(path, misAssetMap)
 			if err != nil {
 				return err
@@ -183,9 +197,9 @@ func getFileAssets(path string, misAssets asset.AssetAssetMap) error {
 	return nil
 }
 
-func MoveXmlFiles(oldLoc string, newLoc string) error {
+func moveAssetFiles(oldLoc, newLoc, ext string) error {
 	err := filepath.Walk(oldLoc, func(path string, info os.FileInfo, err error) error {
-		if info.IsDir() != true && filepath.Ext(path) == ".xml" {
+		if info.IsDir() != true && filepath.Ext(path) == ext {
 			newPath := newLoc + filepath.Base(path)
 			err = os.Rename(path, newPath)
 			if err != nil {
