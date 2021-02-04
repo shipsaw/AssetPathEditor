@@ -67,13 +67,12 @@ func main() {
 // but doesn't care about backups because nothing is changed in the bin files
 func ListProviders(route string) error {
 	routeBackup := route + backupFolder
-	fmt.Println("Running setup")
 	err := bin.Setup(route, routeBackup)
 	if err != nil {
 		bin.Teardown(routeBackup, true)
 		log.Fatal(err)
 	}
-	misAssets, err := bin.ListReqAssets()
+	misAssets, err := asset.ListReqAssets()
 	if err != nil {
 		bin.Teardown(routeBackup, false)
 		log.Fatal(err)

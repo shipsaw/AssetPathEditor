@@ -2,29 +2,25 @@ package asset
 
 import (
 	"bytes"
+	"encoding/xml"
 	"fmt"
+	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
+	"regexp"
 	"sort"
 	"strings"
+	"trainTest/bin"
+	"trainTest/types"
 )
 
-type Asset struct {
-	Product  string
-	Provider string
-	Filepath string
-}
+const xmlFolder string = `tempFiles\`
 
-var EmptyAsset = Asset{
-	Product:  "",
-	Provider: "",
-	Filepath: "",
-}
+type AssetAssetMap map[types.Asset]types.Asset
+type AssetBoolMap map[types.Asset]bool
 
-type AssetAssetMap map[Asset]Asset
-type AssetBoolMap map[Asset]bool
-
+// GetProviders lists the unique products and providers that a route uses
 func GetProviders(misAssets AssetAssetMap) map[string]string {
 	uniqueAssets := make(map[string]string)
 	for asset, _ := range misAssets {
@@ -67,7 +63,7 @@ OUTER:
 				delete(misAssets, misAsset)
 				continue OUTER
 			} else if misAsset.Filepath == locAsset.Filepath {
-				tempAsset := Asset{
+				tempAsset := types.Asset{
 					Product:  locAsset.Product,
 					Provider: locAsset.Provider,
 					Filepath: locAsset.Filepath,
@@ -77,7 +73,7 @@ OUTER:
 				continue OUTER
 			}
 		}
-		if value == EmptyAsset {
+		if value == types.EmptyAsset {
 			fmt.Println(misAsset)
 			notFound++
 		}
@@ -97,7 +93,7 @@ func Index(misAssets AssetAssetMap) (AssetBoolMap, error) {
 			// Seperate to find providers, products, and paths
 			pathSlice := strings.SplitN(path, `\`, 4)
 			if len(pathSlice) == 4 {
-				asset := Asset{
+				asset := types.Asset{
 					Product:  pathSlice[2],
 					Provider: pathSlice[1],
 					Filepath: pathSlice[3],
@@ -126,13 +122,159 @@ func GetZipAssets(filename string, misAssets AssetAssetMap, allAssets AssetBoolM
 	zipString := buf.String()
 	for misAsset, _ := range misAssets {
 		if strings.Contains(zipString, misAsset.Filepath) {
-			asset := Asset{
+			asset := types.Asset{
 				Product:  filenameSlice[2],
 				Provider: filenameSlice[1],
 				Filepath: misAsset.Filepath,
 			}
 			allAssets[asset] = true
 		}
+	}
+	return nil
+}
+
+// ListReqAssets goes through the xml files in the temp folder and reads the asset
+// dependancies listed in each file, returning a map of [Asset]Asset
+func ListReqAssets() (AssetAssetMap, error) {
+	fmt.Printf("Processing xml files")
+	misAssetMap := make(AssetAssetMap)
+	err := filepath.Walk(xmlFolder, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if info.IsDir() != true {
+			err = getFileAssets(path, misAssetMap)
+			if err != nil {
+				return err
+			}
+		}
+		fmt.Printf(".")
+		return nil
+	})
+	if err != nil {
+		return nil, err
+	}
+	fmt.Printf("\n")
+	return misAssetMap, nil
+}
+
+// ReplaceXmlText works through a folder of xml files, and using the list of missing
+// and located assets provided by missingAssetMap, substitutes the missing assets with
+// the found ones
+func ReplaceXmlText(xmlFolder string, misAssets AssetAssetMap) error {
+	// string used by regex to pull groups out of the xml file
+	var groupedString string = `\s*<Provider d:type="cDeltaString">(.+)</Provider>\s*` +
+		`\s*<Product d:type="cDeltaString">(.+)</Product>\s*` +
+		`\s*</iBlueprintLibrary-cBlueprintSetID>\s*` +
+		`\s*</BlueprintSetID>\s*` +
+		`\s*<BlueprintID d:type="cDeltaString">(.+)</BlueprintID>`
+	fmt.Printf("Updating XML files")
+
+	err := filepath.Walk(xmlFolder, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if info.IsDir() != true {
+			xmlFile, err := os.OpenFile(path, os.O_RDWR, 0755)
+			if err != nil {
+				return err
+			}
+			fileBytes := make([]byte, info.Size())
+			_, err = xmlFile.Read(fileBytes)
+			if err != nil {
+				return err
+			}
+
+			for oldAsset, newAsset := range misAssets {
+				if newAsset == types.EmptyAsset {
+					continue
+				}
+				fixPath := strings.ReplaceAll(oldAsset.Filepath, `\`, `\\`) // prevents \ being read as escape characters
+				fixPath = strings.ReplaceAll(fixPath, ".bin", ".xml")       // In the xml doc, assets have xml extensions
+				// findString is the string used by regex to find the asset lisiting in the xml (for a specific asset)
+				var findString string = `<Provider d:type="cDeltaString">` + oldAsset.Provider + `</Provider>\s*` +
+					`\s*<Product d:type="cDeltaString">` + oldAsset.Product + `</Product>\s*` +
+					`\s*</iBlueprintLibrary-cBlueprintSetID>\s*` +
+					`\s*</BlueprintSetID>\s*` +
+					`\s*<BlueprintID d:type="cDeltaString">` + fixPath + `</BlueprintID>`
+				regex := regexp.MustCompile(findString)
+				retReg := regex.Find(fileBytes) // Is the pattern located in the file?
+				if retReg == nil {
+					continue
+				}
+				groupRegex := regexp.MustCompile(groupedString) // Pull the groups from the match
+				matches := groupRegex.FindSubmatch(retReg)      // put them in a slice
+				if len(matches) == 0 {
+					log.Fatal("There was an error parsing the groups in the regex")
+				}
+
+				fixNewPath := strings.ReplaceAll(newAsset.Filepath, ".bin", ".xml") // new asset is converted to match
+				// Replace the xml (now byte slice) matches
+				retRegNew := bytes.Replace(retReg, matches[1], []byte(newAsset.Provider), 1)
+				retRegNew = bytes.Replace(retRegNew, matches[2], []byte(newAsset.Product), 1)
+				retRegNew = bytes.Replace(retRegNew, matches[3], []byte(fixNewPath), 1)
+				fileBytes = bytes.Replace(fileBytes, retReg, retRegNew, -1)
+
+			}
+			fmt.Printf(".")
+			err = xmlFile.Truncate(0) // make sure we overwrite the old xml doc
+			if err != nil {
+				return err
+			}
+			_, err = xmlFile.WriteAt(fileBytes, 0)
+			if err != nil {
+				return err
+			}
+			xmlFile.Close()
+		}
+		return nil
+	})
+	if err != nil {
+		return err
+	}
+	fmt.Printf("\n")
+	return nil
+}
+
+// getFileAssets is a function that is used by .ListReqAssets to get the assets
+// from a specific file
+func getFileAssets(path string, misAssets AssetAssetMap) error { // Open xml file
+	xmlFile, err := os.Open(path)
+	if err != nil {
+		return err
+	}
+	defer xmlFile.Close()
+	info, err := os.Lstat(path)
+	if err != nil {
+		return err
+	}
+	xmlBytes := make([]byte, info.Size())
+	numRead, err := xmlFile.Read(xmlBytes)
+	if err != nil {
+		return err
+	}
+	// Check that xml processing looks correct
+	if numRead != int(info.Size()) {
+		log.Fatal("Size mismatch on file ", path)
+	}
+	// Unmarshal xml
+	xmlStruct := bin.RecordSet{}
+	err = xml.Unmarshal(xmlBytes, &xmlStruct)
+	if err != nil {
+		return err
+	}
+	// Add s to asset map
+	entityCount := len(xmlStruct.Record.Entities)
+	for i := 0; i < entityCount; i++ {
+		// Route calls for .xml scenery, but stored in Assets as .bin
+		tempFilepath := xmlStruct.Record.Entities[i].BlueprintID.AbsBlueprint.BlueprintID
+		tempFilepath = strings.ReplaceAll(tempFilepath, "xml", "bin")
+		tempAsset := types.Asset{
+			Filepath: tempFilepath,
+			Product:  xmlStruct.Record.Entities[i].BlueprintID.AbsBlueprint.BlueprintSet.BlueprintLibSet.Product,
+			Provider: xmlStruct.Record.Entities[i].BlueprintID.AbsBlueprint.BlueprintSet.BlueprintLibSet.Provider,
+		}
+		misAssets[tempAsset] = types.EmptyAsset
 	}
 	return nil
 }
