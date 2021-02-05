@@ -54,7 +54,7 @@ func Setup(routeFolder, backupFolder string) error {
 		return err
 	}
 
-	if err := moveAssetFiles(binFolder, xmlFolder, ".bin"); err != nil {
+	if err := MoveAssetFiles(binFolder, xmlFolder, ".bin"); err != nil {
 		Teardown(backupFolder, true)
 		return err
 	}
@@ -142,9 +142,9 @@ func SerzConvert(ext string) error {
 	return nil
 }
 
-// moveAssetFiles moves .bin or .xml files form oldLoc TO newLoc, ignoring files that do not
+// MoveAssetFiles moves .bin or .xml files form oldLoc TO newLoc, ignoring files that do not
 // have the extension passed by ext
-func moveAssetFiles(oldLoc, newLoc, ext string) error {
+func MoveAssetFiles(oldLoc, newLoc, ext string) error {
 	err := filepath.Walk(oldLoc, func(path string, info os.FileInfo, err error) error {
 		if info.IsDir() != true && filepath.Ext(path) == ext {
 			newPath := newLoc + filepath.Base(path)
