@@ -59,7 +59,7 @@ func Setup(routeFolder, backupFolder string) error {
 		return err
 	}
 
-	if err := serzConvert(".bin"); err != nil {
+	if err := SerzConvert(".bin"); err != nil {
 		Teardown(backupFolder, true)
 		return err
 	}
@@ -113,9 +113,10 @@ func Revert(routeFolder, backupFolder string) error {
 	return backupScenery(backupFolder, binFolder)
 }
 
-// serzConvert uses the DTG serz.exe to convert .bin to .xml
+// SerzConvert uses the DTG serz.exe to convert .bin to .xml
 // ext controls the filetype to convert FROM
-func serzConvert(ext string) error {
+// Defaults to converting
+func SerzConvert(ext string) error {
 	fmt.Printf("Converting files")
 	err := filepath.Walk(xmlFolder, func(path string, info os.FileInfo, err error) error {
 		if err != nil {

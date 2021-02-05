@@ -20,10 +20,16 @@ import (
 	"trainTest/types"
 )
 
-const xmlFolder string = `tempFiles\`
+const (
+	routeFolder  string = `.\Content\Routes\89f87a1c-fbd4-4f05-ba8b-16069484fa41\`
+	backupFolder string = `AssetBackup\`
+	replaceRoute string = `.\Content\Routes\3a99321a-0bb2-47be-bcad-b20cfe48a945\`
+	xmlFolder    string = `tempFiles\`
+)
 
 type AssetAssetMap map[types.Asset]types.Asset
 type AssetBoolMap map[types.Asset]bool
+type ProviderMap map[string]string
 
 // GetProviders lists the unique products and providers that a route uses
 func GetProviders(misAssets AssetAssetMap) map[string]string {
@@ -52,6 +58,62 @@ func GetProviders(misAssets AssetAssetMap) map[string]string {
 	}
 	fmt.Printf("\n\n")
 	return uniqueAssets
+}
+
+// ListReqAssets goes through the xml files in the temp folder and reads the asset
+// dependancies listed in each file, returning a map of [Asset]Asset
+func ListReqAssets() (AssetAssetMap, error) {
+	fmt.Printf("Processing xml files")
+	misAssetMap := make(AssetAssetMap)
+	err := filepath.Walk(xmlFolder, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if info.IsDir() != true {
+			err = getFileAssets(path, misAssetMap)
+			if err != nil {
+				return err
+			}
+		}
+		fmt.Printf(".")
+		return nil
+	})
+	if err != nil {
+		return nil, err
+	}
+	fmt.Printf("\n")
+	return misAssetMap, nil
+}
+
+// Index finds all the assets in the asset folder that are located in the provider folders
+func Index(misAssets AssetAssetMap, providers ProviderMap) (AssetBoolMap, error) {
+	allAssets := make(AssetBoolMap)
+	err := filepath.Walk(`.\Assets`, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if filepath.Ext(path) == ".bin" {
+			// Seperate to find providers, products, and paths
+			pathSlice := strings.SplitN(path, `\`, 4)
+			if len(pathSlice) == 4 { //Catches some misplaced .bins creators have placed
+				asset := types.Asset{
+					Product:  pathSlice[2],
+					Provider: pathSlice[1],
+					Filepath: pathSlice[3],
+				}
+				if providers[asset.Provider] == asset.Product { // If this .bin is in our providers map
+					allAssets[asset] = false
+				}
+			}
+		} else if filepath.Ext(path) == ".ap" {
+			getZipAssets(path, misAssets, allAssets, providers)
+		}
+		return nil
+	})
+	if err != nil {
+		return nil, err
+	}
+	return allAssets, nil
 }
 
 func Check(misAssets AssetAssetMap, allAssets AssetBoolMap) {
@@ -88,35 +150,7 @@ OUTER:
 	fmt.Printf("%v assets have been found, but not in the requested location\n", differentPlace)
 }
 
-func Index(misAssets AssetAssetMap) (AssetBoolMap, error) {
-	allAssets := make(AssetBoolMap)
-	err := filepath.Walk(`.\Assets`, func(path string, info os.FileInfo, err error) error {
-		if err != nil {
-			return err
-		}
-		if filepath.Ext(path) == ".bin" {
-			// Seperate to find providers, products, and paths
-			pathSlice := strings.SplitN(path, `\`, 4)
-			if len(pathSlice) == 4 {
-				asset := types.Asset{
-					Product:  pathSlice[2],
-					Provider: pathSlice[1],
-					Filepath: pathSlice[3],
-				}
-				allAssets[asset] = false
-			}
-		} else if filepath.Ext(path) == ".ap" {
-			GetZipAssets(path, misAssets, allAssets)
-		}
-		return nil
-	})
-	if err != nil {
-		return nil, err
-	}
-	return allAssets, nil
-}
-
-func GetZipAssets(filename string, misAssets AssetAssetMap, allAssets AssetBoolMap) error {
+func getZipAssets(filename string, misAssets AssetAssetMap, allAssets AssetBoolMap, providers ProviderMap) error {
 	filenameSlice := strings.SplitN(filename, `\`, 4)
 	var buf bytes.Buffer
 	cmd := exec.Command("7z.exe", "l", filename, "-ba")
@@ -132,41 +166,18 @@ func GetZipAssets(filename string, misAssets AssetAssetMap, allAssets AssetBoolM
 				Provider: filenameSlice[1],
 				Filepath: misAsset.Filepath,
 			}
-			allAssets[asset] = true
+			if providers[asset.Provider] == asset.Product { // If this .bin is in our providers map
+				allAssets[asset] = false
+			}
 		}
 	}
 	return nil
 }
 
-// ListReqAssets goes through the xml files in the temp folder and reads the asset
-// dependancies listed in each file, returning a map of [Asset]Asset
-func ListReqAssets() (AssetAssetMap, error) {
-	fmt.Printf("Processing xml files")
-	misAssetMap := make(AssetAssetMap)
-	err := filepath.Walk(xmlFolder, func(path string, info os.FileInfo, err error) error {
-		if err != nil {
-			return err
-		}
-		if info.IsDir() != true {
-			err = getFileAssets(path, misAssetMap)
-			if err != nil {
-				return err
-			}
-		}
-		fmt.Printf(".")
-		return nil
-	})
-	if err != nil {
-		return nil, err
-	}
-	fmt.Printf("\n")
-	return misAssetMap, nil
-}
-
 // ReplaceXmlText works through a folder of xml files, and using the list of missing
 // and located assets provided by missingAssetMap, substitutes the missing assets with
 // the found ones
-func ReplaceXmlText(xmlFolder string, misAssets AssetAssetMap) error {
+func ReplaceXmlText(misAssets AssetAssetMap) error {
 	// string used by regex to pull groups out of the xml file
 	var groupedString string = `\s*<Provider d:type="cDeltaString">(.+)</Provider>\s*` +
 		`\s*<Product d:type="cDeltaString">(.+)</Product>\s*` +
@@ -281,5 +292,59 @@ func getFileAssets(path string, misAssets AssetAssetMap) error { // Open xml fil
 		}
 		misAssets[tempAsset] = types.EmptyAsset
 	}
+	return nil
+}
+
+// ListProviders list the products and providers used by a route.  It does the normal setup/teardown in the route
+// but doesn't care about backups because nothing is changed in the bin files
+func ListProviders(route string) (map[string]string, error) {
+	routeBackup := route + backupFolder
+	err := bin.Setup(route, routeBackup)
+	if err != nil {
+		bin.Teardown(routeBackup, true)
+		log.Fatal(err)
+	}
+	misAssets, err := ListReqAssets()
+	if err != nil {
+		bin.Teardown(routeBackup, false)
+		log.Fatal(err)
+	}
+	providers := GetProviders(misAssets)
+	bin.Revert(route, routeBackup)
+	bin.Teardown(routeBackup, true)
+	return providers, nil
+}
+
+func UpdateRoute(route string, providers ProviderMap) error {
+	routeBackup := route + backupFolder
+	err := bin.Setup(route, routeBackup)
+	if err != nil {
+		bin.Teardown(routeBackup, true)
+		log.Fatal(err)
+	}
+	misAssets, err := ListReqAssets()
+	if err != nil {
+		bin.Revert(route, routeBackup)
+		bin.Teardown(routeBackup, true)
+	}
+
+	locAssets, err := Index(misAssets, providers)
+	if err != nil {
+		bin.Revert(route, routeBackup)
+		bin.Teardown(routeBackup, true)
+	}
+	Check(misAssets, locAssets)
+	err = ReplaceXmlText(misAssets)
+	if err != nil {
+		bin.Revert(route, routeBackup)
+		bin.Teardown(routeBackup, false)
+	}
+	err = bin.SerzConvert(".xml")
+	if err != nil {
+		bin.Revert(route, routeBackup)
+		bin.Teardown(routeBackup, false)
+	}
+	bin.Teardown(routeBackup, false)
+
 	return nil
 }
