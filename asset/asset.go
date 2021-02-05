@@ -101,7 +101,7 @@ func Index(misAssets AssetAssetMap, providers ProviderMap) (AssetBoolMap, error)
 					Provider: pathSlice[1],
 					Filepath: pathSlice[3],
 				}
-				if providers[asset.Provider] == asset.Product { // If this .bin is in our providers map
+				if providers[asset.Product] == asset.Provider { // If this .bin is in our providers map
 					allAssets[asset] = false
 				}
 			}
@@ -114,6 +114,31 @@ func Index(misAssets AssetAssetMap, providers ProviderMap) (AssetBoolMap, error)
 		return nil, err
 	}
 	return allAssets, nil
+}
+
+func getZipAssets(filename string, misAssets AssetAssetMap, allAssets AssetBoolMap, providers ProviderMap) error {
+	filenameSlice := strings.SplitN(filename, `\`, 4)
+	var buf bytes.Buffer
+	cmd := exec.Command("7z.exe", "l", filename, "-ba")
+	cmd.Stdout = &buf
+	if err := cmd.Run(); err != nil {
+		return err
+	}
+	zipString := buf.String()
+	for misAsset, _ := range misAssets {
+		if strings.Contains(zipString, misAsset.Filepath) {
+			asset := types.Asset{
+				Product:  filenameSlice[2],
+				Provider: filenameSlice[1],
+				Filepath: misAsset.Filepath,
+			}
+			if providers[asset.Product] == asset.Provider { // If this .bin is in our providers map
+				fmt.Println("Adding asset: ", asset)
+				allAssets[asset] = false
+			}
+		}
+	}
+	return nil
 }
 
 func Check(misAssets AssetAssetMap, allAssets AssetBoolMap) {
@@ -148,30 +173,6 @@ OUTER:
 	fmt.Printf("%v assets cannot be found\n", notFound)
 	fmt.Printf("%v assets have been found in the correct folder\n", rightPlace)
 	fmt.Printf("%v assets have been found, but not in the requested location\n", differentPlace)
-}
-
-func getZipAssets(filename string, misAssets AssetAssetMap, allAssets AssetBoolMap, providers ProviderMap) error {
-	filenameSlice := strings.SplitN(filename, `\`, 4)
-	var buf bytes.Buffer
-	cmd := exec.Command("7z.exe", "l", filename, "-ba")
-	cmd.Stdout = &buf
-	if err := cmd.Run(); err != nil {
-		return err
-	}
-	zipString := buf.String()
-	for misAsset, _ := range misAssets {
-		if strings.Contains(zipString, misAsset.Filepath) {
-			asset := types.Asset{
-				Product:  filenameSlice[2],
-				Provider: filenameSlice[1],
-				Filepath: misAsset.Filepath,
-			}
-			if providers[asset.Provider] == asset.Product { // If this .bin is in our providers map
-				allAssets[asset] = false
-			}
-		}
-	}
-	return nil
 }
 
 // ReplaceXmlText works through a folder of xml files, and using the list of missing

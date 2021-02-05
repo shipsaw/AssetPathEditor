@@ -12,11 +12,23 @@ const (
 )
 
 func main() {
-	providers, err := asset.ListProviders(replaceRoute)
-	if err != nil {
-		log.Fatal(err)
+	/*
+		providers, err := asset.ListProviders(replaceRoute)
+		if err != nil {
+			log.Fatal(err)
+		}
+	*/
+	providers := asset.ProviderMap{
+		"Foliage01":         "RSDL",
+		"IslandLine":        "RSDL",
+		"GEML":              "RSC",
+		"APStation":         "RSC",
+		"RailSimulatorUS":   "Kuju",
+		"RailSimulatorCore": "Kuju",
+		"RailSimulator":     "Kuju",
+		"WherryLines":       "AP",
 	}
-	err = asset.UpdateRoute(routeFolder, providers)
+	err := asset.UpdateRoute(routeFolder, providers)
 	if err != nil {
 		log.Fatal(err)
 	}
