@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-	"trainTest/asset"
+	"trainTest/bin"
 )
 
 const (
@@ -12,24 +12,29 @@ const (
 )
 
 func main() {
-	providers, err := asset.ListProviders(replaceRoute)
+	err := bin.Setup(routeFolder)
 	if err != nil {
 		log.Fatal(err)
 	}
 	/*
-		providers := asset.ProviderMap{
-			"Foliage01":         "RSDL",
-			"IslandLine":        "RSDL",
-			"GEML":              "RSC",
-			"APStation":         "RSC",
-			"RailSimulatorUS":   "Kuju",
-			"RailSimulatorCore": "Kuju",
-			"RailSimulator":     "Kuju",
-			"WherryLines":       "AP",
+		providers, err := asset.ListProviders(replaceRoute)
+		if err != nil {
+			log.Fatal(err)
+		}
+			providers := asset.ProviderMap{
+				"Foliage01":         "RSDL",
+				"IslandLine":        "RSDL",
+				"GEML":              "RSC",
+				"APStation":         "RSC",
+				"RailSimulatorUS":   "Kuju",
+				"RailSimulatorCore": "Kuju",
+				"RailSimulator":     "Kuju",
+				"WherryLines":       "AP",
+			}
+		err = asset.UpdateRoute(routeFolder, providers)
+		if err != nil {
+			log.Fatal(err)
 		}
 	*/
-	err = asset.UpdateRoute(routeFolder, providers)
-	if err != nil {
-		log.Fatal(err)
-	}
+
 }

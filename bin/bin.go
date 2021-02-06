@@ -15,8 +15,10 @@ import (
 )
 
 const (
-	sceneryFolder string = `Scenery\`
-	xmlFolder     string = `tempFiles\`
+	workspace      string = `tempFolder\`
+	sceneryFolder  string = `Scenery\`
+	networksFolder string = `Networks\`
+	backupFolder   string = `AssetBackup\`
 )
 
 var (
@@ -25,44 +27,53 @@ var (
 )
 
 // Setup backs up files, moves the bin's to the temp folder, then converts bin to xml
-func Setup(routeFolder, backupFolder string) error {
+func Setup(routeFolder string) error {
 	fmt.Println("Running setup")
-	binFolder := routeFolder + sceneryFolder
-	//Make directory for working on xml files
-	if err := os.Mkdir("tempFiles", 0755); err != nil {
+
+	err := backupAssets(routeFolder, routeFolder+backupFolder)
+	if err != nil {
 		return err
 	}
-
-	// Make directory to copy all the backup .bin files to
-	if err := os.Mkdir(backupFolder, 0755); err != nil {
-		if e, ok := err.(*os.PathError); ok { // If err is the special error type Mkdir can return
-			if os.IsExist(e) { // if the directory already exists
-				overwrite := 'y'
-				fmt.Println("Backup directory already exists, overwrite?")
-				fmt.Scanf("%c\n", &overwrite)
-				if overwrite == 'n' || overwrite == 'N' {
-					Teardown(backupFolder, true)
-					return ErrNoOverwrite
-				}
-			}
-		} else {
-			return err //Return the not-special error type
+	/*
+		//Make directory for working on xml files
+		if err := os.Mkdir(workspace, 0755); err != nil {
+			return err
 		}
-	}
+		if err := os.Mkdir(workspace+sceneryFolder, 0755); err != nil {
+			return err
+		}
 
-	if err := backupScenery(binFolder, backupFolder); err != nil {
-		return err
-	}
+		// Make directory to copy all the backup .bin files to
+		if err := os.Mkdir(backupFolder, 0755); err != nil {
+			if e, ok := err.(*os.PathError); ok { // If err is the special error type Mkdir can return
+				if os.IsExist(e) { // if the directory already exists
+					overwrite := 'y'
+					fmt.Println("Backup directory already exists, overwrite?")
+					fmt.Scanf("%c\n", &overwrite)
+					if overwrite == 'n' || overwrite == 'N' {
+						Teardown(backupFolder, true)
+						return ErrNoOverwrite
+					}
+				}
+			} else {
+				return err //Return the not-special error type
+			}
+		}
 
-	if err := MoveAssetFiles(binFolder, xmlFolder, ".bin"); err != nil {
-		Teardown(backupFolder, true)
-		return err
-	}
+		if err := backupAssets(binFolder, backupFolder); err != nil {
+			return err
+		}
 
-	if err := SerzConvert(".bin"); err != nil {
-		Teardown(backupFolder, true)
-		return err
-	}
+		if err := MoveAssetFiles(binFolder, workspace, ".bin"); err != nil {
+			Teardown(backupFolder, true)
+			return err
+		}
+
+		if err := SerzConvert(".bin"); err != nil {
+			Teardown(backupFolder, true)
+			return err
+		}
+	*/
 	return nil
 }
 
@@ -77,19 +88,43 @@ func Teardown(backupFolder string, removeBackups bool) {
 	}
 }
 
-func backupScenery(srcFolder, dstFolder string) error {
-	err := filepath.Walk(srcFolder, func(path string, info os.FileInfo, err error) error {
+func backupAssets(srcFolder, dstFolder string) error {
+	err := os.Mkdir(srcFolder+backupFolder, 0755)
+	if err != nil {
+		return err
+	}
+	err = filepath.Walk(srcFolder, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		relPath, err := filepath.Rel(srcFolder, path) //Path relative to source folder
+		if err != nil {
+			return err
+		}
+		if info.IsDir() == true {
+			os.Mkdir(dstFolder+relPath, 0755)
+		}
+		return nil
+	})
+
+	err = filepath.Walk(srcFolder, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		relPath, err := filepath.Rel(srcFolder, path)
 		if err != nil {
 			return err
 		}
 		if info.IsDir() != true && filepath.Ext(path) == ".bin" {
+			fmt.Println("Parh = ", relPath)
 			origFile, err := os.Open(path)
 			if err != nil {
 				return err
 			}
 			defer origFile.Close()
+			fmt.Println("open success")
 
-			newFile, err := os.Create(dstFolder + info.Name())
+			newFile, err := os.Create(dstFolder + relPath)
 			if err != nil {
 				return err
 			}
@@ -110,7 +145,7 @@ func backupScenery(srcFolder, dstFolder string) error {
 // Revert copies all the backed-up bin files back to the scenery directory
 func Revert(routeFolder, backupFolder string) error {
 	binFolder := routeFolder + sceneryFolder
-	return backupScenery(backupFolder, binFolder)
+	return backupAssets(backupFolder, binFolder)
 }
 
 // SerzConvert uses the DTG serz.exe to convert .bin to .xml
@@ -118,7 +153,7 @@ func Revert(routeFolder, backupFolder string) error {
 // Defaults to converting
 func SerzConvert(ext string) error {
 	fmt.Printf("Converting files")
-	err := filepath.Walk(xmlFolder, func(path string, info os.FileInfo, err error) error {
+	err := filepath.Walk(workspace, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}

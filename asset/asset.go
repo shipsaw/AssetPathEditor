@@ -24,7 +24,7 @@ const (
 	routeFolder   string = `.\Content\Routes\89f87a1c-fbd4-4f05-ba8b-16069484fa41\`
 	backupFolder  string = `AssetBackup\`
 	replaceRoute  string = `.\Content\Routes\3a99321a-0bb2-47be-bcad-b20cfe48a945\`
-	xmlFolder     string = `tempFiles\`
+	workspace     string = `tempFiles\`
 	sceneryFolder string = `Scenery\`
 )
 
@@ -68,7 +68,7 @@ func GetProviders(misAssets AssetAssetMap) map[string]string {
 func ListReqAssets() (AssetAssetMap, error) {
 	fmt.Printf("Processing xml files")
 	misAssetMap := make(AssetAssetMap)
-	err := filepath.Walk(xmlFolder, func(path string, info os.FileInfo, err error) error {
+	err := filepath.Walk(workspace, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}
@@ -241,7 +241,7 @@ func ReplaceXmlText(misAssets AssetAssetMap) error {
 		`\s*<BlueprintID d:type="cDeltaString">(.+)</BlueprintID>`
 	fmt.Printf("Updating XML files")
 
-	err := filepath.Walk(xmlFolder, func(path string, info os.FileInfo, err error) error {
+	err := filepath.Walk(workspace, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}
@@ -399,7 +399,7 @@ func UpdateRoute(route string, providers ProviderMap) error {
 		bin.Revert(route, routeBackup)
 		bin.Teardown(routeBackup, false)
 	}
-	bin.MoveAssetFiles(xmlFolder, route+sceneryFolder, ".bin")
+	bin.MoveAssetFiles(workspace, route+sceneryFolder, ".bin")
 	if err != nil {
 		bin.Revert(route, routeBackup)
 		bin.Teardown(routeBackup, false)
