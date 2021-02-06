@@ -12,6 +12,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 )
 
 const (
@@ -89,7 +90,9 @@ func Teardown(backupFolder string, removeBackups bool) {
 }
 
 func backupAssets(srcFolder, dstFolder string) error {
-	err := os.Mkdir(srcFolder+backupFolder, 0755)
+	fmt.Printf("Backing up bin files")
+	err := os.Mkdir(dstFolder, 0755)
+	dotCounter := 0
 	if err != nil {
 		return err
 	}
@@ -101,7 +104,8 @@ func backupAssets(srcFolder, dstFolder string) error {
 		if err != nil {
 			return err
 		}
-		if info.IsDir() == true {
+		// Create directories, but don't copy the backup directory
+		if info.IsDir() == true && !strings.Contains(strings.Trim(backupFolder, `\`), info.Name()) {
 			os.Mkdir(dstFolder+relPath, 0755)
 		}
 		return nil
@@ -115,14 +119,13 @@ func backupAssets(srcFolder, dstFolder string) error {
 		if err != nil {
 			return err
 		}
-		if info.IsDir() != true && filepath.Ext(path) == ".bin" {
-			fmt.Println("Parh = ", relPath)
+		// Copy bin files, except ones already in the backup directory
+		if info.IsDir() != true && filepath.Ext(path) == ".bin" && !strings.Contains(path, strings.Trim(backupFolder, `\`)) {
 			origFile, err := os.Open(path)
 			if err != nil {
 				return err
 			}
 			defer origFile.Close()
-			fmt.Println("open success")
 
 			newFile, err := os.Create(dstFolder + relPath)
 			if err != nil {
@@ -135,10 +138,15 @@ func backupAssets(srcFolder, dstFolder string) error {
 			if writ != info.Size() {
 				return ErrCopyMismatch
 			}
+			if dotCounter%50 == 0 {
+				fmt.Printf(".")
+			}
+			dotCounter++
 			return newFile.Close()
 		}
 		return nil
 	})
+	fmt.Printf("\n")
 	return err
 }
 
