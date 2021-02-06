@@ -9,6 +9,7 @@ import (
 	"bytes"
 	"encoding/xml"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
@@ -51,13 +52,15 @@ func GetProviders(misAssets AssetAssetMap) map[string]string {
 	sort.Slice(assetList, func(i, j int) bool {
 		return assetList[i][0] > assetList[j][0]
 	})
-	fmt.Printf("\n\nRoute Dependancies:\n")
-	fmt.Printf("%-19v%-19v\n", "Provider", "Product")
-	fmt.Println("--------------------------------------")
-	for _, ProvProd := range assetList {
-		fmt.Printf("%-19v%-19v\n", ProvProd[0], ProvProd[1])
-	}
-	fmt.Printf("\n\n")
+	/*
+		fmt.Printf("\n\nRoute Dependancies:\n")
+		fmt.Printf("%-19v%-19v\n", "Provider", "Product")
+		fmt.Println("--------------------------------------")
+		for _, ProvProd := range assetList {
+			fmt.Printf("%-19v%-19v\n", ProvProd[0], ProvProd[1])
+		}
+		fmt.Printf("\n\n")
+	*/
 	return uniqueAssets
 }
 
@@ -86,8 +89,10 @@ func ListReqAssets() (AssetAssetMap, error) {
 	return misAssetMap, nil
 }
 
+//if providers[asset.Product] == asset.Provider { // If this .bin is in our providers map
+
 // Index finds all the assets in the asset folder that are located in the provider folders
-func Index(misAssets AssetAssetMap, providers ProviderMap) (AssetBoolMap, error) {
+func Index(misAssets AssetAssetMap) (AssetBoolMap, error) {
 	allAssets := make(AssetBoolMap)
 	err := filepath.Walk(`.\Assets`, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -102,12 +107,10 @@ func Index(misAssets AssetAssetMap, providers ProviderMap) (AssetBoolMap, error)
 					Provider: pathSlice[1],
 					Filepath: pathSlice[3],
 				}
-				if providers[asset.Product] == asset.Provider { // If this .bin is in our providers map
-					allAssets[asset] = false
-				}
+				allAssets[asset] = false
 			}
 		} else if filepath.Ext(path) == ".ap" {
-			getZipAssets(path, misAssets, allAssets, providers)
+			getZipAssets(path, misAssets, allAssets)
 		}
 		return nil
 	})
@@ -117,7 +120,9 @@ func Index(misAssets AssetAssetMap, providers ProviderMap) (AssetBoolMap, error)
 	return allAssets, nil
 }
 
-func getZipAssets(filename string, misAssets AssetAssetMap, allAssets AssetBoolMap, providers ProviderMap) error {
+// getZipAssets is a function calle by Index to unzip and retrieve assets in ".ap" files
+func getZipAssets(filename string, misAssets AssetAssetMap, allAssets AssetBoolMap) error {
+	fmt.Println(filename)
 	filenameSlice := strings.SplitN(filename, `\`, 4)
 	var buf bytes.Buffer
 	cmd := exec.Command("7z.exe", "l", filename, "-ba")
@@ -125,16 +130,32 @@ func getZipAssets(filename string, misAssets AssetAssetMap, allAssets AssetBoolM
 	if err := cmd.Run(); err != nil {
 		return err
 	}
-	zipString := buf.String()
+	bufString := buf.String()
+	if strings.Contains(filename, "RailsimulatorUS") {
+		fmt.Println("WRITE FILE")
+		ioutil.WriteFile("output.txt", []byte(bufString), 0755)
+	}
+	// Make a slice of all the paths in the zip
+	filesSlice := strings.Split(bufString, "\n")
+	for i, listing := range filesSlice {
+		var tempPath string
+		tempSlice := strings.Fields(listing)
+		if len(tempSlice) > 5 {
+			tempPath = strings.Join(tempSlice[5:], " ")
+		} else if len(tempSlice) == 5 {
+			tempPath = tempSlice[4]
+		}
+		filesSlice[i] = tempPath
+	}
+
 	for misAsset, _ := range misAssets {
-		if strings.Contains(zipString, misAsset.Filepath) {
-			asset := types.Asset{
-				Product:  filenameSlice[2],
-				Provider: filenameSlice[1],
-				Filepath: misAsset.Filepath,
-			}
-			if providers[asset.Product] == asset.Provider { // If this .bin is in our providers map
-				fmt.Println("Adding asset: ", asset)
+		for _, path := range filesSlice {
+			if strings.EqualFold(misAsset.Filepath, path) { //Match the bin name
+				asset := types.Asset{
+					Product:  filenameSlice[2],
+					Provider: filenameSlice[1],
+					Filepath: misAsset.Filepath,
+				}
 				allAssets[asset] = false
 			}
 		}
@@ -142,20 +163,58 @@ func getZipAssets(filename string, misAssets AssetAssetMap, allAssets AssetBoolM
 	return nil
 }
 
-func Check(misAssets AssetAssetMap, allAssets AssetBoolMap) {
+func Check(misAssets AssetAssetMap, allAssets AssetBoolMap, providers ProviderMap) {
 	fmt.Printf("There are initially %d required assets\n", len(misAssets))
 	rightPlace := 0
 	differentPlace := 0
 	notFound := 0
+	capProblem := 0
+	// First check for bins in the correct location
 OUTER:
-	for misAsset, value := range misAssets {
-		for locAsset, _ := range allAssets {
+	for misAsset, _ := range misAssets {
+		for _, _ = range allAssets {
 			_, ok := allAssets[misAsset]
 			if ok == true {
 				rightPlace++
 				delete(misAssets, misAsset)
 				continue OUTER
-			} else if misAsset.Filepath == locAsset.Filepath {
+			}
+		}
+	}
+
+	// Next check for capitalization problems
+OUTER2:
+	for misAsset, _ := range misAssets {
+		for locAsset, _ := range allAssets {
+			misFullPath := misAsset.Provider + misAsset.Product + misAsset.Filepath
+			locFullPath := locAsset.Provider + locAsset.Product + locAsset.Filepath
+			if strings.EqualFold(misFullPath, locFullPath) && !strings.Contains(misFullPath, locFullPath) {
+				fmt.Println("Cap Probem!")
+				tempAsset := types.Asset{
+					Product:  locAsset.Product,
+					Provider: locAsset.Provider,
+					Filepath: locAsset.Filepath,
+				}
+				misAssets[misAsset] = tempAsset
+				capProblem++
+				continue OUTER2
+			}
+		}
+	}
+	// Next check for bins in the provider folders
+OUTER3:
+	for misAsset, value := range misAssets {
+		for locAsset, _ := range allAssets {
+			if misAsset.Filepath == `scenery\vegetation\tree_misc_large_line01.bin` &&
+				locAsset.Filepath == `scenery\vegetation\tree_misc_large_line01.bin` {
+				fmt.Println(`FOUND scenery\vegetation\tree_misc_large_line01.bin`)
+			}
+			misPathSlice := strings.Split(misAsset.Filepath, `\`)
+			locPathSlice := strings.Split(locAsset.Filepath, `\`)
+			misBinName := misPathSlice[len(misPathSlice)-1]
+			locBinName := locPathSlice[len(locPathSlice)-1]
+			locProvider, _ := providers[locAsset.Product]
+			if misBinName == locBinName && strings.EqualFold(locProvider, locAsset.Provider) { // Is this asset in one of the providers?
 				tempAsset := types.Asset{
 					Product:  locAsset.Product,
 					Provider: locAsset.Provider,
@@ -163,15 +222,17 @@ OUTER:
 				}
 				misAssets[misAsset] = tempAsset
 				differentPlace++
-				continue OUTER
+				continue OUTER3
 			}
 		}
+		fmt.Println("NOT FOUND")
 		if value == types.EmptyAsset {
 			fmt.Println(misAsset)
 			notFound++
 		}
 	}
 	fmt.Printf("%v assets cannot be found\n", notFound)
+	fmt.Printf("%v assets have been found but with cap errors\n", capProblem)
 	fmt.Printf("%v assets have been found in the correct folder\n", rightPlace)
 	fmt.Printf("%v assets have been found, but not in the requested location\n", differentPlace)
 }
@@ -330,12 +391,12 @@ func UpdateRoute(route string, providers ProviderMap) error {
 		bin.Teardown(routeBackup, true)
 	}
 
-	locAssets, err := Index(misAssets, providers)
+	locAssets, err := Index(misAssets)
 	if err != nil {
 		bin.Revert(route, routeBackup)
 		bin.Teardown(routeBackup, true)
 	}
-	Check(misAssets, locAssets)
+	Check(misAssets, locAssets, providers)
 	err = ReplaceXmlText(misAssets)
 	if err != nil {
 		bin.Revert(route, routeBackup)
