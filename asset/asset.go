@@ -9,7 +9,6 @@ import (
 	"bytes"
 	"encoding/xml"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
@@ -122,7 +121,6 @@ func Index(misAssets AssetAssetMap) (AssetBoolMap, error) {
 
 // getZipAssets is a function calle by Index to unzip and retrieve assets in ".ap" files
 func getZipAssets(filename string, misAssets AssetAssetMap, allAssets AssetBoolMap) error {
-	fmt.Println(filename)
 	filenameSlice := strings.SplitN(filename, `\`, 4)
 	var buf bytes.Buffer
 	cmd := exec.Command("7z.exe", "l", filename, "-ba")
@@ -131,10 +129,6 @@ func getZipAssets(filename string, misAssets AssetAssetMap, allAssets AssetBoolM
 		return err
 	}
 	bufString := buf.String()
-	if strings.Contains(filename, "RailsimulatorUS") {
-		fmt.Println("WRITE FILE")
-		ioutil.WriteFile("output.txt", []byte(bufString), 0755)
-	}
 	// Make a slice of all the paths in the zip
 	filesSlice := strings.Split(bufString, "\n")
 	for i, listing := range filesSlice {
@@ -189,7 +183,6 @@ OUTER2:
 			misFullPath := misAsset.Provider + misAsset.Product + misAsset.Filepath
 			locFullPath := locAsset.Provider + locAsset.Product + locAsset.Filepath
 			if strings.EqualFold(misFullPath, locFullPath) && !strings.Contains(misFullPath, locFullPath) {
-				fmt.Println("Cap Probem!")
 				tempAsset := types.Asset{
 					Product:  locAsset.Product,
 					Provider: locAsset.Provider,
@@ -205,16 +198,15 @@ OUTER2:
 OUTER3:
 	for misAsset, value := range misAssets {
 		for locAsset, _ := range allAssets {
-			if misAsset.Filepath == `scenery\vegetation\tree_misc_large_line01.bin` &&
-				locAsset.Filepath == `scenery\vegetation\tree_misc_large_line01.bin` {
-				fmt.Println(`FOUND scenery\vegetation\tree_misc_large_line01.bin`)
+			if misAssets[misAsset] != types.EmptyAsset {
+				continue OUTER3
 			}
 			misPathSlice := strings.Split(misAsset.Filepath, `\`)
 			locPathSlice := strings.Split(locAsset.Filepath, `\`)
 			misBinName := misPathSlice[len(misPathSlice)-1]
 			locBinName := locPathSlice[len(locPathSlice)-1]
 			locProvider, _ := providers[locAsset.Product]
-			if misBinName == locBinName && strings.EqualFold(locProvider, locAsset.Provider) { // Is this asset in one of the providers?
+			if strings.EqualFold(misBinName, locBinName) && strings.EqualFold(locProvider, locAsset.Provider) { // Is this asset in one of the providers?
 				tempAsset := types.Asset{
 					Product:  locAsset.Product,
 					Provider: locAsset.Provider,
@@ -225,8 +217,8 @@ OUTER3:
 				continue OUTER3
 			}
 		}
-		fmt.Println("NOT FOUND")
 		if value == types.EmptyAsset {
+			fmt.Println("NOT FOUND")
 			fmt.Println(misAsset)
 			notFound++
 		}
