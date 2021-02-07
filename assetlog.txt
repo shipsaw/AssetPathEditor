@@ -1,79 +1,20 @@
-MOV {WherryLines AP RailNetwork\Junctions\Manual_junction_Lever_1.bin}	{GEML RSC RailNetwork\Junctions\Manual_junction_Lever_1.bin}
-LST {BrecklandLine Gueterbahnhof RailNetwork\Track\BREtrack_wood.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\UK_Mod_Track\TM AWS Ramp Permanent.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\UK_Mod_Track\TM AWS Ramp Permanent.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 3A Auto.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 3A Auto.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal M2 L1Th.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal M2 L1Th.bin}
-LST {BrecklandLine Gueterbahnhof RailNetwork\Track\BREtrack_wood_disused.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\UK_Mod_Track\TM AWS Ramp.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\UK_Mod_Track\TM AWS Ramp.bin}
-LST {RailSimulator Kuju RailNetwork\Speedsigns\York_Newc_Single_Value_Speed_Sign_Left.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal M2.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal M2.bin}
-LST {BrecklandLine Gueterbahnhof RailNetwork\Track\BREtrack_conc_new_narrow.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal M3 L1Th.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal M3 L1Th.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Heads\Pro Buffer Lights.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Heads\Pro Buffer Lights.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 3A TH2 C.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 3A TH2 C.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Repeater.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Repeater.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal M3.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal M3.bin}
-LST {RailSimulator Kuju RailNetwork\Speedsigns\York_Newc_Single_Value_Speed_Sign_Right.bin}
-MOV {WherryLines AP RailNetwork\LevelCrossings\lc_oxfo_pad.bin}	{GEML RSC RailNetwork\LevelCrossings\lc_oxfo_pad.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 3A TH5 C.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 3A TH5 C.bin}
-MOV {WherryLines AP RailNetwork\Signals\GreatYarmouth_1&amp;2\GY_1\main.bin}	{WherryLines AP RailNetwork\Signals\Stop_Tall_10_5_CoAct\main.bin}
-LST {RailSimulatorCore Kuju RailNetwork\Markers\Siding marker.bin}
 LST {RailSimulatorCore Kuju RailNetwork\Markers\Destination marker.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\UK_Mod_Track\TM TPWS TSS.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\UK_Mod_Track\TM TPWS TSS.bin}
-MOV {WherryLines AP RailNetwork\Speedsigns\Double_Value_Speed_Sign.bin}	{GEML RSC RailNetwork\Speedsigns\Double_Value_Speed_Sign.bin}
 LST {RailSimulator Kuju RailNetwork\Speedsigns\York_Newc_Single_Value_Speed_Sign.bin}
-LST {RailSimulator Kuju RailNetwork\Track\sleeperless_track01.bin}
-MOV {WherryLines AP RailNetwork\Speedsigns\Small_Single_Value_Speed_Sign.bin}	{GEML RSC RailNetwork\Speedsigns\Small_Single_Value_Speed_Sign.bin}
-MOV {WherryLines AP RailNetwork\Speedsigns\Small_Single_Value_Speed_Sign_Left.bin}	{GEML RSC RailNetwork\Speedsigns\Small_Single_Value_Speed_Sign_Left.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 2A Repeater.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 2A Repeater.bin}
-MOV {WherryLines AP RailNetwork\Signals\GreatYarmouth_1&amp;2\shunt\main_dependent 3T.bin}	{WherryLines AP RailNetwork\Signals\GreatYarmouth_1&2\shunt\main_dependent 3T.bin}
-MOV {WherryLines AP RailNetwork\Speedsigns\Double_Value_Speed_Warn_Sign.bin}	{GEML RSC RailNetwork\Speedsigns\Double_Value_Speed_Warn_Sign.bin}
-MOV {WherryLines AP RailNetwork\Speedsigns\Small_Single_Value_Speed_Sign_Right.bin}	{GEML RSC RailNetwork\Speedsigns\Small_Single_Value_Speed_Sign_Right.bin}
-MOV {WherryLines AP RailNetwork\Signals\GreatYarmouth_1&amp;2\shunt\main_dependent 1T.bin}	{WherryLines AP RailNetwork\Signals\GreatYarmouth_1&2\shunt\main_dependent 1T.bin}
-MOV {RailSimulator Kuju Audio\RailNetwork\TrackBedRumble\BR_Tight.bin}	{IslandLine RSDL Audio\RailNetwork\TrackBedRumble\BR_Tight.bin}
-MOV {WherryLines AP RailNetwork\Signals\ReedhamJunc_4&amp;9\main.bin}	{WherryLines AP RailNetwork\Signals\Stop_Tall_10_5_CoAct\main.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 2A Auto.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 2A Auto.bin}
-MOV {WherryLines AP RailNetwork\Signals\Lowestoft_4&amp;5\L5\Arm_L5.bin}	{WherryLines AP RailNetwork\Signals\Lowestoft_4&5\L5\Arm_L5.bin}
-LST {RailSimulatorCore Kuju RailNetwork\Markers\Platform marker.bin}
-LST {BrecklandLine Gueterbahnhof RailNetwork\Track\BREtrack_wood_narrow.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 3A 1T.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 3A 1T.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal M1.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal M1.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 2A.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 2A.bin}
-MOV {WherryLines AP RailNetwork\Signals\GreatYarmouth_1&amp;2\shunt\twin_ground_home 2T.bin}	{WherryLines AP RailNetwork\Signals\GreatYarmouth_1&2\shunt\twin_ground_home 2T.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\UK_Mod_Track\TM TPWS OSS Mini.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\UK_Mod_Track\TM TPWS OSS Mini.bin}
-LST {WherryLines AP RailNetwork\Signals\OultonBroadNorth_28&amp;31\OB_28&amp;31.bin}
-MOV {WherryLines AP RailNetwork\Signals\GreatYarmouth_1&amp;2\RouteIndicator\main.bin}	{WherryLines AP RailNetwork\Signals\Lowestoft_3\main.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal.bin}
-MOV {WherryLines AP RailNetwork\Signals\GreatYarmouth_1&amp;2\shunt\main_ground_home.bin}	{WherryLines AP RailNetwork\Signals\GreatYarmouth_1&2\shunt\main_ground_home.bin}
-LST {RailSimulator Kuju Audio\RailNetwork\TrackBedRumble\OP_Shed.bin}
-LST {RailSimulatorCore Kuju Editor\Editor stopping point.bin}
-LST {RailSimulator Kuju RailNetwork\Speedsigns\Oxfo_Padd_Single_Value_Speed_Sign.bin}
-MOV {WherryLines AP RailNetwork\Signals\GreatYarmouth_1&amp;2\shunt\main_dependent 2T.bin}	{WherryLines AP RailNetwork\Signals\GreatYarmouth_1&2\shunt\main_dependent 2T.bin}
-MOV {WherryLines AP RailNetwork\Signals\GreatYarmouth_1&amp;2\RouteIndicator\main2.bin}	{WherryLines AP RailNetwork\Signals\GreatYarmouth_1&2\RouteIndicator\main2.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 3A F4 C 3T.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 3A F4 C 3T.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 3A F4.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 3A F4.bin}
-MOV {WherryLines AP RailNetwork\Signals\GreatYarmouth_1&amp;2\shunt\main_ground_home 1T.bin}	{WherryLines AP RailNetwork\Signals\GreatYarmouth_1&2\shunt\main_ground_home 1T.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Yard Exit.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Yard Exit.bin}
-LST {RailSimulatorCore Kuju RailNetwork\Markers\Portal marker.bin}
 LST {RailSimulator Kuju RailNetwork\Speedsigns\Oxfo_Padd_Single_Value_Speed_Warn_Sign.bin}
-MOV {WherryLines AP RailNetwork\Signals\Lowestoft_4&amp;5\L4\Arm_L4.bin}	{WherryLines AP RailNetwork\Signals\Lowestoft_4&5\L4\Arm_L4.bin}
-MOV {WherryLines AP RailNetwork\Signals\GreatYarmouth_1&amp;2\GY_2\main.bin}	{WherryLines AP RailNetwork\Signals\OultonBroadNorth_30\main.bin}
-MOV {WherryLines AP RailNetwork\Signals\GreatYarmouth_1&amp;2\shunt\main_ground_home 2T.bin}	{WherryLines AP RailNetwork\Signals\GreatYarmouth_1&2\shunt\main_ground_home 2T.bin}
-MOV {WherryLines AP RailNetwork\Speedsigns\Single_Value_Speed_Warn_Sign.bin}	{IslandLine RSDL RailNetwork\Speedsigns\Single_Value_Speed_Warn_Sign.bin}
-LST {RailSimulator Kuju scenery\Procedural\oxfo_padd_Catenary01.bin}
-MOV {RailSimulator Kuju Audio\RailNetwork\TrackBedRumble\BR_Wide.bin}	{IslandLine RSDL Audio\RailNetwork\TrackBedRumble\BR_Wide.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal M6.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal M6.bin}
+LST {RailSimulator Kuju RailNetwork\Speedsigns\Oxfo_Padd_Single_Value_Speed_Sign.bin}
+LST {RailSimulator Kuju RailNetwork\Track\sleeperless_track01.bin}
+LST {RailSimulator Kuju RailNetwork\Speedsigns\York_Newc_Single_Value_Speed_Sign_Left.bin}
+LST {BrecklandLine Gueterbahnhof RailNetwork\Track\BREtrack_conc_new_narrow.bin}
+LST {RailSimulator Kuju Audio\RailNetwork\TrackBedRumble\OP_Shed.bin}
 LST {RailSimulator Kuju Audio\RailNetwork\TrackBedRumble\BT_Bridge_Iron.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal No Links.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal No Links.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 3A TH6 C.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 3A TH6 C.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal M5 L1Th.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Signal M5 L1Th.bin}
-MOV {WherryLines AP RailNetwork\Signals\Brundall_5&amp;7\main.bin}	{WherryLines AP RailNetwork\Signals\Stop_Tall\main.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 3A F1.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 3A F1.bin}
-LST {RailSimulator Kuju RailNetwork\Speedsigns\oxfo_Padd_Single_Value_Speed_Sign_Left.bin}
+LST {RailSimulator Kuju scenery\Procedural\oxfo_padd_Catenary01.bin}
+LST {BrecklandLine Gueterbahnhof RailNetwork\Track\BREtrack_wood.bin}
+LST {BrecklandLine Gueterbahnhof RailNetwork\Track\BREtrack_wood_narrow.bin}
 LST {BrecklandLine Gueterbahnhof RailNetwork\Track\BREtrack_conc_narrow.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 4A 1T.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro 4A 1T.bin}
-MOV {RailSimulator Kuju RailNetwork\TransferPoints\FuelPoints\DieselPoint\Fuel_Diesel_Station_01.bin}	{GEML RSC RailNetwork\TransferPoints\FuelPoints\DieselPoint\Fuel_Diesel_Station_01.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\G Pro 2A TH6 C.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\G Pro 2A TH6 C.bin}
-MOV {WherryLines AP RailNetwork\Speedsigns\Single_Value_Speed_Sign.bin}	{IslandLine RSDL RailNetwork\Speedsigns\Single_Value_Speed_Sign.bin}
-MOV {WherryLines AP RailNetwork\Signals\GreatYarmouth_1&amp;2\shunt\main external.bin}	{WherryLines AP RailNetwork\Signals\GreatYarmouth_1&2\shunt\main external.bin}
-MOV {WherryLines AP RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Yard Exit No Links.bin}	{GEML RSC RailNetwork\Signals\Pro Signals\Pro Signal Posts\Pro Ground Yard Exit No Links.bin}
+LST {BrecklandLine Gueterbahnhof RailNetwork\Track\BREtrack_wood_disused.bin}
+LST {RailSimulatorCore Kuju Editor\Editor stopping point.bin}
+LST {RailSimulatorCore Kuju RailNetwork\Markers\Portal marker.bin}
+LST {RailSimulatorCore Kuju RailNetwork\Markers\Platform marker.bin}
+LST {RailSimulatorCore Kuju RailNetwork\Markers\Siding marker.bin}
+LST {RailSimulator Kuju RailNetwork\Speedsigns\York_Newc_Single_Value_Speed_Sign_Right.bin}
+LST {RailSimulator Kuju RailNetwork\Speedsigns\oxfo_Padd_Single_Value_Speed_Sign_Left.bin}

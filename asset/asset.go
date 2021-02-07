@@ -210,12 +210,14 @@ OUTER3:
 			if misAssets[misAsset] != types.EmptyAsset {
 				continue OUTER3
 			}
-			misPathSlice := strings.Split(misAsset.Filepath, `\`)
-			locPathSlice := strings.Split(locAsset.Filepath, `\`)
-			misBinName := misPathSlice[len(misPathSlice)-1]
-			locBinName := locPathSlice[len(locPathSlice)-1]
+			/*
+				misPathSlice := strings.Rel(misAsset.Filepath, `\`)
+				locPathSlice := strings.Split(locAsset.Filepath, `\`)
+				misBinName := misPathSlice[len(misPathSlice)-1]
+				locBinName := locPathSlice[len(locPathSlice)-1]
+			*/
 			locProvider, _ := providers[locAsset.Product]
-			if strings.EqualFold(misBinName, locBinName) && strings.EqualFold(locProvider, locAsset.Provider) { // Is this asset in one of the providers?
+			if strings.EqualFold(misAsset.Filepath, locAsset.Filepath) && strings.EqualFold(locProvider, locAsset.Provider) { // Is this asset in one of the providers?
 				tempAsset := types.Asset{
 					Product:  locAsset.Product,
 					Provider: locAsset.Provider,
@@ -229,8 +231,6 @@ OUTER3:
 		}
 		if value == types.EmptyAsset {
 			fmt.Fprintf(logFile, "LST %v\n", misAsset)
-			//fmt.Println("NOT FOUND")
-			//fmt.Println(misAsset)
 			notFound++
 		}
 	}
@@ -290,7 +290,6 @@ func ReplaceXmlText(misAssets AssetAssetMap) error {
 				retRegNew = bytes.Replace(retRegNew, matches[2], []byte(newAsset.Product), 1)
 				retRegNew = bytes.Replace(retRegNew, matches[3], []byte(fixNewPath), 1)
 				fileBytes = bytes.Replace(fileBytes, retReg, retRegNew, -1)
-				fmt.Println("Replacing ", string(matches[1]), string(matches[2]), " with ", newAsset.Provider, newAsset.Product)
 
 			}
 			fmt.Printf(".")
@@ -340,7 +339,9 @@ func getFileAssets(path string, misAssets AssetAssetMap) error { // Open xml fil
 	// Add s to asset map
 	for i, _ := range matches {
 		// Route calls for .xml scenery, but stored in Assets as .bin
+		// Strange issue where &'s are represended as &amp;
 		tempFilepath := strings.ReplaceAll(string(matches[i][3]), "xml", "bin")
+		tempFilepath = strings.ReplaceAll(tempFilepath, `&amp;`, `&`)
 		tempAsset := types.Asset{
 			Provider: string(matches[i][1]),
 			Product:  string(matches[i][2]),
@@ -380,7 +381,6 @@ func UpdateRoute(route string, providers ProviderMap) error {
 		log.Fatal(err)
 	}
 
-	fmt.Println("POINT 2")
 	err = bin.SerzConvert(".bin")
 	if err != nil {
 		fmt.Println("SERZ ERROR")
@@ -389,7 +389,6 @@ func UpdateRoute(route string, providers ProviderMap) error {
 		log.Fatal(err)
 	}
 
-	fmt.Println("POINT 3")
 	misAssets, err := ListReqAssets()
 	if err != nil {
 		fmt.Println("LIST REQ ERROR")
@@ -398,7 +397,6 @@ func UpdateRoute(route string, providers ProviderMap) error {
 		log.Fatal(err)
 	}
 
-	fmt.Println("POINT 4")
 	locAssets, err := Index(misAssets)
 	if err != nil {
 		fmt.Println("INDEX ERROR")
@@ -406,7 +404,6 @@ func UpdateRoute(route string, providers ProviderMap) error {
 		bin.Teardown(routeBackup, true)
 		log.Fatal(err)
 	}
-	fmt.Println("POINT 5")
 	Check(misAssets, locAssets, providers)
 	err = ReplaceXmlText(misAssets)
 	if err != nil {
