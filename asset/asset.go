@@ -290,6 +290,7 @@ func ReplaceXmlText(misAssets AssetAssetMap) error {
 				retRegNew = bytes.Replace(retRegNew, matches[2], []byte(newAsset.Product), 1)
 				retRegNew = bytes.Replace(retRegNew, matches[3], []byte(fixNewPath), 1)
 				fileBytes = bytes.Replace(fileBytes, retReg, retRegNew, -1)
+				fmt.Println("Replacing ", string(matches[1]), string(matches[2]), " with ", newAsset.Provider, newAsset.Product)
 
 			}
 			fmt.Printf(".")
