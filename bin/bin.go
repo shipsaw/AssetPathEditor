@@ -1,8 +1,8 @@
 package bin
 
 /*
-	The bin package is involved in program setup, teardown, and the movement
-	and conversion of bin/xml files
+The bin package is involved in program setup, teardown, and the movement
+and conversion of bin/xml files
 */
 
 import (
@@ -31,10 +31,26 @@ var (
 func Setup(routeFolder string) error {
 	fmt.Println("Running setup")
 
-	err := backupAssets(routeFolder, routeFolder+backupFolder)
-	if err != nil {
-		return err
+	if _, err := os.Stat(routeFolder + backupFolder); !os.IsNotExist(err) {
+		overwrite := 'n'
+		fmt.Printf("Existing backup folder found, overwrite? (y, n): ")
+		for {
+			fmt.Scanf("%c\n", &overwrite)
+			if overwrite == 'y' || overwrite == 'Y' {
+				os.RemoveAll(routeFolder + backupFolder)
+				err := backupAssets(routeFolder, routeFolder+backupFolder)
+				if err != nil {
+					return err
+				}
+				break
+			} else if overwrite == 'n' || overwrite == 'N' {
+				fmt.Println("Existing backup retained")
+				break
+			}
+			fmt.Printf("Please enter y or n: ")
+		}
 	}
+
 	/*
 		//Make directory for working on xml files
 		if err := os.Mkdir(workspace, 0755); err != nil {
@@ -92,6 +108,25 @@ func Teardown(backupFolder string, removeBackups bool) {
 func backupAssets(srcFolder, dstFolder string) error {
 	fmt.Printf("Backing up bin files")
 	err := os.Mkdir(dstFolder, 0755)
+	overwrite := 'n'
+	if e, ok := err.(*os.PathError); ok { // If err is the special error type Mkdir can return
+		if os.IsExist(e) { // if the directory already exists
+			for overwrite != 'y' {
+				fmt.Println("Backup directory already exists, overwrite?")
+				fmt.Scanf("%c\n", &overwrite)
+				if overwrite == 'n' || overwrite == 'N' {
+					Teardown(backupFolder, true)
+					return ErrNoOverwrite
+				} else if overwrite == 'y' || overwrite == 'Y' {
+					err = os.RemoveAll(dstFolder)
+					if err != nil {
+						return err
+					}
+					os.Mkdir(dstFolder, 0755)
+				}
+			}
+		}
+	}
 	dotCounter := 0
 	if err != nil {
 		return err
