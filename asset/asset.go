@@ -210,14 +210,12 @@ OUTER3:
 			if misAssets[misAsset] != types.EmptyAsset {
 				continue OUTER3
 			}
-			/*
-				misPathSlice := strings.Rel(misAsset.Filepath, `\`)
-				locPathSlice := strings.Split(locAsset.Filepath, `\`)
-				misBinName := misPathSlice[len(misPathSlice)-1]
-				locBinName := locPathSlice[len(locPathSlice)-1]
-			*/
+			misPathSlice := strings.Split(misAsset.Filepath, `\`)
+			locPathSlice := strings.Split(locAsset.Filepath, `\`)
+			misBinName := misPathSlice[len(misPathSlice)-1]
+			locBinName := locPathSlice[len(locPathSlice)-1]
 			locProvider, _ := providers[locAsset.Product]
-			if strings.EqualFold(misAsset.Filepath, locAsset.Filepath) && strings.EqualFold(locProvider, locAsset.Provider) { // Is this asset in one of the providers?
+			if strings.EqualFold(misBinName, locBinName) && strings.EqualFold(locProvider, locAsset.Provider) { // Is this asset in one of the providers?
 				tempAsset := types.Asset{
 					Product:  locAsset.Product,
 					Provider: locAsset.Provider,
