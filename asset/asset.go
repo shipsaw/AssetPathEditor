@@ -7,7 +7,6 @@ package asset
 
 import (
 	"bytes"
-	"encoding/xml"
 	"fmt"
 	"log"
 	"os"
@@ -27,6 +26,14 @@ const (
 	workspace     string = `tempFolder\`
 	sceneryFolder string = `Scenery\`
 )
+
+var groupedString string = `\s*<Provider d:type="cDeltaString">(.+)</Provider>\s*` +
+	`\s*<Product d:type="cDeltaString">(.+)</Product>\s*` +
+	`\s*</iBlueprintLibrary-cBlueprintSetID>\s*` +
+	`\s*</BlueprintSetID>\s*` +
+	`\s*<BlueprintID d:type="cDeltaString">(.+)</BlueprintID>`
+
+var groupRegex *regexp.Regexp = regexp.MustCompile(groupedString) // Pull the groups from the match
 
 type AssetAssetMap map[types.Asset]types.Asset
 type AssetBoolMap map[types.Asset]bool
@@ -234,11 +241,6 @@ OUTER3:
 // the found ones
 func ReplaceXmlText(misAssets AssetAssetMap) error {
 	// string used by regex to pull groups out of the xml file
-	var groupedString string = `\s*<Provider d:type="cDeltaString">(.+)</Provider>\s*` +
-		`\s*<Product d:type="cDeltaString">(.+)</Product>\s*` +
-		`\s*</iBlueprintLibrary-cBlueprintSetID>\s*` +
-		`\s*</BlueprintSetID>\s*` +
-		`\s*<BlueprintID d:type="cDeltaString">(.+)</BlueprintID>`
 	fmt.Printf("Updating XML files")
 
 	err := filepath.Walk(workspace, func(path string, info os.FileInfo, err error) error {
@@ -273,8 +275,7 @@ func ReplaceXmlText(misAssets AssetAssetMap) error {
 				if retReg == nil {
 					continue
 				}
-				groupRegex := regexp.MustCompile(groupedString) // Pull the groups from the match
-				matches := groupRegex.FindSubmatch(retReg)      // put them in a slice
+				matches := groupRegex.FindSubmatch(retReg) // put them in a slice
 				if len(matches) == 0 {
 					log.Fatal("There was an error parsing the groups in the regex")
 				}
@@ -329,21 +330,16 @@ func getFileAssets(path string, misAssets AssetAssetMap) error { // Open xml fil
 		log.Fatal("Size mismatch on file ", path)
 	}
 	// Unmarshal xml
-	xmlStruct := bin.RecordSet{}
-	err = xml.Unmarshal(xmlBytes, &xmlStruct)
-	if err != nil {
-		return err
-	}
+	matches := groupRegex.FindAllSubmatch(xmlBytes, -1)
+
 	// Add s to asset map
-	entityCount := len(xmlStruct.Record.Entities)
-	for i := 0; i < entityCount; i++ {
+	for i, _ := range matches {
 		// Route calls for .xml scenery, but stored in Assets as .bin
-		tempFilepath := xmlStruct.Record.Entities[i].BlueprintID.AbsBlueprint.BlueprintID
-		tempFilepath = strings.ReplaceAll(tempFilepath, "xml", "bin")
+		tempFilepath := strings.ReplaceAll(string(matches[i][3]), "xml", "bin")
 		tempAsset := types.Asset{
+			Provider: string(matches[i][1]),
+			Product:  string(matches[i][2]),
 			Filepath: tempFilepath,
-			Product:  xmlStruct.Record.Entities[i].BlueprintID.AbsBlueprint.BlueprintSet.BlueprintLibSet.Product,
-			Provider: xmlStruct.Record.Entities[i].BlueprintID.AbsBlueprint.BlueprintSet.BlueprintLibSet.Provider,
 		}
 		misAssets[tempAsset] = types.EmptyAsset
 	}

@@ -252,8 +252,6 @@ func MoveAssetFiles(srcFolder, dstFolder, ext string) error {
 				return err
 			}
 			newPath := dstFolder + relPath
-			fmt.Println(path)
-			fmt.Println(newPath)
 			err = os.Rename(path, newPath)
 			if err != nil {
 				return err
