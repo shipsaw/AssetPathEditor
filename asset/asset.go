@@ -24,7 +24,7 @@ const (
 	routeFolder   string = `.\Content\Routes\89f87a1c-fbd4-4f05-ba8b-16069484fa41\`
 	backupFolder  string = `AssetBackup\`
 	replaceRoute  string = `.\Content\Routes\3a99321a-0bb2-47be-bcad-b20cfe48a945\`
-	workspace     string = `tempFiles\`
+	workspace     string = `tempFolder\`
 	sceneryFolder string = `Scenery\`
 )
 
@@ -218,8 +218,8 @@ OUTER3:
 			}
 		}
 		if value == types.EmptyAsset {
-			fmt.Println("NOT FOUND")
-			fmt.Println(misAsset)
+			//fmt.Println("NOT FOUND")
+			//fmt.Println(misAsset)
 			notFound++
 		}
 	}
@@ -354,7 +354,7 @@ func getFileAssets(path string, misAssets AssetAssetMap) error { // Open xml fil
 // but doesn't care about backups because nothing is changed in the bin files
 func ListProviders(route string) (map[string]string, error) {
 	routeBackup := route + backupFolder
-	err := bin.Setup(route, routeBackup)
+	err := bin.Setup(route)
 	if err != nil {
 		bin.Teardown(routeBackup, true)
 		log.Fatal(err)
@@ -372,37 +372,61 @@ func ListProviders(route string) (map[string]string, error) {
 
 func UpdateRoute(route string, providers ProviderMap) error {
 	routeBackup := route + backupFolder
-	err := bin.Setup(route, routeBackup)
+	err := bin.Setup(route)
 	if err != nil {
+		fmt.Println("SETUP ERROR")
 		bin.Teardown(routeBackup, true)
 		log.Fatal(err)
 	}
-	misAssets, err := ListReqAssets()
+
+	fmt.Println("POINT 2")
+	err = bin.SerzConvert(".bin")
 	if err != nil {
+		fmt.Println("SERZ ERROR")
 		bin.Revert(route, routeBackup)
 		bin.Teardown(routeBackup, true)
+		log.Fatal(err)
 	}
 
-	locAssets, err := Index(misAssets)
+	fmt.Println("POINT 3")
+	misAssets, err := ListReqAssets()
 	if err != nil {
+		fmt.Println("LIST REQ ERROR")
 		bin.Revert(route, routeBackup)
 		bin.Teardown(routeBackup, true)
+		log.Fatal(err)
 	}
+
+	fmt.Println("POINT 4")
+	locAssets, err := Index(misAssets)
+	if err != nil {
+		fmt.Println("INDEX ERROR")
+		bin.Revert(route, routeBackup)
+		bin.Teardown(routeBackup, true)
+		log.Fatal(err)
+	}
+	fmt.Println("POINT 5")
 	Check(misAssets, locAssets, providers)
 	err = ReplaceXmlText(misAssets)
 	if err != nil {
+		fmt.Println("INDEX ERROR")
 		bin.Revert(route, routeBackup)
 		bin.Teardown(routeBackup, false)
+		log.Fatal(err)
 	}
 	err = bin.SerzConvert(".xml")
 	if err != nil {
+		fmt.Println("SECOND SERZ ERROR")
 		bin.Revert(route, routeBackup)
 		bin.Teardown(routeBackup, false)
+		log.Fatal(err)
 	}
-	bin.MoveAssetFiles(workspace, route+sceneryFolder, ".bin")
+	bin.MoveAssetFiles(workspace, route, ".bin")
 	if err != nil {
+		fmt.Println("SECOND MOVEASSET ERROR")
 		bin.Revert(route, routeBackup)
 		bin.Teardown(routeBackup, false)
+		log.Fatal(err)
 	}
 	bin.Teardown(routeBackup, false)
 
