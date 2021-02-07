@@ -166,6 +166,7 @@ func getZipAssets(filename string, misAssets AssetAssetMap, allAssets AssetBoolM
 
 func Check(misAssets AssetAssetMap, allAssets AssetBoolMap, providers ProviderMap) {
 	fmt.Printf("There are initially %d required assets\n", len(misAssets))
+	logFile, _ := os.Create("assetlog.txt")
 	rightPlace := 0
 	differentPlace := 0
 	notFound := 0
@@ -196,6 +197,7 @@ OUTER2:
 					Filepath: locAsset.Filepath,
 				}
 				misAssets[misAsset] = tempAsset
+				fmt.Fprintf(logFile, "CAP %v\t%v\n", misAsset, locAsset)
 				capProblem++
 				continue OUTER2
 			}
@@ -220,11 +222,13 @@ OUTER3:
 					Filepath: locAsset.Filepath,
 				}
 				misAssets[misAsset] = tempAsset
+				fmt.Fprintf(logFile, "MOV %v\t%v\n", misAsset, locAsset)
 				differentPlace++
 				continue OUTER3
 			}
 		}
 		if value == types.EmptyAsset {
+			fmt.Fprintf(logFile, "LST %v\n", misAsset)
 			//fmt.Println("NOT FOUND")
 			//fmt.Println(misAsset)
 			notFound++

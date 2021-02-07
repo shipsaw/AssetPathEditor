@@ -1,0 +1,106 @@
+LST {RailSimulator Kuju scenery\buildings\York_Newc_WP16_03_X2.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Bush_Misc03.bin}{GEML RSC Scenery\Vegetation\Bush_Misc03.bin}
+LST {OHLE SP202D Mk1 Gantry\Type C\ohle_mk1_gantry_type_c_pull.bin}
+MOV {RailSimulator Kuju scenery\Vegetation\Tree_Fieldmaple_02_Mid.bin}{GEML RSC Scenery\Vegetation\Tree_Fieldmaple_02_Mid.bin}
+LST {RailSimulator Kuju scenery\buildings\OXFO_PADD_WP15_05.bin}
+LST {Foliage01 RSDL Scenery\Vegetation\Fern_Bracken_large_dk01.bin}
+LST {WherryLines AP Scenery\Vegetation\Kuju\Grass_long_04.bin}
+LST {OHLE SP202D Misc\ohle_overlap_catenary_terminating_pulley_left.bin}
+LST {GrassPack VulcanProductions Scenery\Vegetation\Grass Low.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Tree_Misc_large03.bin}{GEML RSC Scenery\Vegetation\Tree_Misc_large03.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Tree_Misc_large04.bin}{GEML RSC Scenery\Vegetation\Tree_Misc_large04.bin}
+LST {OHLE SP202D Misc\ohle_overlap_catenary_terminating_catenary.bin}
+LST {Foliage01 RSDL Scenery\Vegetation\Tree_oak_large02.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Bush_Misc06.bin}{GEML RSC Scenery\Vegetation\Bush_Misc06.bin}
+MOV {WherryLines AP Scenery\Structures\washing_plant.bin}{GEML RSC Scenery\Structures\washing_plant.bin}
+LST {OHLE SP202D Misc\ohle_overlap_catenary_terminating_right_post.bin}
+MOV {WherryLines AP Scenery\Buildings\30semiattached.bin}{GEML RSC Scenery\Buildings\30semiattached.bin}
+MOV {RailSimulator Kuju scenery\Vegetation\Bush_Bramble_line_10m.bin}{GEML RSC scenery\Vegetation\Bush_Bramble_line_10m.bin}
+LST {RailSimulator Kuju scenery\Vegetation\Bush_Hedge_big_near_20M.bin}
+LST {RailSimulator Kuju scenery\buildings\OXFO_PADD_WP15_03_X2.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Tree_Misc_04.bin}{GEML RSC Scenery\Vegetation\Tree_Misc_04.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Tree_Misc_02.bin}{GEML RSC Scenery\Vegetation\Tree_Misc_02.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Tree_Misc_06.bin}{GEML RSC Scenery\Vegetation\Tree_Misc_06.bin}
+LST {RailSimulatorCore Kuju Editor\Irregular asset block.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Bush_Misc04.bin}{GEML RSC Scenery\Vegetation\Bush_Misc04.bin}
+MOV {WherryLines AP Scenery\Vegetation\Near_tree_Grp_04.bin}{GEML RSC Scenery\Vegetation\Near_tree_Grp_04.bin}
+MOV {WherryLines AP Scenery\Vegetation\Bush_Misc_Line02.bin}{GEML RSC Scenery\Vegetation\Bush_Misc_Line02.bin}
+MOV {WherryLines AP Scenery\Clutter\Skips_01.bin}{IslandLine RSDL Scenery\Clutter\Skips_01.bin}
+LST {OHLE SP202D Mk1 Gantry\Type F\ohle_mk1_gantry_type_f_push.bin}
+LST {OHLE SP202D Mk3a\ohle_mk3a_gantry_type_a_pull.bin}
+LST {OHLE SP202D Portals\Type Q\type_q_18m.bin}
+MOV {RailSimulator Kuju scenery\buildings\House_middleground_02.bin}{GEML RSC scenery\buildings\House_middleground_02.bin}
+MOV {WherryLines AP Scenery\Vegetation\Tree_Fieldmaple_02_Mid.bin}{GEML RSC scenery\Vegetation\Tree_Fieldmaple_02_Mid.bin}
+LST {RailSimulator Kuju scenery\buildings\OXFO_PADD_WP15_04_X3.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Tree_Misc_01.bin}{GEML RSC Scenery\Vegetation\Tree_Misc_01.bin}
+LST {WherryLines AP Scenery\Vegetation\Foliage01\Grass_Field_small01.bin}
+MOV {WherryLines AP Scenery\Vegetation\Tree_Hawthorn_Near.bin}{GEML RSC Scenery\Vegetation\Tree_Hawthorn_Near.bin}
+MOV {WherryLines AP Scenery\Vegetation\Tree_Sycamore_Near.bin}{GEML RSC Scenery\Vegetation\Tree_Sycamore_Near.bin}
+MOV {RailSimulator Kuju scenery\Vehicles\barge_01.bin}{GEML RSC scenery\Vehicles\barge_01.bin}
+MOV {WherryLines AP Lights\lamp_modern.bin}{GEML RSC Lights\lamp_modern.bin}
+LST {OHLE SP202D Mk3a\ohle_mk3a_gantry_type_a_push.bin}
+LST {RailSimulator Kuju RailNetwork\Buffers\york_newc_Buffer01.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Bush_Misc01.bin}{GEML RSC Scenery\Vegetation\Bush_Misc01.bin}
+LST {RailSimulator Kuju scenery\Vegetation\Bush_Hedge_near_10M.bin}
+MOV {WherryLines AP Scenery\Vegetation\Tree_Misc_large02.bin}{GEML RSC Scenery\Vegetation\Tree_Misc_large02.bin}
+MOV {WherryLines AP Scenery\Vegetation\bush_3D_002.bin}{GEML RSC Scenery\Vegetation\bush_3D_002.bin}
+LST {WCMLTrentValley Thomson Scenery\Catenary\Cat_Gantry_Yardspan\Gantry_Mk1_GanYardspan_1T_Pull.bin}
+LST {RailSimulator Kuju scenery\Vegetation\Bush_Hawthorn_mid_01.bin}
+LST {RailSimulator Kuju scenery\Vegetation\Bush_Hawthorn_near_01.bin}
+MOV {WherryLines AP Scenery\Vegetation\bush_3D_001.bin}{GEML RSC Scenery\Vegetation\bush_3D_001.bin}
+LST {OHLE SP202D Misc\ohle_mk1_wire_hanger.bin}
+LST {RailSimulator Kuju scenery\Vegetation\Tree_Ash_02_Mid.bin}
+LST {RailSimulator Kuju scenery\buildings\York_Newc_WP16_01.bin}
+MOV {WherryLines AP Scenery\Vegetation\Near_tree_Grp_03.bin}{GEML RSC Scenery\Vegetation\Near_tree_Grp_03.bin}
+LST {WCMLTrentValley Thomson Scenery\Catenary\Cat_Gantry_Reduced\Mk1_GanRed_Upright.bin}
+LST {OHLE SP202D Mk1 Gantry\Type F\ohle_mk1_gantry_type_f_pull.bin}
+MOV {WherryLines AP Scenery\Vegetation\Black Ash_tree.bin}{GEML RSC Scenery\Vegetation\Black Ash_tree.bin}
+MOV {WherryLines AP Scenery\Vehicles\sailboat_100m.bin}{GEML RSC Scenery\Vehicles\sailboat_100m.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Tree_Misc_large_Line01.bin}{GEML RSC Scenery\Vegetation\Tree_Misc_large_Line01.bin}
+LST {RailSimulator Kuju Environment\Water\Water blueprint001.bin}
+MOV {WherryLines AP Scenery\Buildings\house_semi_01a.bin}{IslandLine RSDL Scenery\Buildings\house_semi_01a.bin}
+MOV {WherryLines AP Scenery\Vegetation\Bush_Misc_Line01.bin}{GEML RSC Scenery\Vegetation\Bush_Misc_Line01.bin}
+LST {OHLE SP202D Mk1 Gantry\Type F\ohle_mk1_gantry_type_f_b_pull_b.bin}
+MOV {RailSimulator Kuju scenery\buildings\House_middleground_03.bin}{GEML RSC scenery\buildings\House_middleground_03.bin}
+LST {WherryLines AP Scenery\Vegetation\Foliage01\Grass_Field_v_large01.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Bush_Misc05.bin}{GEML RSC Scenery\Vegetation\Bush_Misc05.bin}
+MOV {WherryLines AP Scenery\Vegetation\Bush_Hawthorn_mid_05.bin}{GEML RSC Scenery\Vegetation\Bush_Hawthorn_mid_05.bin}
+MOV {WherryLines AP Lights\LampPoint-whiteyellow.bin}{GEML RSC Lights\LampPoint-whiteyellow.bin}
+MOV {RailSimulator Kuju scenery\Vegetation\Shrubs_50M.bin}{IslandLine RSDL Scenery\Vegetation\Shrubs_50M.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Tree_Misc_large_cluster01.bin}{GEML RSC Scenery\Vegetation\Tree_Misc_large_cluster01.bin}
+LST {OHLE SP202D Misc\ohle_overlap_catenary_terminating_portal.bin}
+LST {OHLE SP202D Misc\ohle_overlap_catenary_terminating_left_post.bin}
+LST {BrecklandLine Gueterbahnhof Scenery\Vegetation\longgrass_02.bin}
+LST {Foliage01 RSDL Scenery\Vegetation\Tree_oak_large04.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Tree_Misc_05.bin}{GEML RSC Scenery\Vegetation\Tree_Misc_05.bin}
+LST {WherryLines AP Scenery\Vegetation\Foliage01\Grass_Field_large01.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Tree_Misc_large02.bin}{GEML RSC Scenery\Vegetation\Tree_Misc_large02.bin}
+MOV {WherryLines AP Scenery\Clutter\sign_hivis.bin}{GEML RSC Scenery\Clutter\sign_hivis.bin}
+LST {OHLE SP202D Mk1 Gantry\Type E\ohle_mk1_gantry_type_e_push.bin}
+LST {GrassPack VulcanProductions Scenery\Vegetation\Grass Medium.bin}
+LST {Foliage01 RSDL Scenery\Vegetation\Tree_silver_b_Line.bin}
+MOV {WherryLines AP Scenery\Buildings\Tunnel_Building.bin}{IslandLine RSDL Scenery\Buildings\Tunnel_Building.bin}
+MOV {WherryLines AP Scenery\Buildings\factory_murray_03.bin}{GEML RSC Scenery\Buildings\factory_murray_03.bin}
+LST {WherryLines AP Scenery\Vegetation\Foliage01\Grass_Field_Medium01.bin}
+MOV {WherryLines AP Scenery\Vegetation\Near_tree_Grp_06.bin}{GEML RSC Scenery\Vegetation\Near_tree_Grp_06.bin}
+MOV {WherryLines AP Scenery\Vegetation\Bush_Misc_Line03.bin}{GEML RSC Scenery\Vegetation\Bush_Misc_Line03.bin}
+MOV {WherryLines AP Scenery\Vehicles\Van01.bin}{GEML RSC Scenery\Vehicles\Van01.bin}
+LST {RailSimulator Kuju scenery\buildings\OXFO_PADD_WP15_04.bin}
+MOV {WherryLines AP Scenery\Vegetation\Tree_Beech_Near.bin}{GEML RSC Scenery\Vegetation\Tree_Beech_Near.bin}
+MOV {WherryLines AP Scenery\Vegetation\Treeline_F_Hedge01.bin}{IslandLine RSDL Scenery\Vegetation\Treeline_F_Hedge01.bin}
+LST {RailSimulator Kuju scenery\Structures\VB_WP31_06C.bin}
+MOV {RailSimulator Kuju scenery\Structures\Pylon_UK_Large_01.bin}{GEML RSC scenery\Structures\Pylon_UK_Large_01.bin}
+MOV {WherryLines AP RailNetwork\Speedsigns\Whistle_Sign.bin}{IslandLine RSDL RailNetwork\Speedsigns\Whistle_Sign.bin}
+LST {OHLE SP202D Type I\ohle_type_i_pull.bin}
+LST {OHLE SP202D Type I\ohle_type_i_push.bin}
+LST {Foliage01 RSDL Scenery\Vegetation\Tree_Misc_cluster02.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Tree_Misc_large01.bin}{GEML RSC Scenery\Vegetation\Tree_Misc_large01.bin}
+LST {RailSimulator Kuju scenery\buildings\House_terrace_01.bin}
+MOV {Foliage01 RSDL Scenery\Vegetation\Bush_Misc02.bin}{GEML RSC Scenery\Vegetation\Bush_Misc02.bin}
+MOV {WherryLines AP Scenery\Vegetation\Tree_Misc_02.bin}{GEML RSC Scenery\Vegetation\Tree_Misc_02.bin}
+LST {OHLE SP202D Mk1 Gantry\Type E\ohle_mk1_gantry_type_e_pull_b.bin}
+LST {OHLE SP202D Mk1 Gantry\Type E\ohle_mk1_gantry_type_e_pull.bin}
+MOV {WherryLines AP Scenery\Vegetation\Weeds.bin}{IslandLine RSDL Scenery\Vegetation\Weeds.bin}
+MOV {WherryLines AP Scenery\Vegetation\moor_thin.bin}{GEML RSC Scenery\Vegetation\moor_thin.bin}
+LST {RailSimulator Kuju scenery\Vegetation\Tree_Line_Mixed_Near_Saplings.bin}
+MOV {WherryLines AP Scenery\Vegetation\Tree_Misc_Near.bin}{GEML RSC Scenery\Vegetation\Tree_Misc_Near.bin}
