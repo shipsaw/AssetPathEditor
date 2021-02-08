@@ -241,7 +241,7 @@ OUTER3:
 // ReplaceXmlText works through a folder of xml files, and using the list of missing
 // and located assets provided by missingAssetMap, substitutes the missing assets with
 // the found ones.  Returns map of files that have been updated
-func ReplaceXmlText(misAssets AssetAssetMap) (map[string]bool, error) {
+func ReplaceXmlText(misAssets AssetAssetMap) error {
 	// string used by regex to pull groups out of the xml file
 	fmt.Printf("Updating XML files")
 	changedFiles := make(map[string]bool)
@@ -308,10 +308,15 @@ func ReplaceXmlText(misAssets AssetAssetMap) (map[string]bool, error) {
 		return nil
 	})
 	if err != nil {
-		return nil, err
+		return err
 	}
 	fmt.Printf("\n")
-	return changedFiles, nil
+
+	file, err := os.Create("changed_files.txt")
+	for cfile, _ := range changedFiles {
+		fmt.Fprintf(file, "%v\n", cfile)
+	}
+	return nil
 }
 
 // getFileAssets is a function that is used by .ListReqAssets to get the assets
