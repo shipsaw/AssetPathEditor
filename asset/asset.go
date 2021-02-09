@@ -245,6 +245,7 @@ func ReplaceXmlText(misAssets AssetAssetMap) error {
 	// string used by regex to pull groups out of the xml file
 	fmt.Printf("Updating XML files")
 	changedFiles := make(map[string]bool)
+	var updatedFileBytes []byte
 
 	err := filepath.Walk(workspace, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -255,18 +256,19 @@ func ReplaceXmlText(misAssets AssetAssetMap) error {
 			if err != nil {
 				return err
 			}
-			fileBytes := make([]byte, info.Size()+2000)
-			bytesRead, err := xmlFile.Read(fileBytes)
+			fileBytes := make([]byte, info.Size()+4000)
+			_, err = xmlFile.Read(fileBytes)
 			if err != nil {
 				return err
 			}
-
+			updatedFileBytes = fileBytes
 			for oldAsset, newAsset := range misAssets {
 				if newAsset == types.EmptyAsset {
 					continue
 				}
-				fixPath := strings.ReplaceAll(oldAsset.Filepath, `\`, `\\`) // prevents \ being read as escape characters
-				fixPath = strings.ReplaceAll(fixPath, ".bin", ".xml")       // In the xml doc, assets have xml extensions
+				fixNewPath := strings.ReplaceAll(newAsset.Filepath, ".bin", ".xml") // new asset is converted to match
+				fixPath := strings.ReplaceAll(oldAsset.Filepath, `\`, `\\`)         // prevents \ being read as escape characters
+				fixPath = strings.ReplaceAll(fixPath, ".bin", ".xml")               // In the xml doc, assets have xml extensions
 				// findString is the string used by regex to find the asset lisiting in the xml (for a specific asset)
 				var findString string = `<Provider d:type="cDeltaString">` + oldAsset.Provider + `</Provider>\s*` +
 					`\s*<Product d:type="cDeltaString">` + oldAsset.Product + `</Product>\s*` +
@@ -285,28 +287,24 @@ func ReplaceXmlText(misAssets AssetAssetMap) error {
 				if len(matches) == 0 {
 					log.Fatal("There was an error parsing the groups in the regex")
 				}
-				if strings.Contains(fixPath, "Tree_Beech_Near") {
-					fmt.Println("Matches for Tree_Beech_Near:", len(matches))
-				}
 
-				fixNewPath := strings.ReplaceAll(newAsset.Filepath, ".bin", ".xml") // new asset is converted to match
 				// Replace the xml (now byte slice) matches
 				retRegNew := bytes.Replace(retReg, matches[1], []byte(newAsset.Provider), 1)
 				retRegNew = bytes.Replace(retRegNew, matches[2], []byte(newAsset.Product), 1)
 				retRegNew = bytes.Replace(retRegNew, matches[3], []byte(fixNewPath), 1)
-				fileBytes = bytes.ReplaceAll(fileBytes, retReg, retRegNew)
+				updatedFileBytes = regex.ReplaceAll(updatedFileBytes, retRegNew)
 
 			}
 			fmt.Printf(".")
-			err = xmlFile.Truncate(0) // make sure we overwrite the old xml doc
+			err = xmlFile.Truncate(0)
 			if err != nil {
 				return err
 			}
-			bytesWrit, err := xmlFile.Write(fileBytes)
+			bytesWrit, err := xmlFile.WriteAt(updatedFileBytes, 0)
 			if err != nil {
 				return err
 			}
-			fmt.Printf("Bytes Read: %v, Bytes Written: %v, Diff: %v\n", bytesRead, bytesWrit, bytesRead-bytesWrit)
+			fmt.Printf("Bytes in replace: %v, Bytes Written: %v, Diff: %v\n", len(fileBytes), bytesWrit, len(fileBytes)-bytesWrit)
 			xmlFile.Close()
 		}
 		return nil
