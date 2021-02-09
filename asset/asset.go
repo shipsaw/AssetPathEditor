@@ -203,12 +203,38 @@ OUTER2:
 			}
 		}
 	}
-	// Next check for bins in the provider folders
+
+	// Next check for the odd case of folder name rearraging
 OUTER3:
-	for misAsset, value := range misAssets {
+	for misAsset, _ := range misAssets {
 		for locAsset, _ := range allAssets {
 			if misAssets[misAsset] != types.EmptyAsset {
 				continue OUTER3
+			}
+			misPathSlice := strings.Split(misAsset.Filepath, `\`)
+			locPathSlice := strings.Split(locAsset.Filepath, `\`)
+			misBinName := misPathSlice[len(misPathSlice)-1]
+			locBinName := locPathSlice[len(locPathSlice)-1]
+			if strings.EqualFold(misBinName, locBinName) && strings.Contains(misAsset.Filepath, locAsset.Product) {
+				tempAsset := types.Asset{
+					Product:  locAsset.Product,
+					Provider: locAsset.Provider,
+					Filepath: locAsset.Filepath,
+				}
+				misAssets[misAsset] = tempAsset
+				fmt.Fprintf(logFile, "MOV %v\t%v\n", misAsset, locAsset)
+				differentPlace++
+				continue OUTER3
+			}
+		}
+	}
+
+	// Next check for bins in the provider folders
+OUTER4:
+	for misAsset, value := range misAssets {
+		for locAsset, _ := range allAssets {
+			if misAssets[misAsset] != types.EmptyAsset {
+				continue OUTER4
 			}
 			misPathSlice := strings.Split(misAsset.Filepath, `\`)
 			locPathSlice := strings.Split(locAsset.Filepath, `\`)
@@ -224,7 +250,7 @@ OUTER3:
 				misAssets[misAsset] = tempAsset
 				fmt.Fprintf(logFile, "MOV %v\t%v\n", misAsset, locAsset)
 				differentPlace++
-				continue OUTER3
+				continue OUTER4
 			}
 		}
 		if value == types.EmptyAsset {
