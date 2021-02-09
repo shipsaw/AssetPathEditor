@@ -95,7 +95,7 @@ func Teardown(backupFolder string, removeBackups bool) {
 }
 
 func copyToTemp(srcFolder, dstFolder string) error {
-	fmt.Printf("Coying assets to temp")
+	fmt.Printf("Copying assets to temp")
 	err := os.Mkdir(dstFolder, 0755)
 	dotCounter := 0
 	err = filepath.Walk(srcFolder, func(path string, info os.FileInfo, err error) error {
