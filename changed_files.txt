@@ -1,8 +1,0 @@
-tempFolder\Scenery\+000003+000000.xml
-tempFolder\Scenery\+000003+000001.xml
-tempFolder\Scenery\+000001-000001.xml
-tempFolder\Scenery\+000001-000002.xml
-tempFolder\Scenery\+000002+000000.xml
-tempFolder\Scenery\+000002+000001.xml
-tempFolder\Scenery\+000002-000001.xml
-tempFolder\Scenery\+000002-000002.xml

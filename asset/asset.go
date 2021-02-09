@@ -255,7 +255,7 @@ func ReplaceXmlText(misAssets AssetAssetMap) error {
 			if err != nil {
 				return err
 			}
-			fileBytes := make([]byte, info.Size())
+			fileBytes := make([]byte, info.Size()+2000)
 			bytesRead, err := xmlFile.Read(fileBytes)
 			if err != nil {
 				return err
@@ -285,13 +285,16 @@ func ReplaceXmlText(misAssets AssetAssetMap) error {
 				if len(matches) == 0 {
 					log.Fatal("There was an error parsing the groups in the regex")
 				}
+				if strings.Contains(fixPath, "Tree_Beech_Near") {
+					fmt.Println("Matches for Tree_Beech_Near:", len(matches))
+				}
 
 				fixNewPath := strings.ReplaceAll(newAsset.Filepath, ".bin", ".xml") // new asset is converted to match
 				// Replace the xml (now byte slice) matches
 				retRegNew := bytes.Replace(retReg, matches[1], []byte(newAsset.Provider), 1)
 				retRegNew = bytes.Replace(retRegNew, matches[2], []byte(newAsset.Product), 1)
 				retRegNew = bytes.Replace(retRegNew, matches[3], []byte(fixNewPath), 1)
-				fileBytes = bytes.Replace(fileBytes, retReg, retRegNew, -1)
+				fileBytes = bytes.ReplaceAll(fileBytes, retReg, retRegNew)
 
 			}
 			fmt.Printf(".")
@@ -299,7 +302,7 @@ func ReplaceXmlText(misAssets AssetAssetMap) error {
 			if err != nil {
 				return err
 			}
-			bytesWrit, err := xmlFile.WriteAt(fileBytes, 0)
+			bytesWrit, err := xmlFile.Write(fileBytes)
 			if err != nil {
 				return err
 			}
