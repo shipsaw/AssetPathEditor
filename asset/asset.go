@@ -6,6 +6,8 @@ package asset
 */
 
 import (
+	"AssetPathEditor/bin"
+	"AssetPathEditor/types"
 	"bytes"
 	"fmt"
 	"log"
@@ -15,8 +17,6 @@ import (
 	"regexp"
 	"sort"
 	"strings"
-	"trainTest/bin"
-	"trainTest/types"
 )
 
 const (
@@ -256,7 +256,7 @@ func ReplaceXmlText(misAssets AssetAssetMap) error {
 				return err
 			}
 			fileBytes := make([]byte, info.Size())
-			_, err = xmlFile.Read(fileBytes)
+			bytesRead, err := xmlFile.Read(fileBytes)
 			if err != nil {
 				return err
 			}
@@ -299,10 +299,11 @@ func ReplaceXmlText(misAssets AssetAssetMap) error {
 			if err != nil {
 				return err
 			}
-			_, err = xmlFile.WriteAt(fileBytes, 0)
+			bytesWrit, err := xmlFile.WriteAt(fileBytes, 0)
 			if err != nil {
 				return err
 			}
+			fmt.Printf("Bytes Read: %v, Bytes Written: %v, Diff: %v\n", bytesRead, bytesWrit, bytesRead-bytesWrit)
 			xmlFile.Close()
 		}
 		return nil
