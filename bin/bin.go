@@ -6,6 +6,7 @@ and conversion of bin/xml files
 */
 
 import (
+	"AssetPathEditor/types"
 	"errors"
 	"fmt"
 	"io"
@@ -84,7 +85,7 @@ func Revert(routeFolder, backupFolder string) error {
 }
 
 func Teardown(backupFolder string, removeBackups bool) {
-	os.RemoveAll("tempFiles")
+	os.RemoveAll(workspace)
 
 	if removeBackups == true {
 		err := os.RemoveAll(backupFolder)
@@ -96,8 +97,8 @@ func Teardown(backupFolder string, removeBackups bool) {
 
 func copyToTemp(srcFolder, dstFolder string) error {
 	fmt.Printf("Copying assets to temp")
+	dotCounter := types.NewDotCounter()
 	err := os.Mkdir(dstFolder, 0755)
-	dotCounter := 0
 	err = filepath.Walk(srcFolder, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
@@ -140,10 +141,7 @@ func copyToTemp(srcFolder, dstFolder string) error {
 			if writ != info.Size() {
 				return ErrCopyMismatch
 			}
-			if dotCounter%50 == 0 {
-				fmt.Printf(".")
-			}
-			dotCounter++
+			dotCounter.PrintDot()
 			return newFile.Close()
 		}
 		return nil
@@ -154,8 +152,8 @@ func copyToTemp(srcFolder, dstFolder string) error {
 
 func backupAssets(srcFolder, dstFolder string) error {
 	fmt.Printf("Backing up bin files")
+	dotCounter := types.NewDotCounter()
 	err := os.Mkdir(dstFolder, 0755)
-	dotCounter := 0
 	err = filepath.Walk(srcFolder, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
@@ -198,10 +196,7 @@ func backupAssets(srcFolder, dstFolder string) error {
 			if writ != info.Size() {
 				return ErrCopyMismatch
 			}
-			if dotCounter%50 == 0 {
-				fmt.Printf(".")
-			}
-			dotCounter++
+			dotCounter.PrintDot()
 			return newFile.Close()
 		}
 		return nil
@@ -215,6 +210,7 @@ func backupAssets(srcFolder, dstFolder string) error {
 // Defaults to converting
 func SerzConvert(ext string) error {
 	fmt.Printf("Converting files")
+	dotCounter := types.NewDotCounter()
 	err := filepath.Walk(workspace, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
@@ -229,7 +225,7 @@ func SerzConvert(ext string) error {
 				return err
 			}
 		}
-		fmt.Printf(".")
+		dotCounter.PrintDot()
 		return nil
 	})
 	if err != nil {
@@ -242,6 +238,8 @@ func SerzConvert(ext string) error {
 // MoveAssetFiles moves .bin or .xml files from oldLoc TO newLoc, ignoring files that do not
 // have the extension passed by ext
 func MoveAssetFiles(srcFolder, dstFolder, ext string) error {
+	fmt.Println("Moving Asset files")
+	dotCounter := types.NewDotCounter()
 	err := filepath.Walk(srcFolder, func(path string, info os.FileInfo, err error) error {
 		if info.IsDir() != true && filepath.Ext(path) == ext {
 			if err != nil {
@@ -256,6 +254,7 @@ func MoveAssetFiles(srcFolder, dstFolder, ext string) error {
 			if err != nil {
 				return err
 			}
+			dotCounter.PrintDot()
 		}
 		return nil
 	})

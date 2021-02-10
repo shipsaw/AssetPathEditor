@@ -17,6 +17,7 @@ import (
 // dependancies listed in each file, returning a map of [Asset]Asset
 func MakeMisAssetMap() (AssetAssetMap, error) {
 	fmt.Printf("Processing xml files")
+	dotCounter := types.NewDotCounter()
 	misAssetMap := make(AssetAssetMap)
 	err := filepath.Walk(workspace, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -28,7 +29,7 @@ func MakeMisAssetMap() (AssetAssetMap, error) {
 				return err
 			}
 		}
-		fmt.Printf(".")
+		dotCounter.PrintDot()
 		return nil
 	})
 	if err != nil {
@@ -81,6 +82,8 @@ func (misAssets AssetAssetMap) getFileAssets(path string) error { // Open xml fi
 
 // Index finds all the assets in the asset folder that are located in the provider folders
 func (misAssets AssetAssetMap) Index() (AssetBoolMap, error) {
+	fmt.Println("Indexing assets in Asset folder")
+	dotCounter := types.NewDotCounter()
 	allAssets := make(AssetBoolMap)
 	err := filepath.Walk(`.\Assets`, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -100,6 +103,7 @@ func (misAssets AssetAssetMap) Index() (AssetBoolMap, error) {
 		} else if filepath.Ext(path) == ".ap" {
 			misAssets.getZipAssets(path, allAssets)
 		}
+		dotCounter.PrintDot()
 		return nil
 	})
 	if err != nil {
@@ -147,13 +151,14 @@ func (misAssets AssetAssetMap) getZipAssets(filename string, allAssets AssetBool
 }
 
 func (misAssets AssetAssetMap) Check(allAssets AssetBoolMap, providers ProviderMap) {
-	fmt.Printf("There are initially %d required assets\n", len(misAssets))
+	fmt.Println("Checkng assets")
 	logFile, _ := os.Create("assetlog.txt")
 	rightPlace := 0
 	differentPlace := 0
 	notFound := 0
 	capProblem := 0
 	folderOrder := 0
+	initialAssetCount := len(misAssets)
 	// First check for bins in the correct location
 OUTER:
 	for misAsset, _ := range misAssets {
@@ -242,6 +247,7 @@ OUTER4:
 			notFound++
 		}
 	}
+	fmt.Printf("There are initially %d required assets\n", initialAssetCount)
 	fmt.Printf("%v assets cannot be found\n", notFound)
 	fmt.Printf("%v assets have been found but with cap errors\n", capProblem)
 	fmt.Printf("%v assets have been found in the correct folder\n", rightPlace)
@@ -255,6 +261,7 @@ OUTER4:
 func (misAssets AssetAssetMap) ReplaceXmlText() error {
 	// string used by regex to pull groups out of the xml file
 	fmt.Printf("Updating XML files")
+	dotCounter := types.NewDotCounter()
 	changedFiles := make(map[string]bool)
 	var updatedFileBytes []byte
 
@@ -311,12 +318,13 @@ func (misAssets AssetAssetMap) ReplaceXmlText() error {
 			if err != nil {
 				return err
 			}
-			bytesWrit, err := xmlFile.WriteAt(updatedFileBytes, 0)
+			_, err = xmlFile.WriteAt(updatedFileBytes, 0)
 			if err != nil {
 				return err
 			}
-			fmt.Printf("Bytes in replace: %v, Bytes Written: %v, Diff: %v\n", len(fileBytes), bytesWrit, len(fileBytes)-bytesWrit)
 			xmlFile.Close()
+			dotCounter.PrintDot()
+
 		}
 		return nil
 	})
@@ -329,16 +337,22 @@ func (misAssets AssetAssetMap) ReplaceXmlText() error {
 	for cfile, _ := range changedFiles {
 		fmt.Fprintf(file, "%v\n", cfile)
 	}
+	if err != nil {
+		return err
+	}
 	return nil
 }
 
 // GetProviders lists the unique products and providers that a route uses
 func (misAssets AssetAssetMap) GetProviders() map[string]string {
+	fmt.Println("Getting providers for route")
+	dotCounter := types.NewDotCounter()
 	uniqueAssets := make(map[string]string)
 	for asset, _ := range misAssets {
 		if _, ok := uniqueAssets[asset.Product]; ok == false {
 			uniqueAssets[asset.Product] = asset.Provider
 		}
+		dotCounter.PrintDot()
 	}
 
 	assetList := make([][2]string, len(uniqueAssets))
