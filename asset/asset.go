@@ -41,7 +41,7 @@ func ListProviders(route string) (map[string]string, error) {
 		bin.Teardown(routeBackup, true)
 		log.Fatal(err)
 	}
-	err = bin.SerzConvert(route)
+	err = bin.SerzConvert(".bin")
 	if err != nil {
 		return nil, err
 	}

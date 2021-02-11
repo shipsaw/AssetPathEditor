@@ -28,8 +28,8 @@ func MakeMisAssetMap() (AssetAssetMap, error) {
 			if err != nil {
 				return err
 			}
+			dotCounter.PrintDot()
 		}
-		dotCounter.PrintDot()
 		return nil
 	})
 	if err != nil {
