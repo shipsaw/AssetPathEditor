@@ -14,9 +14,7 @@ import (
 )
 
 const (
-	routeFolder  string = `.\Content\Routes\89f87a1c-fbd4-4f05-ba8b-16069484fa41\`
 	backupFolder string = `AssetBackup\`
-	replaceRoute string = `.\Content\Routes\3a99321a-0bb2-47be-bcad-b20cfe48a945\`
 	workspace    string = `tempFolder\`
 )
 

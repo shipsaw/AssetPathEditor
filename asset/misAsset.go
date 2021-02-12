@@ -23,7 +23,7 @@ func MakeMisAssetMap() (AssetAssetMap, error) {
 		if err != nil {
 			return err
 		}
-		if info.IsDir() != true {
+		if info.IsDir() != true && (strings.Contains(path, "Network") || strings.Contains(path, "Scenery")) {
 			err = misAssetMap.getFileAssets(path)
 			if err != nil {
 				return err
